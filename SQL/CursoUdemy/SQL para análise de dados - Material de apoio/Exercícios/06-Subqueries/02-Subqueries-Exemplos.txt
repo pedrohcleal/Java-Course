@@ -1,0 +1,10 @@
+-- EXEMPLOS ########################################################################
+
+-- (Exemplo 1) Análise de recorrência dos leads
+-- Calcule o volume de visitas por dia ao site separado por 1ª visita e demais visitas
+
+
+-- (Exemplo 2) Análise do preço versus o preço médio
+-- Calcule, para cada visita ao site, quanto o preço do um veículo visitado pelo cliente
+-- estava acima ou abaixo do preço médio dos veículos daquela marca 
+-- (levar em consideração o desconto dado no veículo)
