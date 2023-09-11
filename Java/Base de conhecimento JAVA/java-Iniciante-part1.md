@@ -1,6 +1,6 @@
 # Java Iniciante
 
-##Tipos de dados Java
+## Tipos de dados Java
 
 O Java é uma linguagem de programação fortemente tipada e possui diversos tipos de dados primitivos (primitive data types) que representam os valores mais básicos e fundamentais em um programa. Aqui estão os oito tipos de dados primitivos no Java:
 
