@@ -1,4 +1,26 @@
 # Java Iniciante
+
+##Tipos de dados Java
+
+O Java é uma linguagem de programação fortemente tipada e possui diversos tipos de dados primitivos (primitive data types) que representam os valores mais básicos e fundamentais em um programa. Aqui estão os oito tipos de dados primitivos no Java:
+
+1. **byte**: O tipo `byte` é um tipo de dados de 8 bits e é usado para armazenar valores inteiros pequenos. O intervalo de valores possíveis para um `byte` vai de -128 a 127.
+
+2. **short**: O tipo `short` é um tipo de dados de 16 bits e é usado para armazenar valores inteiros um pouco maiores que o `byte`. O intervalo de valores possíveis para um `short` vai de -32,768 a 32,767.
+
+3. **int**: O tipo `int` é um tipo de dados de 32 bits e é amplamente utilizado para armazenar valores inteiros. O intervalo de valores possíveis para um `int` vai de aproximadamente -2 bilhões a 2 bilhões.
+
+4. **long**: O tipo `long` é um tipo de dados de 64 bits e é usado para armazenar valores inteiros muito grandes. O intervalo de valores possíveis para um `long` vai de -9,223,372,036,854,775,808 a 9,223,372,036,854,775,807.
+
+5. **float**: O tipo `float` é um tipo de dados de ponto flutuante de precisão simples, usado para armazenar números decimais. Ele é usado quando a precisão não é tão crítica. O `float` tem 32 bits de tamanho.
+
+6. **double**: O tipo `double` é um tipo de dados de ponto flutuante de precisão dupla, usado para armazenar números decimais com alta precisão. É mais comumente usado para operações envolvendo números decimais. O `double` tem 64 bits de tamanho.
+
+7. **char**: O tipo `char` é usado para representar caracteres individuais. Ele é armazenado como um valor numérico que corresponde ao código Unicode do caractere. Um `char` tem 16 bits de tamanho.
+
+8. **boolean**: O tipo `boolean` é usado para representar valores booleanos, ou seja, verdadeiro (`true`) ou falso (`false`). Ele é frequentemente usado para controle de fluxo e tomada de decisões em programas.
+
+É importante notar que esses tipos de dados primitivos são diferentes dos objetos em Java. Eles são eficientes em termos de espaço de memória e operações de baixo nível, o que os torna úteis em situações onde a eficiência é importante. Além disso, Java também suporta tipos de dados não primitivos, conhecidos como tipos de referência, que são criados a partir de classes e oferecem funcionalidades mais avançadas.
 ## Manipulação de strings
 Manipulação de strings em Java é uma parte essencial da programação, já que as strings são amplamente usadas para armazenar e manipular texto. Java fornece uma variedade de métodos e funcionalidades para lidar com strings. Aqui estão alguns conceitos-chave e operações relacionadas à manipulação de strings em Java:
 
