@@ -1,5 +1,40 @@
 # Java Iniciante
 
+## Declarações em funções em java (public static void)
+Em Java, as declarações em funções, também conhecidas como métodos, são usadas para definir o comportamento de um bloco de código que pode ser chamado e executado várias vezes em um programa. A sintaxe típica para declarar uma função em Java é a seguinte:
+
+```java
+public static retornoTipo nomeDoMetodo(parametros) {
+    // Corpo do método
+    // Código a ser executado quando o método é chamado
+}
+```
+
+Aqui estão os componentes importantes de uma declaração de função em Java:
+
+1. **Modificadores de Acesso (public, private, protected):** Os modificadores de acesso determinam o nível de visibilidade do método em outras partes do programa. O modificador "public" indica que o método pode ser acessado de qualquer lugar, enquanto "private" restringe o acesso apenas à classe em que o método está definido, e "protected" permite o acesso a classes derivadas.
+
+2. **Modificador Estático (static):** O modificador "static" indica que o método pertence à classe em vez de uma instância da classe. Métodos estáticos podem ser chamados diretamente a partir da classe, sem a necessidade de criar um objeto dessa classe.
+
+3. **Tipo de Retorno (retornoTipo):** Especifica o tipo de dado que o método retorna quando concluído. Se o método não retornar nenhum valor, o tipo de retorno é declarado como "void". Caso contrário, você especifica o tipo de dado, como int, String, etc.
+
+4. **Nome do Método (nomeDoMetodo):** É o nome pelo qual o método é chamado e referenciado em outras partes do programa. Deve seguir as regras de nomenclatura em Java.
+
+5. **Parâmetros (parametros):** Os parâmetros são variáveis que a função recebe como entrada quando é chamada. Eles são especificados entre parênteses, separados por vírgulas, e cada parâmetro consiste em um tipo de dado e um nome.
+
+6. **Corpo do Método:** O corpo do método é um bloco de código delimitado por chaves ({}) que contém as instruções que são executadas quando o método é chamado. O código no corpo do método pode acessar os parâmetros e variáveis locais declaradas dentro dele.
+
+Aqui está um exemplo de declaração de função em Java:
+
+```java
+public static int somar(int numero1, int numero2) {
+    int resultado = numero1 + numero2;
+    return resultado;
+}
+```
+
+Neste exemplo, temos um método chamado "somar" que recebe dois números inteiros como parâmetros, realiza uma operação de soma e retorna o resultado como um valor inteiro. O modificador "public" indica que o método é acessível de qualquer lugar, e o modificador "static" significa que pode ser chamado diretamente usando o nome da classe, sem criar um objeto da classe.
+
 ## Tipos de dados Java
 
 O Java é uma linguagem de programação fortemente tipada e possui diversos tipos de dados primitivos (primitive data types) que representam os valores mais básicos e fundamentais em um programa. Aqui estão os oito tipos de dados primitivos no Java:
