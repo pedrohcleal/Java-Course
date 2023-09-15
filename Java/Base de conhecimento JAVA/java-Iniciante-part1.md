@@ -424,3 +424,49 @@ Em Java, a formação de texto e o uso de variáveis em conjunto com a impressã
    Isso imprimirá duas linhas no console, uma após a outra.
 
 Lembre-se de que, ao usar variáveis em texto impresso, é importante garantir que os tipos e os formatos estejam corretos para evitar erros em tempo de execução. Além disso, o uso adequado de espaços e caracteres especiais pode melhorar a legibilidade da saída.
+
+## Classe Scanner;
+
+A Classe `Scanner` no Java, faz parte do pacote `java.util` e é usada para ler dados de entrada do usuário ou de fontes de dados, como arquivos ou streams, de forma simples e eficiente. Ela foi introduzida no Java 5 para facilitar a leitura de dados em diversos formatos.
+
+A classe `Scanner` oferece métodos para analisar e ler diferentes tipos de dados, como números inteiros, números de ponto flutuante, strings e outros tipos primitivos. Ela é uma alternativa flexível e poderosa para a leitura de entrada, especialmente quando se lida com entradas do usuário.
+
+Aqui estão alguns conceitos e funcionalidades importantes da classe `Scanner`:
+
+1. **Criação de Instância**: Para usar a classe `Scanner`, você precisa criar uma instância dela, geralmente associando-a a uma fonte de dados, como um objeto `InputStream` (para entrada de console ou de arquivo) ou um objeto `String` (para análise de strings). Por exemplo:
+
+```java
+Scanner scanner = new Scanner(System.in); // Para entrada do console
+```
+
+2. **Métodos de Leitura**: A classe `Scanner` fornece vários métodos para ler diferentes tipos de dados, como `nextInt()`, `nextDouble()`, `nextLine()`, entre outros. Você pode escolher o método apropriado com base no tipo de dado que deseja ler.
+
+```java
+int numero = scanner.nextInt();
+String texto = scanner.nextLine();
+double decimal = scanner.nextDouble();
+```
+
+3. **Delimitadores**: Você pode configurar delimitadores personalizados para dividir os dados de entrada em tokens. O delimitador padrão é o espaço em branco.
+
+```java
+scanner.useDelimiter(",");
+```
+
+4. **Verificação de Disponibilidade**: A classe `Scanner` também oferece métodos para verificar se há mais dados disponíveis na entrada, como `hasNextInt()`, `hasNextDouble()`, etc., o que ajuda a evitar erros de leitura.
+
+```java
+if (scanner.hasNextInt()) {
+    int numero = scanner.nextInt();
+} else {
+    System.out.println("Entrada inválida.");
+}
+```
+
+5. **Fechamento**: É importante fechar um objeto `Scanner` quando você terminar de usá-lo para liberar recursos e evitar vazamentos de memória.
+
+```java
+scanner.close();
+```
+
+A classe `Scanner` é uma ferramenta versátil para lidar com entrada de dados em Java, tornando mais fácil a interação com o usuário ou a leitura de informações de arquivos. No entanto, é importante lidar com exceções, como `InputMismatchException` ou `NoSuchElementException`, que podem ser lançadas se os dados de entrada não corresponderem ao tipo esperado ou se não houver mais dados disponíveis.
