@@ -1,5 +1,0 @@
-def filter_list(l):
-    a = ["a"]
-    l.remove(a)
-
-filter_list([1,2,3,"a","b","c"])     
