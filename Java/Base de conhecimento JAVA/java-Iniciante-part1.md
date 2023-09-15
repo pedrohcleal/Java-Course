@@ -470,3 +470,39 @@ scanner.close();
 ```
 
 A classe `Scanner` é uma ferramenta versátil para lidar com entrada de dados em Java, tornando mais fácil a interação com o usuário ou a leitura de informações de arquivos. No entanto, é importante lidar com exceções, como `InputMismatchException` ou `NoSuchElementException`, que podem ser lançadas se os dados de entrada não corresponderem ao tipo esperado ou se não houver mais dados disponíveis.
+
+### O método next().charAt(0) 
+
+O método `next().charAt(0)` é uma combinação de métodos da classe `Scanner` e da classe `String` em Java, frequentemente utilizada para obter o primeiro caractere de uma entrada de texto fornecida pelo usuário.
+
+Aqui está como funciona:
+
+1. `next()`: O método `next()` da classe `Scanner` lê a próxima sequência de caracteres até encontrar um delimitador (por padrão, um espaço em branco) e retorna essa sequência como uma string. Isso significa que ele captura a primeira palavra ou token da entrada.
+
+2. `charAt(0)`: Após obter a string usando `next()`, você pode usar o método `charAt(0)` da classe `String` para acessar o primeiro caractere dessa string. O índice `0` indica o primeiro caractere na string.
+
+Juntando esses dois métodos, você pode ler o primeiro caractere da primeira palavra da entrada do usuário. Aqui está um exemplo:
+
+```java
+import java.util.Scanner;
+
+public class ExemploScanner {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.next(); // Lê a primeira palavra
+
+        if (!palavra.isEmpty()) {
+            char primeiroCaractere = palavra.charAt(0); // Obtém o primeiro caractere
+            System.out.println("O primeiro caractere da palavra é: " + primeiroCaractere);
+        } else {
+            System.out.println("Nenhuma palavra foi digitada.");
+        }
+
+        scanner.close();
+    }
+}
+```
+
+Neste exemplo, o programa solicita ao usuário que digite uma palavra. Ele usa `next()` para ler a primeira palavra digitada e, em seguida, usa `charAt(0)` para obter o primeiro caractere dessa palavra. O programa verifica se a entrada não está vazia para evitar exceções.
