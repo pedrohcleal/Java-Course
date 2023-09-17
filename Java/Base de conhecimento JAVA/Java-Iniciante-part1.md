@@ -234,6 +234,59 @@ Além desses loops básicos, é importante mencionar que você pode usar estrutu
 
 Essas estruturas de controle são essenciais para a programação em Java, pois permitem que você crie programas mais complexos, tome decisões com base em condições e execute ações repetitivas. Elas desempenham um papel crucial na lógica e na estruturação de seus programas.
 
+## Expressões lógicas
+
+Expressões lógicas em Java referem-se a construções que envolvem operadores lógicos, como AND, OR e NOT, para avaliar condições booleanas. Essas expressões são amplamente utilizadas em estruturas de controle de fluxo, como condicionais (if, else if, else), loops (for, while, do-while) e em avaliações de decisões em geral. Vamos explorar as principais características das expressões lógicas em Java:
+
+1. Operadores Lógicos:
+   Java fornece três operadores lógicos principais:
+   - `&&` (AND lógico): Retorna true se ambos os operandos forem true.
+   - `||` (OR lógico): Retorna true se pelo menos um dos operandos for true.
+   - `!` (NOT lógico): Inverte o valor de verdade de uma expressão booleana.
+
+2. Operandos:
+   As expressões lógicas em Java geralmente envolvem operandos que são valores booleanos ou expressões que podem ser avaliadas como booleanas. Por exemplo:
+   ```java
+   boolean a = true;
+   boolean b = false;
+   boolean resultado = a && b; // resultado é false
+   ```
+
+3. Ordem de Avaliação:
+   Java segue uma ordem específica de avaliação de expressões lógicas. O operador `&&` é avaliado antes do `||`, e a avaliação para ambos é interrompida assim que o resultado for determinado. Isso é conhecido como "avaliação de circuito curto". Por exemplo:
+   ```java
+   boolean resultado = (false && minhaFuncao()); // minhaFuncao() não é chamada devido à avaliação de circuito curto
+   ```
+
+4. Precedência de Operadores:
+   Os operadores lógicos têm precedência em relação a outros operadores em Java, mas é recomendável usar parênteses para tornar a intenção do código mais clara, se necessário.
+
+5. Uso em Estruturas de Controle:
+   Expressões lógicas são frequentemente usadas em instruções condicionais e loops para controlar o fluxo do programa. Por exemplo:
+   ```java
+   if (idade >= 18 && temCarteiraDeMotorista) {
+       System.out.println("Pode dirigir.");
+   } else {
+       System.out.println("Não pode dirigir.");
+   }
+   ```
+
+6. Avaliação de Expressões Complexas:
+   Você pode criar expressões lógicas complexas combinando vários operadores lógicos e parênteses. Isso permite que você avalie condições mais elaboradas.
+   ```java
+   boolean condicaoComplexa = (a && b) || (!c && (d || e));
+   ```
+
+7. Uso de Expressões Ternárias:
+   Java também permite o uso de expressões ternárias para avaliar condições em uma única linha. Por exemplo:
+   ```java
+   String mensagem = (idade >= 18) ? "Pode votar" : "Não pode votar";
+   ```
+
+8. Short-Circuiting:
+   Como mencionado anteriormente, o Java utiliza a avaliação de circuito curto para economizar tempo de processamento, interrompendo a avaliação de uma expressão lógica assim que o resultado for determinado. Isso é especialmente útil quando há efeitos colaterais, como chamadas de função, envolvidos nas expressões.
+
+Expressões lógicas são uma parte fundamental da programação em Java e são amplamente usadas para controlar o fluxo do programa e tomar decisões com base em condições booleanas. Ter um bom entendimento de como funcionam os operadores lógicos e como criar expressões lógicas eficazes é essencial para escrever código Java robusto e funcional.
 
 ## Tipos de Dados de Referência (Reference Data Types)
 
