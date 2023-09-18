@@ -91,3 +91,125 @@ public class ExemploMatematica {
 
 Lembre-se de que, ao usar funções matemáticas em Java, você deve estar ciente dos tipos de dados que está manipulando para evitar erros de arredondamento e precisão, especialmente ao lidar com números de ponto flutuante.
 
+## Classes em Java
+
+Em Java, as classes são a base da programação orientada a objetos (POO) e desempenham um papel fundamental na criação de objetos e na organização do código. Aqui está uma descrição completa das classes em Java:
+
+1. **Declaração de Classe:**
+   Para criar uma classe em Java, você usa a palavra-chave `class`, seguida pelo nome da classe. O nome da classe deve começar com uma letra maiúscula e seguir a convenção CamelCase, onde cada palavra subsequente começa com uma letra maiúscula.
+
+   ```java
+   public class MinhaClasse {
+       // corpo da classe
+   }
+   ```
+
+2. **Atributos (Variáveis de Instância):**
+   As classes podem conter variáveis de instância, que são também conhecidas como atributos ou campos. Essas variáveis representam características ou estados do objeto criado a partir da classe.
+
+   ```java
+   public class Pessoa {
+       String nome;
+       int idade;
+   }
+   ```
+
+3. **Métodos (Funções de Instância):**
+   As classes podem conter métodos, que são funções que definem o comportamento dos objetos dessa classe. Os métodos são usados para executar operações específicas em instâncias da classe.
+
+   ```java
+   public class Calculadora {
+       public int somar(int a, int b) {
+           return a + b;
+       }
+   }
+   ```
+
+4. **Construtor:**
+   Um construtor é um método especial que é chamado quando um objeto da classe é criado. Ele é usado para inicializar os atributos da classe e pode ser sobrecarregado com diferentes assinaturas.
+
+   ```java
+   public class Pessoa {
+       String nome;
+       int idade;
+
+       public Pessoa(String nome, int idade) {
+           this.nome = nome;
+           this.idade = idade;
+       }
+   }
+   ```
+
+5. **Método Main:**
+   A classe Java que contém o método `main` é geralmente usada como ponto de entrada para o programa. É aqui que a execução do programa começa.
+
+   ```java
+   public class MinhaAplicacao {
+       public static void main(String[] args) {
+           // Código da aplicação
+       }
+   }
+   ```
+
+6. **Membros de Acesso:**
+   As classes em Java podem ter modificadores de acesso, como `public`, `private`, `protected` e `package-private`, que controlam a visibilidade dos membros da classe. Isso ajuda a encapsular os detalhes de implementação e a proteger os dados.
+
+   ```java
+   public class Exemplo {
+       private int valorPrivado;
+       public String valorPublico;
+   }
+   ```
+
+7. **Herança:**
+   Java suporta herança, permitindo que você crie novas classes (subclasses) com base em classes existentes (superclasses). A herança permite reutilizar código e estabelecer uma hierarquia de classes.
+
+   ```java
+   public class Animal {
+       // Atributos e métodos comuns a todos os animais
+   }
+
+   public class Cachorro extends Animal {
+       // Atributos e métodos específicos de cachorros
+   }
+   ```
+
+8. **Polimorfismo:**
+   O polimorfismo permite que objetos de classes diferentes sejam tratados como objetos de uma classe comum por meio da sobrescrita de métodos. Isso facilita a flexibilidade e extensibilidade do código.
+
+   ```java
+   public class Animal {
+       public void fazerSom() {
+           // Implementação padrão
+       }
+   }
+
+   public class Cachorro extends Animal {
+       public void fazerSom() {
+           System.out.println("Cachorro fazendo som: Woof!");
+       }
+   }
+   ```
+
+9. **Encapsulamento:**
+   O encapsulamento é um princípio da POO que envolve ocultar os detalhes de implementação e fornecer uma interface pública para interagir com um objeto. Isso é alcançado usando modificadores de acesso e métodos getters e setters.
+
+   ```java
+   public class ContaBancaria {
+       private double saldo;
+
+       public void depositar(double valor) {
+           // Implementação para depositar dinheiro
+       }
+
+       public void sacar(double valor) {
+           // Implementação para sacar dinheiro
+       }
+
+       public double getSaldo() {
+           return saldo;
+       }
+   }
+   ```
+
+Esses são os principais conceitos relacionados a classes em Java. As classes são a base da programação orientada a objetos em Java e são usadas para modelar objetos do mundo real e implementar funcionalidades em um programa.
