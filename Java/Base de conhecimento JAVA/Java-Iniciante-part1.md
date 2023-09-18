@@ -605,3 +605,49 @@ int deslocamentoDireita = a >> 1;   // Resultado: 0010 (2 em decimal)
 ```
 
 As operações bit a bit são úteis em situações onde você precisa realizar manipulações de baixo nível nos dados, como programação de hardware, otimização de código e criptografia, entre outras aplicações específicas. Elas permitem um controle preciso sobre os bits individuais dos números e são uma parte importante da caixa de ferramentas de um desenvolvedor Java quando se trata de manipulação de dados binários.
+
+## Comentários
+
+Em Java, comentários são partes do código que são ignoradas pelo compilador e não têm nenhum impacto no funcionamento do programa. 
+
+1. Comentários de Linha Única:
+   Você pode usar comentários de linha única para adicionar explicações curtas em uma única linha. Eles começam com duas barras "//" e continuam até o final da linha. Veja um exemplo:
+
+   ```java
+   // Este é um comentário de linha única
+   int idade = 25; // Você pode colocar comentários no final de uma linha de código
+   ```
+
+2. Comentários de Múltiplas Linhas:
+   Os comentários de várias linhas são úteis quando você precisa adicionar explicações mais longas ou quando deseja desativar temporariamente um bloco de código. Eles começam com "/*" e terminam com "*/". Veja um exemplo:
+
+   ```java
+   /*
+   Este é um comentário de várias linhas
+   Pode ter várias linhas de texto
+   Útil para documentar blocos de código
+   */
+   int numero = 42;
+   ```
+
+3. Comentários de Documentação (Javadoc):
+   Os comentários de documentação são usados para criar documentação automaticamente a partir do código-fonte. Eles começam com "/**" e terminam com "*/". Eles são usados principalmente para documentar classes, métodos e campos, permitindo que ferramentas como o Javadoc gerem documentação legível para humanos a partir desses comentários. Veja um exemplo:
+
+   ```java
+   /**
+    * Esta é uma classe de exemplo que demonstra o uso de comentários de documentação.
+    * Ela não faz nada de significativo.
+    */
+   public class MinhaClasse {
+       /**
+        * Este é um método de exemplo que não faz nada.
+        * @param parametro Um parâmetro de exemplo.
+        * @return Sempre retorna zero.
+        */
+       public int meuMetodo(int parametro) {
+           return 0;
+       }
+   }
+   ```
+
+É uma boa prática de programação usar comentários para tornar seu código mais legível e compreensível para outros desenvolvedores.
