@@ -213,3 +213,49 @@ Em Java, as classes são a base da programação orientada a objetos (POO) e des
    ```
 
 Esses são os principais conceitos relacionados a classes em Java. As classes são a base da programação orientada a objetos em Java e são usadas para modelar objetos do mundo real e implementar funcionalidades em um programa.
+
+## Métodos em Object
+
+Em Java, a classe `Object` é a superclasse de todas as outras classes. Isso significa que cada classe em Java é direta ou indiretamente derivada da classe `Object`. A classe `Object` define métodos que estão disponíveis para todas as instâncias de objetos em Java. Aqui estão alguns dos métodos mais comuns e úteis fornecidos pela classe `Object`:
+
+1. `toString()`: Este método retorna uma representação em string do objeto. Por padrão, ele retorna uma representação do objeto no formato "nome_da_classe@identificador_hash". Você pode substituir esse método em suas próprias classes para fornecer uma representação mais significativa em string do objeto.
+
+```java
+@Override
+public String toString() {
+    return "MinhaClasse{" +
+           "atributo1=" + atributo1 +
+           ", atributo2=" + atributo2 +
+           '}';
+}
+```
+
+2. `equals(Object obj)`: Este método é usado para comparar se dois objetos são iguais. Por padrão, ele verifica se as referências dos objetos são idênticas (ou seja, os objetos têm o mesmo endereço de memória). Muitas vezes, é necessário sobrescrever este método em suas próprias classes para realizar uma comparação significativa com base no conteúdo dos objetos.
+
+```java
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    MinhaClasse outraClasse = (MinhaClasse) obj;
+    return atributo1 == outraClasse.atributo1 &&
+           Objects.equals(atributo2, outraClasse.atributo2);
+}
+```
+
+3. `hashCode()`: Este método retorna um valor numérico que representa o objeto. Geralmente, é usado em conjunto com o método `equals()` para garantir que objetos iguais produzam o mesmo valor de hash.
+
+```java
+@Override
+public int hashCode() {
+    return Objects.hash(atributo1, atributo2);
+}
+```
+
+4. `getClass()`: Retorna um objeto `Class` que representa a classe do objeto em tempo de execução.
+
+```java
+Class<?> classeDoObjeto = meuObjeto.getClass();
+```
+
+Estes são apenas alguns dos métodos fornecidos pela classe `Object`. Você pode usá-los diretamente em todos os objetos em Java e, se necessário, sobrescrevê-los em suas próprias classes para personalizar o comportamento de acordo com as necessidades do seu programa.
