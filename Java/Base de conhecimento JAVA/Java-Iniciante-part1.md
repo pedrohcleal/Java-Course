@@ -134,6 +134,55 @@ Parece que você está pedindo uma descrição de todas as operações possívei
 
 Essas são apenas algumas das muitas operações disponíveis em Java. Cada categoria possui várias nuances e variações. Certifique-se de consultar a documentação oficial do Java ou outros recursos de aprendizado para obter informações detalhadas sobre cada tipo de operação.
 
+## Operadores aritméticos
+Em Java, você pode realizar operações aritméticas básicas, como adição, subtração, multiplicação e divisão, usando os operadores aritméticos embutidos. Aqui estão os operadores aritméticos disponíveis em Java:
+
+1. **Adição (+):** Use o operador `+` para adicionar dois valores.
+   
+   ```java
+   int resultado = 5 + 3; // resultado será 8
+   ```
+
+2. **Subtração (-):** Use o operador `-` para subtrair um valor de outro.
+   
+   ```java
+   int resultado = 10 - 4; // resultado será 6
+   ```
+
+3. **Multiplicação (*):** Use o operador `*` para multiplicar dois valores.
+   
+   ```java
+   int resultado = 6 * 3; // resultado será 18
+   ```
+
+4. **Divisão (/):** Use o operador `/` para dividir um valor pelo outro. O resultado será um número decimal se os operandos forem números inteiros e não forem divisíveis.
+   
+   ```java
+   double resultado = 15.0 / 4.0; // resultado será 3.75
+   ```
+
+5. **Resto (%):** Use o operador `%` para obter o resto da divisão de um valor por outro.
+   
+   ```java
+   int resto = 10 % 3; // resto será 1 (10 dividido por 3 é 3 com resto 1)
+   ```
+
+6. **Incremento (++) e Decremento (--):** Você também pode usar os operadores de incremento e decremento para aumentar ou diminuir o valor de uma variável por 1.
+   
+   ```java
+   int numero = 5;
+   numero++; // Incrementa o valor de 'numero' para 6
+   numero--; // Decrementa o valor de 'numero' para 5 novamente
+   ```
+
+Além disso, você pode usar parênteses para controlar a precedência das operações, assim como na matemática. Por exemplo:
+
+```java
+int resultado = (5 + 3) * 2; // resultado será 16 (a adição é feita primeiro)
+```
+
+Lembre-se de que os tipos de dados usados nas operações podem afetar o resultado. Se você estiver trabalhando com números inteiros, a divisão resultará em um número inteiro truncado, a menos que você use um tipo de dado de ponto flutuante (como `double`) para o resultado. Certifique-se de escolher os tipos de dados apropriados para suas operações aritméticas, dependendo dos requisitos do seu programa.
+
 ## Estruturas de controle
 
 Em Java, as estruturas de controle são elementos fundamentais para a criação de programas que tomam decisões, repetem ações e controlam o fluxo de execução do código. Existem três principais tipos de estruturas de controle em Java: estruturas condicionais, estruturas de repetição e estruturas de controle de fluxo.
