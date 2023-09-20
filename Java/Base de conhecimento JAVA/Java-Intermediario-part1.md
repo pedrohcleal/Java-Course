@@ -259,3 +259,51 @@ Class<?> classeDoObjeto = meuObjeto.getClass();
 ```
 
 Estes são apenas alguns dos métodos fornecidos pela classe `Object`. Você pode usá-los diretamente em todos os objetos em Java e, se necessário, sobrescrevê-los em suas próprias classes para personalizar o comportamento de acordo com as necessidades do seu programa.
+
+## Implementar ```ToString()```
+O método `toString()` em Java é um método da classe `Object`, que é a superclasse de todas as classes em Java. Ele é frequentemente sobrescrito (override) nas classes filhas para fornecer uma representação em forma de string do objeto. Isso é útil para depuração e para exibir informações legíveis para humanos sobre um objeto.
+
+Aqui está como você pode usar o método `toString()` em Java:
+
+1. Sobrescrevendo o método `toString()`:
+   Para usar o método `toString()`, você precisa sobrescrevê-lo em sua própria classe. Isso permite que você forneça uma implementação personalizada para criar uma representação em forma de string do seu objeto.
+
+   ```java
+   public class MinhaClasse {
+       private int numero;
+       private String texto;
+
+       // Construtor e outros métodos aqui
+
+       @Override
+       public String toString() {
+           return "MinhaClasse [numero=" + numero + ", texto=" + texto + "]";
+       }
+   }
+   ```
+
+   No exemplo acima, estamos sobrescrevendo o método `toString()` na classe `MinhaClasse` para criar uma representação em forma de string que inclui os valores dos campos `numero` e `texto`.
+
+2. Usando o método `toString()`:
+   Depois de sobrescrever o método `toString()`, você pode usá-lo para obter uma representação em forma de string do seu objeto. Isso é especialmente útil ao depurar ou ao exibir informações sobre o objeto.
+
+   ```java
+   public class Main {
+       public static void main(String[] args) {
+           MinhaClasse objeto = new MinhaClasse(42, "Olá, mundo!");
+           System.out.println(objeto.toString()); // Chamando explicitamente o toString()
+           System.out.println(objeto); // O Java chama implicitamente o toString() ao imprimir o objeto
+       }
+   }
+   ```
+
+   No exemplo acima, estamos chamando explicitamente `objeto.toString()` para obter a representação em forma de string do objeto `objeto`. No entanto, o Java também chama implicitamente o método `toString()` quando você tenta imprimir um objeto diretamente, como em `System.out.println(objeto)`.
+
+   A saída será algo como:
+
+   ```
+   MinhaClasse [numero=42, texto=Olá, mundo!]
+   MinhaClasse [numero=42, texto=Olá, mundo!]
+   ```
+
+Lembre-se de que a implementação personalizada do método `toString()` pode variar de acordo com as necessidades da sua classe e com a forma como você deseja que os objetos sejam representados em forma de string. Isso é útil para facilitar a depuração e a compreensão dos objetos em seu programa.
