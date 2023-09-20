@@ -527,6 +527,68 @@ Em Java, a formação de texto e o uso de variáveis em conjunto com a impressã
 
 Lembre-se de que, ao usar variáveis em texto impresso, é importante garantir que os tipos e os formatos estejam corretos para evitar erros em tempo de execução. Além disso, o uso adequado de espaços e caracteres especiais pode melhorar a legibilidade da saída.
 
+## Métodos em String builder
+
+`StringBuilder` é uma classe em Java que faz parte do pacote `java.lang` e é usada para criar e manipular strings mutáveis. Ela é semelhante à classe `StringBuffer`, mas é mais eficiente em termos de desempenho, uma vez que não é sincronizada, tornando-a adequada para operações em threads únicas quando a concorrência não é uma preocupação. Aqui estão alguns dos principais métodos oferecidos pela classe `StringBuilder`:
+
+1. **`append()`**: Este é um dos métodos mais usados em `StringBuilder`. Ele é usado para adicionar dados ao final da sequência existente. Você pode passar vários tipos de dados como argumento, incluindo strings, caracteres, números inteiros, booleanos, etc. Ele retorna uma referência ao próprio `StringBuilder`, permitindo a concatenação encadeada.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");
+```
+
+2. **`insert()`**: Este método permite inserir dados em uma posição específica dentro da sequência. Você especifica o índice onde deseja inserir os dados e o valor que deseja inserir.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.insert(5, " World"); // Insere " World" após o quinto caractere
+```
+
+3. **`delete()`**: Esse método é usado para remover um intervalo de caracteres da sequência. Você precisa fornecer o índice inicial e o índice final (exclusivo) dos caracteres a serem excluídos.
+
+```java
+StringBuilder sb = new StringBuilder("Hello World");
+sb.delete(5, 11); // Remove " World"
+```
+
+4. **`replace()`**: O método `replace()` permite substituir um intervalo de caracteres por uma nova sequência.
+
+```java
+StringBuilder sb = new StringBuilder("Hello World");
+sb.replace(6, 11, "Java"); // Substitui "World" por "Java"
+```
+
+5. **`charAt()`**: Este método retorna o caractere na posição especificada.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+char c = sb.charAt(1); // Retorna 'e'
+```
+
+6. **`length()`**: Retorna o comprimento atual da sequência.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+int length = sb.length(); // Retorna 5
+```
+
+7. **`toString()`**: Converte a sequência `StringBuilder` em uma `String`.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+String str = sb.toString(); // Converte para "Hello"
+```
+
+8. **`reverse()`**: Inverte a sequência de caracteres no `StringBuilder`.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.reverse(); // Torna-se "olleH"
+```
+
+Esses são alguns dos métodos mais comuns da classe `StringBuilder`. Eles tornam a manipulação de strings mais eficiente e flexível quando você precisa realizar muitas operações de concatenação e edição em uma string mutável.
+
 ## Classe Scanner;
 
 A Classe `Scanner` no Java, faz parte do pacote `java.util` e é usada para ler dados de entrada do usuário ou de fontes de dados, como arquivos ou streams, de forma simples e eficiente. Ela foi introduzida no Java 5 para facilitar a leitura de dados em diversos formatos.
