@@ -474,59 +474,6 @@ Manipulação de strings em Java é uma parte essencial da programação, já qu
 
 A manipulação de strings em Java é uma habilidade fundamental para o desenvolvimento de aplicativos, pois as strings são amplamente usadas na entrada/saída, formatação, processamento de texto e muito mais. Certifique-se de consultar a documentação oficial da linguagem para obter mais detalhes sobre os métodos e funcionalidades relacionados a strings.
 
-## Formatação de texto e variáveis em Java
-
-Em Java, a formação de texto e o uso de variáveis em conjunto com a impressão (exibição) de informações podem ser realizados principalmente através das classes `System.out` e `System.err`, que são usadas para saída padrão e saída de erros, respectivamente. O método mais comum para imprimir texto e variáveis em Java é o `System.out.println()`. Aqui está como você pode formar texto e usar variáveis com esse método:
-
-1. **Concatenação de Strings:**
-
-   Você pode usar o operador de concatenação de strings (`+`) para combinar texto com variáveis. Por exemplo:
-
-   ```java
-   String nome = "João";
-   int idade = 30;
-   
-   System.out.println("Nome: " + nome + ", Idade: " + idade);
-   ```
-
-   Neste exemplo, estamos concatenando as strings "Nome: ", "João", ", Idade: " e o valor da variável `idade` para formar uma única string que é impressa no console.
-
-2. **Formatação de Strings:**
-
-   Você também pode usar formatação de strings usando a classe `String.format()` ou o método `System.out.printf()`. Isso permite que você controle a aparência dos valores impressos. Por exemplo:
-
-   ```java
-   String nome = "João";
-   int idade = 30;
-   
-   System.out.printf("Nome: %s, Idade: %d%n", nome, idade);
-   ```
-
-   Neste exemplo, usamos `%s` e `%d` como marcadores de posição para a variável `nome` (string) e `idade` (inteiro), respectivamente. O `%n` é usado para uma nova linha.
-
-3. **Uso de Variáveis Diretamente:**
-
-   Em alguns casos simples, você pode imprimir variáveis diretamente sem concatená-las com texto. Por exemplo:
-
-   ```java
-   int numero = 42;
-   System.out.println("O número é: " + numero);
-   ```
-
-   Você pode simplesmente imprimir a variável `numero` sem adicionar texto adicional se isso for suficiente para a saída.
-
-4. **Escape Sequences:**
-
-   Você pode usar sequências de escape, como `\n` para nova linha ou `\t` para tabulação, para formatar sua saída. Por exemplo:
-
-   ```java
-   System.out.println("Linha 1\nLinha 2");
-   ```
-
-   Isso imprimirá duas linhas no console, uma após a outra.
-
-Lembre-se de que, ao usar variáveis em texto impresso, é importante garantir que os tipos e os formatos estejam corretos para evitar erros em tempo de execução. Além disso, o uso adequado de espaços e caracteres especiais pode melhorar a legibilidade da saída.
-
 ## Métodos em String builder
 
 `StringBuilder` é uma classe em Java que faz parte do pacote `java.lang` e é usada para criar e manipular strings mutáveis. Ela é semelhante à classe `StringBuffer`, mas é mais eficiente em termos de desempenho, uma vez que não é sincronizada, tornando-a adequada para operações em threads únicas quando a concorrência não é uma preocupação. Aqui estão alguns dos principais métodos oferecidos pela classe `StringBuilder`:
@@ -588,6 +535,59 @@ sb.reverse(); // Torna-se "olleH"
 ```
 
 Esses são alguns dos métodos mais comuns da classe `StringBuilder`. Eles tornam a manipulação de strings mais eficiente e flexível quando você precisa realizar muitas operações de concatenação e edição em uma string mutável.
+
+## Formatação de texto e variáveis em Java
+
+Em Java, a formação de texto e o uso de variáveis em conjunto com a impressão (exibição) de informações podem ser realizados principalmente através das classes `System.out` e `System.err`, que são usadas para saída padrão e saída de erros, respectivamente. O método mais comum para imprimir texto e variáveis em Java é o `System.out.println()`. Aqui está como você pode formar texto e usar variáveis com esse método:
+
+1. **Concatenação de Strings:**
+
+   Você pode usar o operador de concatenação de strings (`+`) para combinar texto com variáveis. Por exemplo:
+
+   ```java
+   String nome = "João";
+   int idade = 30;
+   
+   System.out.println("Nome: " + nome + ", Idade: " + idade);
+   ```
+
+   Neste exemplo, estamos concatenando as strings "Nome: ", "João", ", Idade: " e o valor da variável `idade` para formar uma única string que é impressa no console.
+
+2. **Formatação de Strings:**
+
+   Você também pode usar formatação de strings usando a classe `String.format()` ou o método `System.out.printf()`. Isso permite que você controle a aparência dos valores impressos. Por exemplo:
+
+   ```java
+   String nome = "João";
+   int idade = 30;
+   
+   System.out.printf("Nome: %s, Idade: %d%n", nome, idade);
+   ```
+
+   Neste exemplo, usamos `%s` e `%d` como marcadores de posição para a variável `nome` (string) e `idade` (inteiro), respectivamente. O `%n` é usado para uma nova linha.
+
+3. **Uso de Variáveis Diretamente:**
+
+   Em alguns casos simples, você pode imprimir variáveis diretamente sem concatená-las com texto. Por exemplo:
+
+   ```java
+   int numero = 42;
+   System.out.println("O número é: " + numero);
+   ```
+
+   Você pode simplesmente imprimir a variável `numero` sem adicionar texto adicional se isso for suficiente para a saída.
+
+4. **Escape Sequences:**
+
+   Você pode usar sequências de escape, como `\n` para nova linha ou `\t` para tabulação, para formatar sua saída. Por exemplo:
+
+   ```java
+   System.out.println("Linha 1\nLinha 2");
+   ```
+
+   Isso imprimirá duas linhas no console, uma após a outra.
+
+Lembre-se de que, ao usar variáveis em texto impresso, é importante garantir que os tipos e os formatos estejam corretos para evitar erros em tempo de execução. Além disso, o uso adequado de espaços e caracteres especiais pode melhorar a legibilidade da saída.
 
 ## Classe Scanner;
 
