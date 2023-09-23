@@ -1,4 +1,4 @@
-# Java iniciante - part2
+# Java intermediário part1
 ## Funções
 Em Java, as funções são chamadas de métodos. Os métodos são blocos de código que executam tarefas específicas e podem ser chamados por outros métodos ou partes do programa para realizar ações específicas. Eles desempenham um papel fundamental na estruturação e organização do código Java e são essenciais para a orientação a objetos. Abaixo, descrevo os principais aspectos das funções (métodos) em Java:
 
