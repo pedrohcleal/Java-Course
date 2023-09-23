@@ -307,3 +307,49 @@ Aqui está como você pode usar o método `toString()` em Java:
    ```
 
 Lembre-se de que a implementação personalizada do método `toString()` pode variar de acordo com as necessidades da sua classe e com a forma como você deseja que os objetos sejam representados em forma de string. Isso é útil para facilitar a depuração e a compreensão dos objetos em seu programa.
+
+## Membros estáticos
+
+Em Java, membros estáticos (ou métodos e campos estáticos) são elementos de uma classe que pertencem à própria classe em vez de pertencerem a instâncias específicas dessa classe. Isso significa que eles são compartilhados por todas as instâncias da classe e podem ser acessados diretamente através do nome da classe, sem a necessidade de criar uma instância da classe.
+
+Existem dois tipos de membros estáticos em Java: campos estáticos (ou variáveis estáticas) e métodos estáticos. Aqui está uma descrição mais detalhada de ambos:
+
+1. Campos Estáticos (Variáveis Estáticas):
+   - Um campo estático é uma variável que é compartilhada por todas as instâncias da classe.
+   - É declarado com a palavra-chave `static` antes do tipo de dado.
+   - Geralmente, os campos estáticos são usados para armazenar informações que são relevantes para a classe como um todo, em vez de para instâncias individuais.
+   - Eles são inicializados apenas uma vez, quando a classe é carregada pela primeira vez.
+   - Pode ser acessado diretamente usando o nome da classe, seguido do nome do campo.
+   
+   Exemplo de declaração e uso de um campo estático:
+   
+   ```java
+   public class MinhaClasse {
+       public static int contador = 0;
+   }
+   
+   // Uso do campo estático
+   int valor = MinhaClasse.contador;
+   ```
+
+2. Métodos Estáticos:
+   - Um método estático é um método que pertence à classe em vez de pertencer a uma instância específica da classe.
+   - É declarado com a palavra-chave `static` antes do tipo de retorno.
+   - Pode ser chamado diretamente usando o nome da classe, seguido do nome do método.
+   - Geralmente, os métodos estáticos são usados para operações que não dependem do estado das instâncias da classe.
+   - Eles não podem acessar ou modificar campos não estáticos diretamente, a menos que tenham uma instância específica como parâmetro.
+   
+   Exemplo de declaração e uso de um método estático:
+   
+   ```java
+   public class MinhaClasse {
+       public static int somar(int a, int b) {
+           return a + b;
+       }
+   }
+   
+   // Chamada do método estático
+   int resultado = MinhaClasse.somar(5, 3);
+   ```
+
+Membros estáticos são úteis em situações em que você deseja compartilhar dados ou funcionalidades comuns entre todas as instâncias de uma classe, sem a necessidade de criar múltiplas cópias desses dados ou funcionalidades. Eles são frequentemente usados em classes utilitárias, para implementar padrões de projeto como o Singleton e em situações em que você precisa armazenar informações globais acessíveis de qualquer lugar do código Java. É importante notar que membros estáticos não têm acesso a membros não estáticos da classe diretamente, pois não estão associados a uma instância específica da classe.
