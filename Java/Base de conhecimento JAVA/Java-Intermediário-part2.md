@@ -123,3 +123,48 @@ Em Java, a palavra-chave "this" é uma referência especial que se refere à ins
 
 Em resumo, a palavra-chave "this" em Java é usada para se referir à instância atual da classe em que ela está sendo utilizada. Ela é útil para evitar ambiguidades, chamar construtores sobrecarregados e criar métodos encadeados.
 
+## Sobrecarga
+
+Em Java, a sobrecarga (ou "overloading" em inglês) é um conceito que permite que você defina múltiplos métodos com o mesmo nome em uma classe, desde que esses métodos tenham assinaturas diferentes. A assinatura de um método é composta pelo nome do método e pela lista de tipos e quantidade de parâmetros que ele aceita. A sobrecarga é uma forma de polimorfismo estático, onde o Java determina qual método chamar com base na assinatura dos argumentos passados.
+
+Aqui estão alguns aspectos importantes sobre a sobrecarga em Java:
+
+1. Assinaturas diferentes: Para sobrecarregar métodos, você precisa definir métodos com nomes idênticos, mas com parâmetros diferentes em termos de tipo, quantidade ou ordem. Isso significa que você pode ter métodos com o mesmo nome, desde que a JVM possa distingui-los com base em suas assinaturas.
+
+2. Retorno: O tipo de retorno não é considerado ao determinar a sobrecarga de um método. Dois métodos com a mesma assinatura, exceto pelo tipo de retorno, são considerados sobrecarga inválida.
+
+3. Exceções: A lista de exceções lançadas por um método não faz parte de sua assinatura. Portanto, você pode sobrecarregar métodos com diferentes exceções lançadas.
+
+Aqui está um exemplo simples de sobrecarga de métodos em Java:
+
+```java
+public class ExemploSobrecarga {
+    
+    // Método que aceita dois inteiros
+    public int somar(int a, int b) {
+        return a + b;
+    }
+
+    // Método sobrecarregado que aceita três inteiros
+    public int somar(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Método sobrecarregado que aceita dois números de ponto flutuante
+    public double somar(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        ExemploSobrecarga exemplo = new ExemploSobrecarga();
+        
+        System.out.println(exemplo.somar(2, 3)); // Chama o primeiro método
+        System.out.println(exemplo.somar(2, 3, 4)); // Chama o segundo método
+        System.out.println(exemplo.somar(2.5, 3.5)); // Chama o terceiro método
+    }
+}
+```
+
+Neste exemplo, a classe `ExemploSobrecarga` contém três métodos chamados `somar`, cada um aceitando diferentes tipos e quantidades de argumentos. A JVM determinará qual método chamar com base nos argumentos passados durante a chamada.
+
+A sobrecarga de métodos é uma técnica útil para criar interfaces de programação mais flexíveis e intuitivas, permitindo que os desenvolvedores escolham a versão do método que melhor se adapta às suas necessidades com base nos argumentos fornecidos.
