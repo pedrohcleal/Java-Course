@@ -257,3 +257,4 @@ Aqui estão algumas dicas para utilizar os controles de acesso de forma eficaz:
 
 Ao seguir essas dicas, você poderá garantir que os controles de acesso em Java sejam usados de forma eficaz para proteger seu código.
 
+!(https://i.stack.imgur.com/SVk2a.png)
