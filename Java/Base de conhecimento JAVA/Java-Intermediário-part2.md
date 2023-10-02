@@ -168,3 +168,96 @@ public class ExemploSobrecarga {
 Neste exemplo, a classe `ExemploSobrecarga` contém três métodos chamados `somar`, cada um aceitando diferentes tipos e quantidades de argumentos. A JVM determinará qual método chamar com base nos argumentos passados durante a chamada.
 
 A sobrecarga de métodos é uma técnica útil para criar interfaces de programação mais flexíveis e intuitivas, permitindo que os desenvolvedores escolham a versão do método que melhor se adapta às suas necessidades com base nos argumentos fornecidos.
+
+## Encapsulamento
+
+O encapsulamento é um dos quatro pilares da programação orientada a objetos (POO) e é uma técnica fundamental no Java e em muitas outras linguagens de programação orientadas a objetos. Ele se refere à prática de esconder os detalhes internos de uma classe e fornecer uma interface controlada para acessar e manipular os dados e comportamentos dessa classe. O encapsulamento é alcançado através da combinação de dois conceitos: acesso restrito aos membros da classe e o uso de métodos getter e setter.
+
+Aqui estão alguns aspectos importantes do encapsulamento no Java:
+
+1. **Atributos privados:** Os atributos de uma classe geralmente são declarados como privados (usando a palavra-chave `private`). Isso significa que esses atributos não podem ser acessados diretamente de fora da classe. Por exemplo:
+
+```java
+private int idade;
+```
+
+2. **Métodos públicos:** Para permitir o acesso controlado aos atributos privados, você deve fornecer métodos públicos na classe para ler (getter) e modificar (setter) esses atributos. Por exemplo:
+
+```java
+public int getIdade() {
+    return idade;
+}
+
+public void setIdade(int idade) {
+    if (idade >= 0) { // Verifica se a idade é válida
+        this.idade = idade;
+    }
+}
+```
+
+3. **Controle de acesso:** O Java fornece quatro níveis de controle de acesso para membros de classe: `public`, `private`, `protected` e o padrão (quando nenhum modificador é especificado). O encapsulamento geralmente envolve a definição de atributos como privados e métodos relacionados como públicos, para garantir que os dados internos da classe sejam acessados apenas de maneira segura e controlada.
+
+4. **Validação e lógica de negócios:** Com o encapsulamento, você pode adicionar lógica de validação aos métodos setter para garantir que os valores atribuídos aos atributos estejam dentro de limites aceitáveis. Isso ajuda a manter a integridade dos dados e a prevenir comportamentos indesejados.
+
+5. **Flexibilidade e manutenção:** O encapsulamento ajuda a ocultar a implementação interna de uma classe, permitindo que você altere a implementação sem afetar o código que a utiliza. Isso facilita a manutenção e a evolução do código ao longo do tempo.
+
+6. **Segurança:** O encapsulamento ajuda a proteger os dados de uma classe, evitando que eles sejam corrompidos ou acessados de maneira inadequada por outras partes do programa.
+
+Em resumo, o encapsulamento no Java envolve o uso de modificadores de acesso, como `private`, juntamente com métodos getter e setter para controlar o acesso aos atributos de uma classe, garantindo assim a segurança, a manutenção e a flexibilidade do código. Isso é fundamental para o princípio da ocultação de informações na POO e ajuda a criar classes mais robustas e coesas.
+
+## Controles de acesso - public, private, protected
+
+No Java, os controles de acesso são modificadores que determinam a visibilidade e a acessibilidade de classes, atributos, métodos e construtores em seu programa. Existem quatro modificadores de acesso principais no Java:
+
+1. **public:** Os membros com esse modificador de acesso são acessíveis de qualquer lugar, dentro ou fora da classe. Por exemplo, uma classe ou método público pode ser usado por qualquer outra classe no mesmo projeto ou por classes externas.
+
+   ```java
+   public class MinhaClasse {
+       public int meuAtributo;
+       public void meuMetodo() {
+           // código aqui
+       }
+   }
+   ```
+
+2. **private:** Os membros com esse modificador de acesso são acessíveis apenas dentro da própria classe. Isso significa que eles não podem ser acessados de fora da classe, mesmo por subclasses. O encapsulamento frequentemente usa o modificador `private` para proteger atributos e métodos internos da classe.
+
+   ```java
+   public class MinhaClasse {
+       private int meuAtributo;
+       private void meuMetodo() {
+           // código aqui
+       }
+   }
+   ```
+
+3. **protected:** Os membros com esse modificador de acesso são acessíveis apenas dentro da classe, em subclasses (mesmo que estejam em pacotes diferentes) e em classes no mesmo pacote. Isso é útil quando você deseja permitir que subclasses acessem alguns membros, mas não o público em geral.
+
+   ```java
+   public class MinhaClasse {
+       protected int meuAtributo;
+       protected void meuMetodo() {
+           // código aqui
+       }
+   }
+   ```
+
+4. **padrão (sem modificador):** Quando nenhum modificador de acesso é especificado, os membros são acessíveis apenas no mesmo pacote. Isso é muitas vezes chamado de acesso de pacote. Isso é útil quando você deseja restringir o acesso aos membros de classes em um pacote específico, mas ainda permitir o acesso a classes dentro desse pacote.
+
+   ```java
+   class MinhaClasse {
+       int meuAtributo;
+       void meuMetodo() {
+           // código aqui
+       }
+   }
+   ```
+
+Para utilizar os controles de acesso, você deve considerar a visibilidade necessária para seus membros de classe, atributos e métodos. Aqui estão algumas diretrizes gerais:
+
+- Use `public` quando você deseja que um membro seja acessível de qualquer lugar em seu código.
+- Use `private` quando você deseja encapsular um membro e impedir o acesso direto a ele fora da classe.
+- Use `protected` quando você deseja permitir que subclasses acessem membros, mas ainda deseja restringir o acesso de classes externas.
+- Use o acesso de pacote (sem modificador) quando você deseja limitar o acesso a classes dentro do mesmo pacote.
+
+Ao definir a visibilidade apropriada para seus membros, você pode criar classes mais seguras, encapsuladas e modulares, facilitando a manutenção e a evolução do código.
