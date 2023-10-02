@@ -64,3 +64,62 @@ public class Pessoa {
 ```
 
 Neste exemplo, a classe `Pessoa` possui dois construtores: um construtor padrão que inicializa os campos com valores padrão e um construtor personalizado que permite a inicialização personalizada dos campos. Esses construtores podem ser usados para criar objetos `Pessoa` com diferentes estados iniciais.
+
+## ```this```
+
+Em Java, a palavra-chave "this" é uma referência especial que se refere à instância atual de uma classe. Ela pode ser usada em vários contextos dentro de uma classe para se referir aos membros (variáveis de instância, métodos ou construtores) da instância atual. Aqui estão alguns dos principais usos de "this" em Java:
+
+1. Referência a variáveis de instância:
+   Você pode usar "this" para se referir às variáveis de instância da classe atual quando há ambiguidade entre uma variável de instância e uma variável local dentro de um método. Por exemplo:
+
+   ```java
+   public class Exemplo {
+       private int numero;
+
+       public void setNumero(int numero) {
+           this.numero = numero;
+       }
+   }
+   ```
+
+   Neste exemplo, usamos "this.numero" para distinguir entre a variável de instância "numero" e o parâmetro do método "numero".
+
+2. Invocação de construtores:
+   "this" também pode ser usado para chamar um construtor sobrecarregado da mesma classe a partir de outro construtor. Isso é útil para evitar a duplicação de código em diferentes construtores. Aqui está um exemplo:
+
+   ```java
+   public class Pessoa {
+       private String nome;
+       private int idade;
+
+       public Pessoa(String nome) {
+           this(nome, 0);
+       }
+
+       public Pessoa(String nome, int idade) {
+           this.nome = nome;
+           this.idade = idade;
+       }
+   }
+   ```
+
+   Neste caso, o construtor com um único argumento chama o construtor com dois argumentos usando "this(nome, 0)".
+
+3. Retornando a instância atual:
+   Em certos casos, você pode usar "this" para retornar a instância atual de um objeto. Isso é útil para criar métodos encadeados, onde você pode chamar vários métodos na mesma linha. Por exemplo:
+
+   ```java
+   public class MinhaClasse {
+       private int valor;
+
+       public MinhaClasse setValor(int valor) {
+           this.valor = valor;
+           return this;
+       }
+   }
+   ```
+
+   Isso permite que você faça chamadas encadeadas, como: "minhaInstancia.setValor(42).outroMetodo()".
+
+Em resumo, a palavra-chave "this" em Java é usada para se referir à instância atual da classe em que ela está sendo utilizada. Ela é útil para evitar ambiguidades, chamar construtores sobrecarregados e criar métodos encadeados.
+
