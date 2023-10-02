@@ -207,57 +207,5 @@ Em resumo, o encapsulamento no Java envolve o uso de modificadores de acesso, co
 
 ## Controles de acesso - public, private, protected
 
-No Java, os controles de acesso são modificadores que determinam a visibilidade e a acessibilidade de classes, atributos, métodos e construtores em seu programa. Existem quatro modificadores de acesso principais no Java:
+Descreva sobre os controles de acesso e como utiliza-los
 
-1. **public:** Os membros com esse modificador de acesso são acessíveis de qualquer lugar, dentro ou fora da classe. Por exemplo, uma classe ou método público pode ser usado por qualquer outra classe no mesmo projeto ou por classes externas.
-
-   ```java
-   public class MinhaClasse {
-       public int meuAtributo;
-       public void meuMetodo() {
-           // código aqui
-       }
-   }
-   ```
-
-2. **private:** Os membros com esse modificador de acesso são acessíveis apenas dentro da própria classe. Isso significa que eles não podem ser acessados de fora da classe, mesmo por subclasses. O encapsulamento frequentemente usa o modificador `private` para proteger atributos e métodos internos da classe.
-
-   ```java
-   public class MinhaClasse {
-       private int meuAtributo;
-       private void meuMetodo() {
-           // código aqui
-       }
-   }
-   ```
-
-3. **protected:** Os membros com esse modificador de acesso são acessíveis apenas dentro da classe, em subclasses (mesmo que estejam em pacotes diferentes) e em classes no mesmo pacote. Isso é útil quando você deseja permitir que subclasses acessem alguns membros, mas não o público em geral.
-
-   ```java
-   public class MinhaClasse {
-       protected int meuAtributo;
-       protected void meuMetodo() {
-           // código aqui
-       }
-   }
-   ```
-
-4. **padrão (sem modificador):** Quando nenhum modificador de acesso é especificado, os membros são acessíveis apenas no mesmo pacote. Isso é muitas vezes chamado de acesso de pacote. Isso é útil quando você deseja restringir o acesso aos membros de classes em um pacote específico, mas ainda permitir o acesso a classes dentro desse pacote.
-
-   ```java
-   class MinhaClasse {
-       int meuAtributo;
-       void meuMetodo() {
-           // código aqui
-       }
-   }
-   ```
-
-Para utilizar os controles de acesso, você deve considerar a visibilidade necessária para seus membros de classe, atributos e métodos. Aqui estão algumas diretrizes gerais:
-
-- Use `public` quando você deseja que um membro seja acessível de qualquer lugar em seu código.
-- Use `private` quando você deseja encapsular um membro e impedir o acesso direto a ele fora da classe.
-- Use `protected` quando você deseja permitir que subclasses acessem membros, mas ainda deseja restringir o acesso de classes externas.
-- Use o acesso de pacote (sem modificador) quando você deseja limitar o acesso a classes dentro do mesmo pacote.
-
-Ao definir a visibilidade apropriada para seus membros, você pode criar classes mais seguras, encapsuladas e modulares, facilitando a manutenção e a evolução do código.
