@@ -316,3 +316,23 @@ numero = 42; // Atribuição de um valor a uma variável de tipo primitivo
 ```
 
 Em resumo, os tipos de referência em Java referem-se a objetos que são alocados no heap e são manipulados por meio de referências. Os tipos de valor, por outro lado, são tipos primitivos que armazenam valores diretamente e não são objetos no heap. A escolha entre tipos de referência e tipos de valor depende das necessidades do seu programa e dos recursos de memória e desempenho que você deseja otimizar.
+
+## Garbage collector
+
+O Garbage Collector (Coletor de Lixo) é uma parte fundamental da máquina virtual Java (JVM) que gerencia a alocação e desalocação de memória durante a execução de programas em Java. Sua principal responsabilidade é liberar a memória que não está mais sendo usada por objetos, tornando-a disponível para ser reutilizada por novos objetos. Isso ajuda a evitar vazamentos de memória e garante que os programas Java não esgotem os recursos do sistema devido à alocação descontrolada de memória.
+
+Aqui estão alguns aspectos importantes sobre o Garbage Collector no Java:
+
+1. Detecção de Objetos Inalcançáveis: O Garbage Collector identifica objetos que não podem mais ser acessados pelo programa. Isso é feito através da análise de referências de objetos. Um objeto é considerado inalcançável quando não pode ser acessado diretamente ou indiretamente a partir do ponto de entrada do programa (normalmente o método `main`).
+
+2. Algoritmos de Coleta: O Java possui vários algoritmos de coleta de lixo, incluindo o algoritmo padrão conhecido como "Garbage-First" (G1), bem como o "Parallel Garbage Collector", "Concurrent Mark-Sweep" (CMS) e outros. Cada um desses algoritmos tem suas próprias características e é adequado para diferentes tipos de aplicativos.
+
+3. Ciclo de Vida da Coleta de Lixo: O processo de coleta de lixo envolve várias fases, como marcação, compactação e liberação de memória. O Garbage Collector executa essas fases de forma automática e periódica, conforme necessário.
+
+4. Chamada Explicita: Embora o Garbage Collector seja projetado para operar automaticamente, você pode solicitar explicitamente a coleta de lixo chamando o método `System.gc()` ou `Runtime.getRuntime().gc()`. No entanto, isso não garante a coleta imediata de todos os objetos não utilizados e é geralmente desnecessário em grande parte das aplicações.
+
+5. Gerenciamento de Memória: O Java utiliza a memória heap para alocar objetos, e o Garbage Collector cuida da desalocação automática de objetos inacessíveis. Isso significa que os desenvolvedores de Java não precisam se preocupar com a desalocação manual de memória, como em algumas outras linguagens.
+
+6. Impacto no Desempenho: Embora o Garbage Collector seja altamente eficiente na maioria dos casos, ele ainda pode afetar o desempenho da aplicação, especialmente em cenários de alta carga de trabalho. É importante entender o comportamento do Garbage Collector e otimizar o código, se necessário, para minimizar o impacto.
+
+Em resumo, o Garbage Collector no Java é uma parte crítica do ambiente de tempo de execução que gerencia automaticamente a alocação e desalocação de memória, permitindo que os desenvolvedores se concentrem na lógica de seus programas sem se preocupar com vazamentos de memória. A escolha do algoritmo de coleta de lixo adequado e a compreensão de seu funcionamento são importantes para otimizar o desempenho de aplicativos Java.
