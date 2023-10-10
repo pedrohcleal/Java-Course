@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Curso Java Udemy.iml" filepath="$PROJECT_DIR$/Curso Java Udemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Secao4-EstruturaEspecial/Secao4-EstruturaEspecial.iml" filepath="$PROJECT_DIR$/Secao4-EstruturaEspecial/Secao4-EstruturaEspecial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Secao5-EstruturaCondicional/Secao5-EstruturaCondicional.iml" filepath="$PROJECT_DIR$/Secao5-EstruturaCondicional/Secao5-EstruturaCondicional.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Secao6-Estruturas Repetitivas/Secao6-Estruturas Repetitivas.iml" filepath="$PROJECT_DIR$/Secao6-Estruturas Repetitivas/Secao6-Estruturas Repetitivas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Secao7-BasicTopics/Secao7-BasicTopics.iml" filepath="$PROJECT_DIR$/Secao7-BasicTopics/Secao7-BasicTopics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Secao8-Intro-a-POO/Secao8-Intro-a-POO.iml" filepath="$PROJECT_DIR$/Secao8-Intro-a-POO/Secao8-Intro-a-POO.iml" />
+    </modules>
+  </component>
+</project>
