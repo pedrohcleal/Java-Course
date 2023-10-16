@@ -164,3 +164,104 @@ Um array de objetos em Java é uma estrutura de dados que permite armazenar múl
    As operações comuns em arrays de objetos incluem adicionar, remover, encontrar, ordenar e modificar objetos. Você pode fazer essas operações usando loops e métodos da classe da mesma forma que faria com objetos independentes.
 
 Lembre-se de que, em um array de objetos, você está manipulando referências aos objetos, não os objetos reais. Portanto, qualquer modificação em um objeto refletirá nas outras referências a esse objeto no array. Certifique-se de compreender bem a manipulação de objetos e referências para evitar resultados inesperados.
+
+## Listas no Java: ArrayList & LinkedList
+
+Em Java, uma lista é uma estrutura de dados que armazena uma coleção de elementos, permitindo a inserção, remoção e recuperação de elementos de forma flexível. Existem várias implementações de listas em Java, sendo as mais comuns as `ArrayList` e `LinkedList`. Ambas implementam a interface `List` da API de Coleções do Java, o que significa que compartilham métodos comuns para manipulação de listas.
+
+Aqui estão alguns conceitos importantes relacionados às listas em Java:
+
+1. **ArrayList**:
+   - O `ArrayList` é uma implementação de lista baseada em arrays dinâmicos. Ele é muito eficiente para acessar elementos pelo índice, mas não é tão eficiente para inserções e remoções no meio da lista.
+
+2. **LinkedList**:
+   - A `LinkedList` é uma implementação de lista baseada em listas duplamente encadeadas. É mais eficiente para inserções e remoções no meio da lista, mas o acesso aos elementos pelo índice é mais lento em comparação com o `ArrayList`.
+
+3. **Interface List**:
+   - Tanto `ArrayList` quanto `LinkedList` implementam a interface `List`, o que significa que elas compartilham métodos comuns, como `add()`, `remove()`, `get()`, `size()`, `clear()`, entre outros. Isso facilita a troca entre essas implementações.
+
+4. **Genéricos**:
+   - As listas em Java podem ser usadas com genéricos, o que permite que você especifique o tipo de elementos que a lista irá conter. Isso torna o código mais seguro e legível.
+
+5. **Iteração**:
+   - Você pode percorrer os elementos de uma lista usando um loop for, um loop for-each ou um iterador. O loop for-each é frequentemente preferido, pois é mais simples e legível.
+
+Exemplo de uso de uma lista em Java:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExemploLista {
+    public static void main(String[] args) {
+        // Criando uma lista de strings
+        List<String> listaDeNomes = new ArrayList<>();
+
+        // Adicionando elementos à lista
+        listaDeNomes.add("Alice");
+        listaDeNomes.add("Bob");
+        listaDeNomes.add("Carol");
+
+        // Acessando elementos
+        String primeiroNome = listaDeNomes.get(0);
+        System.out.println("Primeiro nome: " + primeiroNome);
+
+        // Iteração usando for-each
+        for (String nome : listaDeNomes) {
+            System.out.println(nome);
+        }
+
+        // Removendo um elemento
+        listaDeNomes.remove(1); // Remove "Bob"
+
+        // Tamanho da lista
+        int tamanho = listaDeNomes.size();
+        System.out.println("Tamanho da lista: " + tamanho);
+
+        // Verificando se a lista contém um elemento
+        boolean contemCarol = listaDeNomes.contains("Carol");
+        System.out.println("A lista contém Carol? " + contemCarol);
+    }
+}
+```
+
+Lembre-se de importar o pacote `java.util.List` e escolher a implementação de lista que melhor atende às suas necessidades, dependendo das operações que você planeja realizar com a lista.
+
+### Operações com listas
+
+Em Java, as listas oferecem uma série de operações comuns que permitem manipular os elementos armazenados nela. As operações básicas incluem adicionar, remover, acessar, verificar a presença de elementos e outras manipulações gerais. Vou descrever algumas das operações mais comuns que podem ser realizadas em listas:
+
+1. **Adicionar Elementos**:
+   - `add(E elemento)`: Adiciona um elemento ao final da lista.
+   - `add(int índice, E elemento)`: Insere um elemento em uma posição específica da lista.
+
+2. **Acessar Elementos**:
+   - `get(int índice)`: Retorna o elemento na posição especificada.
+   - `set(int índice, E elemento)`: Substitui o elemento na posição especificada por um novo elemento.
+
+3. **Remover Elementos**:
+   - `remove(int índice)`: Remove o elemento na posição especificada.
+   - `remove(Object objeto)`: Remove a primeira ocorrência do elemento especificado na lista.
+
+4. **Tamanho e Verificação**:
+   - `size()`: Retorna o número de elementos na lista.
+   - `isEmpty()`: Retorna true se a lista estiver vazia, caso contrário, retorna false.
+   - `contains(Object objeto)`: Verifica se a lista contém o elemento especificado.
+
+5. **Iteração**:
+   - Usando loops `for` ou `for-each` para percorrer os elementos da lista.
+   - Usando um iterador com os métodos `iterator()`, `forEach()`, `forEachRemaining()`, entre outros.
+
+6. **Ordenação**:
+   - Você pode classificar uma lista usando o método `sort(Comparator<? super E> c)` da classe `Collections`, que aceita um comparador personalizado para definir a ordem.
+
+7. **Limpeza da Lista**:
+   - `clear()`: Remove todos os elementos da lista, deixando-a vazia.
+
+8. **Sublistas**:
+   - `subList(int de, int até)`: Retorna uma sublista contendo elementos da posição "de" (inclusivo) até a posição "até" (exclusivo).
+
+Lembre-se de que a disponibilidade dessas operações pode variar dependendo da implementação da lista que você está usando (por exemplo, `ArrayList` ou `LinkedList`). Além disso, a eficiência dessas operações pode ser diferente entre as implementações, o que pode afetar o desempenho, especialmente em cenários com muitas inserções e remoções.
+
+A escolha da implementação de lista depende das necessidades do seu aplicativo e das operações que você pretende realizar com a lista. O Java fornece flexibilidade para escolher a implementação mais adequada para o seu caso de uso.
+
