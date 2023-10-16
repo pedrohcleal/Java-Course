@@ -101,3 +101,66 @@ As operações em arrays em Java incluem uma variedade de ações que você pode
 11. **Verificação de igualdade**: Para verificar se dois arrays são iguais em conteúdo, você pode usar o método `Arrays.equals()`.
 
 Lembre-se de que o tratamento de exceções é importante ao lidar com arrays, especialmente ao acessar elementos usando índices. Certifique-se de verificar os limites do array para evitar exceções `ArrayIndexOutOfBoundsException`. Além disso, considere usar as classes da biblioteca Java, como `Arrays` e `Collections`, que fornecem métodos úteis para muitas operações comuns em arrays e coleções.
+
+### Array de objetos no Java
+
+Um array de objetos em Java é uma estrutura de dados que permite armazenar múltiplos objetos de uma classe específica sob um único nome. Cada elemento do array contém uma referência a um objeto da classe, não o objeto em si. Isso significa que os objetos em um array são manipulados por referência. Aqui está uma visão geral de como trabalhar com arrays de objetos em Java:
+
+1. **Declaração de um array de objetos**:
+   Para declarar um array de objetos em Java, você deve especificar o tipo da classe dos objetos, seguido pelo nome do array e os colchetes `[]`. Por exemplo:
+   
+   ```java
+   MinhaClasse[] meuArray; // Declara um array de objetos da classe MinhaClasse
+   ```
+
+2. **Inicialização de um array de objetos**:
+   Após declarar o array, você pode inicializá-lo de duas maneiras:
+
+   a. **Usando `new`**:
+      Você pode criar uma instância do array com um tamanho específico usando a palavra-chave `new`:
+   
+      ```java
+      meuArray = new MinhaClasse[5]; // Cria um array de objetos da classe MinhaClasse com 5 elementos
+      ```
+
+   b. **Atribuição direta de objetos**:
+      Você pode criar objetos da classe diretamente e atribuí-los ao array:
+   
+      ```java
+      MinhaClasse[] meuArray = new MinhaClasse[3]; // Cria um array com espaço para 3 objetos
+      meuArray[0] = new MinhaClasse(); // Inicializa o primeiro objeto
+      meuArray[1] = new MinhaClasse(); // Inicializa o segundo objeto
+      meuArray[2] = new MinhaClasse(); // Inicializa o terceiro objeto
+      ```
+
+3. **Acesso a objetos no array**:
+   Os objetos no array são acessados por meio de seus índices. O índice do primeiro elemento é 0, o do segundo é 1 e assim por diante. Você pode acessar os métodos e atributos dos objetos da classe da seguinte maneira:
+
+   ```java
+   MinhaClasse objeto1 = meuArray[0]; // Acessa o primeiro objeto no array
+   objeto1.metodo(); // Chama um método da classe
+   int valor = objeto1.atributo; // Acessa um atributo da classe
+   ```
+
+4. **Iteração sobre objetos no array**:
+   Você pode percorrer os objetos em um array de objetos usando loops `for` ou `foreach`:
+
+   ```java
+   for (int i = 0; i < meuArray.length; i++) {
+       MinhaClasse objeto = meuArray[i];
+       // Faça algo com a instância da classe MinhaClasse
+   }
+   
+   // Usando foreach (disponível a partir do Java 5)
+   for (MinhaClasse objeto : meuArray) {
+       // Faça algo com a instância da classe MinhaClasse
+   }
+   ```
+
+5. **Redimensionamento de arrays de objetos**:
+   Em Java, os arrays têm tamanho fixo após a sua criação. Se você precisar adicionar ou remover objetos dinamicamente, é recomendável considerar o uso de coleções, como `ArrayList`, que permitem redimensionamento dinâmico.
+
+6. **Operações comuns em arrays de objetos**:
+   As operações comuns em arrays de objetos incluem adicionar, remover, encontrar, ordenar e modificar objetos. Você pode fazer essas operações usando loops e métodos da classe da mesma forma que faria com objetos independentes.
+
+Lembre-se de que, em um array de objetos, você está manipulando referências aos objetos, não os objetos reais. Portanto, qualquer modificação em um objeto refletirá nas outras referências a esse objeto no array. Certifique-se de compreender bem a manipulação de objetos e referências para evitar resultados inesperados.
