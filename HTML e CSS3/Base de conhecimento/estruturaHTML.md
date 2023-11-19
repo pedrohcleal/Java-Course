@@ -62,179 +62,109 @@ O HTML, que significa Linguagem de Marcação de Hipertexto (em inglês, Hyperte
 Essa é uma estrutura HTML básica. Ao utilizar esses elementos de maneira combinada e adequada, os desenvolvedores podem criar páginas web bem estruturadas e apresentáveis.
 
 ## Tags
+### Lista de Tags HTML
 
-HTML Meta Tags
-DOCTYPE, title, link, meta and style
+- `<!-- -->`: Este tag é utilizado para aplicar comentários em um documento HTML.
 
-HTML Text Tags
-<p>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <strong>, <em>, <abbr>, <acronym>, <address>, <bdo>, <blockquote>, <cite>, <q>, <code>, <ins>, <del>, <dfn>, <kbd>, <pre>, <samp>, <var> and <br>
+- `<!DOCTYPE>`: Este tag é utilizado para especificar a versão do HTML.
 
-HTML Link Tags
-<a> and <base>
+### A
 
-HTML Image and Object Tags
-<img>, <area>, <map>, <param> and <object>
+- `<a>`: Conhecido como tag de âncora, cria um hyperlink ou link.
+- `<abbr>`: Define uma abreviação para uma frase ou palavra mais longa.
+- `<acronym>`: Define um acrônimo para uma palavra. (Não suportado no HTML5)
+- `<address>`: Define as informações de contato do autor do artigo HTML.
+- `<applet>`: Define um applet Java incorporado. (Não suportado no HTML5)
+- `<area>`: Define a área de um mapa de imagem.
+- `<article>`: Define o conteúdo autocontido.
+- `<aside>`: Define o conteúdo separado do conteúdo principal, geralmente representado como uma barra lateral.
+- `<audio>`: É usado para incorporar conteúdo sonoro em um documento HTML.
 
-HTML List Tags
-<ul>, <ol>, <li>, <dl>, <dt> and <dd>
+### B
 
-HTML Table Tags
-table, tr, td, th, tbody, thead, tfoot, col, colgroup and caption
+- `<b>`: É usado para tornar o texto em negrito.
+- `<base>`: Este tag define a URL base para todas as URLs relativas dentro do documento.
+- `<basefont>`: Este tag é usado para definir a fonte padrão, tamanho e cor para todos os elementos do documento. (Não suportado no HTML5)
+- `<bdi>`: Este tag é usado para isolar uma parte do texto que pode ser formatada em direções diferentes do texto circundante.
+- `<bdo>`: É usado para substituir a direção de texto atual.
+- `<big>`: Este tag é usado para aumentar o tamanho da fonte em um nível maior que o conteúdo circundante. (Não suportado no HTML5)
+- `<blockquote>`: É usado para definir um conteúdo que é retirado de outra fonte.
+- `<body>`: É usado para definir a seção do corpo de um documento HTML.
+- `<br>`: É usado para aplicar uma quebra de linha simples.
+- `<button>`: Representa um botão clicável.
 
-HTML Form Tags
-form, input, textarea, select, option, optgroup, button, label, fieldset and legend
+### C
 
-HTML Scripting Tags
-script and noscript
+- `<canvas>`: É usado para fornecer um espaço gráfico dentro de um documento da web.
+- `<caption>`: É usado para definir uma legenda para uma tabela.
+- `<center>`: É usado para alinhar o conteúdo no centro. (Não suportado no HTML5)
+- `<cite>`: É usado para definir o título do trabalho, livro, site, etc.
+- `<code>`: É usado para exibir uma parte do código de programação em um documento HTML.
+- `<col>`: Define uma coluna dentro de uma tabela que representa propriedades comuns das colunas e é usado com o elemento `<colgroup>`.
+- `<colgroup>`: É usado para definir um grupo de colunas em uma tabela.
 
-Note: We will see examples using these tags in later charters.
-HTML Tags List
-Following is the complete list of HTML tags with the description which are arranged alphabetically.
+### D
 
-Note: Here HTML Tags Listrepresents newly added Elements in HTML5.
-HTML Tags by Alphabets
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-Tag name	Description
-<!-- -->	This tag is used to apply comment in an HTML document.
-<!DOCTYPE>	This tag is used to specify the version of HTML
-A
-<a>	It is termed as anchor tag and it creates a hyperlink or link.
-<abbr>	It defines an abbreviation for a phrase or longer word.
-<acronym>	It defines acronym for a word. (Not supported in HTML5)
-<address>	It defines the author's contact information of the HTML article
-<applet>	It defines an embedded Java applet. (Not supported in HTML5)
-<area>	It defines the area of an image map.
-<article>HTML Tags List	It defines the self-contained content.
-<aside>HTML Tags List	It defines content aside from main content. Mainly represented as sidebar.
-<audio>HTML Tags List	It is used to embed sound content in HTML document.
-B
-<b>	It is used to make a text bold.
-<base>	This tag defines the base URL for all relative URL within the document.
-<basefont>	This tag is used to set default font, size and color for all elements of document. (Not supported in HTML5)
-<bdi>HTML Tags List	This tag is used to provide isolation for that part of text which may be formatted in different directions from its surrounding text.
-<bdo>	It is used to override the current text direction.
-<big>	This tag is used to make font size one level larger than its surrounding content. (Not supported in HTML5)
-<blockquote>	It is used to define a content which is taken from another source.
-<body>	It is used to define the body section of an HTML document.
-<br>	It is used to apply single line break.
-<button>	It is used to represent a clickable button
-C
-<canvas>HTML Tags List	It is used to provide a graphics space within a web document.
-<caption>	It is used to define a caption for a table.
-<center>	It is used to align the content in center. (Not supported in HTML5)
-<cite>	It is used to define the title of the work, book, website, etc.
-<code>	It is used to display a part of programming code in an HTML document.
-<col>	It defines a column within a table which represent common properties of columns and used with the <colgroup> element.
-<colgroup>	It is used to define group of columns in a table.
-D
-<data>HTML Tags List	It is used to link the content with the machine-readable translation.
-<datalist>HTML Tags List	It is used to provide a predefined list for input option.
-<dd>	It is used to provide definition/description of a term in description list.
-<del>	It defines a text which has been deleted from the document.
-<details>HTML Tags List	It defines additional details which user can either view or hide.
-<dfn>	It is used to indicate a term which is defined within a sentence/phrase.
-<dialog>HTML Tags List	It defines a dialog box or other interactive components.
-<dir>	It is used as container for directory list of files. (Not supported in HTML5)
-<div>	It defines a division or section within HTML document.
-<dl>	It is sued to define a description list.
-<dt>	It is used to define a term in description list.
-E
-<em>	It is used to emphasis the content applied within this element.
-<embed>HTML Tags List	It is used as embedded container for external file/application/media, etc.
-F
-<fieldset>	It is used to group related elements/labels within a web form.
-<figcaption>HTML Tags List	It is used to add a caption or explanation for the <figure> element.
-<figure>HTML Tags List	It is used to define the self-contained content, and s mostly refer as single unit.
-<font>	It defines the font, size, color, and face for the content. (Not supported in HTML5)
-<footer>HTML Tags List	It defines the footer section of a webpage.
-<form>	It is used to define an HTML form.
-<frame>	It defines a particular area of webpage which can contain another HTML file. (Not supported in HTML5)
-<frameset>	It defines group of Frames. (Not supported in HTML5)
-H
-<h1> to <h6>	It defines headings for an HTML document from level 1 to level 6.
-<head>	It defines the head section of an HTML document.
-<header>HTML Tags List	It defines the header of a section or webpage.
-<hr>	It is used to apply thematic break between paragraph-level elements.
-<html>	It represents root of an HTML document.
-I
-<i>	It is used to represent a text in some different voice.
-<iframe>	It defines an inline frame which can embed other content.
-<img>	It is used to insert an image within an HTML document.
-<input>	It defines an input field within an HTML form.
-<ins>	It represent text that has been inserted within an HTML document.
-<isindex>	It is used to display search string for current document. (Not supported in HTML5)
-K
-<kbd>	It is used to define keyboard input.
-L
-<label>	It defines a text label for the input field of form.
-<legend>	It defines a caption for content of <fieldset>
-<li>	It is used to represent items in list.
-<link>	It represents a relationship between current document and an external resource.
-M
-<main>HTML Tags List	It represents the main content of an HTML document.
-<map>	It defines an image map with active areas.
-<mark>HTML Tags List	It represents a highlighted text.
-<marquee>	It is used to insert the scrolling text or an image either horizontally or vertically. (Not supported in HTML5)
-<menu>	It is used for creating a menu list of commands.
-<meta>	It defines metadata of an HTML document.
-<meter>HTML Tags List	It defines scalar measurement with known range or fractional value.
-N
-<nav>HTML Tags List	It represents section of page to represent navigation links.
-<noframes>	It provides alternate content to represent in browser which does not support the <frame> elements. (Not supported in HTML5)
-<noscript>	It provides an alternative content if a script type is not supported in browser.
-O
-<object>	It is used to embed an object in HTML file.
-<ol>	It defines an ordered list of items.
-<optgroup>	It is used to group the options of a drop-down list.
-<option>	It is used to define options or items in a drop-down list.
-<output>HTML Tags List	It is used as container element which can show result of a calculation.
-P
-<p>	It represents a paragraph in an HTML document.
-<param>	It defines parameter for an <object> element
-<picture>HTML Tags List	It defines more than one source element and one image element.
-<pre>	It defines preformatted text in an HTML document.
-<progress>HTML Tags List	It defines the progress of a task within HTML document.
-Q
-<q>	It defines short inline quotation.
-R
-<rp>HTML Tags List	It defines an alternative content if browser does not supports ruby annotations.
-<rt>	It defines explanations and pronunciations in ruby annotations.
-<ruby>	It is used to represent ruby annotations.
-S
-<s>	It render text which is no longer correct or relevant.
-<samp>	It is used to represent sample output of a computer program.
-<script>	It is used to declare the JavaScript within HTML document.
-<section>HTML Tags List	It defines a generic section for a document.
-<select>	It represents a control which provides a menu of options.
-<small>	It is used to make text font one size smaller than document?s base font size.
-<source>>HTML Tags List	It defines multiple media recourses for different media element such as <picture>, <video>, and <audio> element.
-<span>	It is used for styling and grouping inline.
-<strike>	It is used to render strike through the text. (Not supported in HTML5)
-<strong>	It is used to define important text.
-<style>	It is used to contain style information for an HTML document.
-<sub>	It defines a text which displays as a subscript text.
-<summary>HTML Tags List	It defines summary which can be used with <details> tag.
-<sup>	It defines a text which represent as superscript text.
-<svg>	It is used as container of SVG (Scalable Vector Graphics).
-T
-<table>	It is used to present data in tabular form or to create a table within HTML document.
-<tbody>	It represents the body content of an HTML table and used along with <thead> and <tfoot>.
-<td>	It is used to define cells of an HTML table which contains table data
-<template>	It is used to contain the client side content which will not display at time of page load and may render later using JavaScript.
-<textarea>	It is used to define multiple line input, such as comment, feedback, and review, etc.
-<tfoot>	It defines the footer content of an HTML table.
-<th>	It defines the head cell of an HTML table.
-<thead>	It defines the header of an HTML table. It is used along with <tbody> and <tfoot> tags.
-<time>HTML Tags List	It is used to define data/time within an HTML document.
-<title>	It defines the title or name of an HTML document.
-<tr>	It defines the row cells in an HTML table
-<track>	It is used to define text tracks for <audio> and <video> elements.
-<tt>	It is used to define teletype text. (Not supported in HTML5)
-U
-<u>	It is used to render enclosed text with an underline.
-<ul>	It defines unordered list of items.
-V
-<var>	It defines variable name used in mathematical or programming context.
-<video>HTML Tags List	It is used to embed a video content with an HTML document
-W
-<wbr>HTML Tags List	It defines a position within text where break line is possible.
+- `<data>`: É usado para vincular o conteúdo à tradução legível por máquina.
+- `<datalist>`: É usado para fornecer uma lista predefinida para opções de entrada.
+- `<dd>`: É usado para fornecer uma definição/descrição de um termo em uma lista de descrição.
+- `<del>`: Define um texto que foi excluído do documento.
+- `<details>`: Define detalhes adicionais que o usuário pode visualizar ou ocultar.
+- `<dfn>`: É usado para indicar um termo definido dentro de uma sentença/frase.
+- `<dialog>`: Define uma caixa de diálogo ou outros componentes interativos.
+- `<dir>`: É usado como contêiner para uma lista de diretórios de arquivos. (Não suportado no HTML5)
+- `<div>`: Define uma divisão ou seção dentro do documento HTML.
+- `<dl>`: É usado para definir uma lista de descrição.
+- `<dt>`: É usado para definir um termo em uma lista de descrição.
+
+### E
+
+- `<em>`: É usado para enfatizar o conteúdo aplicado dentro deste elemento.
+- `<embed>`: É usado como um contêiner incorporado para arquivos/aplicativos/mídias externas, etc.
+
+### F
+
+- `<fieldset>`: É usado para agrupar elementos/rótulos relacionados dentro de um formulário da web.
+- `<figcaption>`: É usado para adicionar uma legenda ou explicação para o elemento `<figure>`.
+- `<figure>`: É usado para definir o conteúdo autocontido, geralmente referido como uma única unidade.
+- `<font>`: Define a fonte, tamanho, cor e face para o conteúdo. (Não suportado no HTML5)
+- `<footer>`: Define a seção de rodapé de uma página da web.
+- `<form>`: É usado para definir um formulário HTML.
+- `<frame>`: Define uma área específica de uma página da web que pode conter outro arquivo HTML. (Não suportado no HTML5)
+- `<frameset>`: Define um grupo de frames. (Não suportado no HTML5)
+
+### H
+
+- `<h1>` a `<h6>`: Define cabeçalhos para um documento HTML de nível 1 a nível 6.
+- `<head>`: Define a seção de cabeçalho de um documento HTML.
+- `<header>`: Define o cabeçalho de uma seção ou página da web.
+- `<hr>`: É usado para aplicar uma quebra temática entre elementos de nível de parágrafo.
+- `<html>`: Representa a raiz de um documento HTML.
+
+### I
+
+- `<i>`: É usado para representar um texto em uma voz diferente.
+- `<iframe>`: Define um quadro inline que pode incorporar outro conteúdo.
+- `<img>`: É usado para inserir uma imagem dentro de um documento HTML.
+- `<input>`: Define um campo de entrada dentro de um formulário HTML.
+- `<ins>`: Representa um texto que foi inserido em um documento HTML.
+- `<isindex>`: É usado para exibir uma string de pesquisa para o documento atual. (Não suportado no HTML5)
+
+### K
+
+- `<kbd>`: É usado para definir a entrada do teclado.
+
+### L
+
+- `<label>`: Define um rótulo de texto para o campo de entrada de um formulário.
+- `<legend>`: Define uma legenda para o conteúdo de `<fieldset>`.
+- `<li>`: É usado para representar itens em uma lista.
+- `<link>`: Representa uma relação entre o documento atual e um recurso externo.
+
+### M
+
+- `<main>`: Representa o conteúdo principal de um documento HTML.
+- `<map>`: Define um mapa de imagem com áreas ativas.
+- `<mark>`: Representa um texto destacado.
+- `<marquee>`: É usado para inserir texto rolando ou uma imagem horizontal ou verticalmente. (Não suportado no HTML5)
+- `<menu>`: É usado para criar uma lista de comand
