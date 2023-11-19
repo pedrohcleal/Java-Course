@@ -61,6 +61,88 @@ O HTML, que significa Linguagem de Marcação de Hipertexto (em inglês, Hyperte
 
 Essa é uma estrutura HTML básica. Ao utilizar esses elementos de maneira combinada e adequada, os desenvolvedores podem criar páginas web bem estruturadas e apresentáveis.
 
+## Regras de estrutura
+
+As regras de estrutura de código em HTML são diretrizes que ajudam os desenvolvedores a criar documentos web consistentes, legíveis e semanticamente corretos. Aqui estão algumas das principais regras e boas práticas a serem consideradas:
+
+1. **Indentação:**
+   Use indentação consistente para tornar o código mais legível. A indentação geralmente é feita com espaços ou tabulações. Escolha uma convenção e mantenha-a em todo o seu código.
+
+   Exemplo:
+   ```html
+   <html>
+      <head>
+         <title>Título da Página</title>
+      </head>
+      <body>
+         <h1>Meu Título</h1>
+         <p>Este é um parágrafo de exemplo.</p>
+      </body>
+   </html>
+   ```
+
+2. **Minimizar o Uso de Elementos Globais:**
+   Evite o uso excessivo de elementos globais como `<div>` e `<span>`. Sempre que possível, use elementos semânticos que descrevam melhor o conteúdo, como `<header>`, `<footer>`, `<article>`, etc.
+
+3. **Semântica:**
+   Utilize a semântica apropriada para descrever o significado do conteúdo. Escolha os elementos HTML que melhor representam a estrutura e a hierarquia do seu documento.
+
+   Exemplo:
+   ```html
+   <header>
+      <h1>Título Principal</h1>
+   </header>
+   <nav>
+      <ul>
+         <li><a href="#">Link 1</a></li>
+         <li><a href="#">Link 2</a></li>
+      </ul>
+   </nav>
+   <main>
+      <article>
+         <h2>Artigo 1</h2>
+         <p>Conteúdo do artigo.</p>
+      </article>
+   </main>
+   <footer>
+      <p>Rodapé da página.</p>
+   </footer>
+   ```
+
+4. **Atributos:**
+   Use aspas duplas para os valores dos atributos e evite o uso de atributos redundantes.
+
+   Exemplo:
+   ```html
+   <a href="https://www.example.com" target="_blank">Link Externo</a>
+   ```
+
+5. **Autofechamento de Tags:**
+   Para tags que não têm conteúdo interno, como `<img>` e `<br>`, use a forma auto-fechada.
+
+   Exemplo:
+   ```html
+   <img src="imagem.jpg" alt="Descrição da imagem">
+   <br>
+   ```
+
+6. **Comentários:**
+   Utilize comentários para documentar o seu código. Isso pode ser especialmente útil ao trabalhar em equipes ou para fornecer explicações sobre partes específicas do código.
+
+   Exemplo:
+   ```html
+   <!-- Este é um comentário -->
+   <p>Conteúdo do parágrafo.</p>
+   ```
+
+7. **Validação:**
+   Certifique-se de que seu código HTML seja válido. Você pode usar serviços online de validação HTML para garantir que seu código atenda aos padrões estabelecidos.
+
+8. **Compatibilidade com Navegadores:**
+   Teste seu código em diferentes navegadores para garantir a compatibilidade. Considere o uso de folhas de estilo (CSS) para lidar com estilos específicos do navegador.
+
+Lembre-se de que estas são apenas diretrizes gerais, e a escolha de seguir algumas dessas práticas pode depender do contexto específico do projeto. O objetivo é manter o código claro, organizado e fácil de entender.
+
 ## Tags
 ### Lista de Tags HTML
 
