@@ -270,8 +270,7 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
 
 1. **@Override:**
    - Usada para indicar que um método na subclasse está sobrescrevendo um método da superclasse.
-   **@Override:**
-   ```java
+```java
    class Animal {
        void fazerBarulho() {
            System.out.println("Barulho genérico de animal");
@@ -284,44 +283,41 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
            System.out.println("Latido de cachorro");
        }
    }
-   ```
+```
 2. **@Deprecated:**
    - Marcador para indicar que uma classe, método, campo ou construtor está obsoleta ou desencorajado e pode ser removido em versões futuras.
-   - **@Deprecated:**
-   ```java
+```java
    class Produto {
        @Deprecated
        void calcularPreco() {
            // lógica de cálculo de preço
        }
    }
-   ```
+```
 
 3. **@SuppressWarnings:**
    - Usada para suprimir avisos do compilador em relação a tipos específicos de problemas, como avisos de depreciação ou avisos não verificados.
-   - **@SuppressWarnings:**
-   ```java
+```java
    class Exemplo {
        @SuppressWarnings("unchecked")
        void exemplo() {
            // código com advertência suprimida
        }
    }
+```
 
 4. **@FunctionalInterface:**
    - Indica que uma interface deve ser uma interface funcional, ou seja, uma interface com apenas um método abstrato (além de métodos default ou estáticos).
-   - **@FunctionalInterface:**
-   ```java
+```java
    @FunctionalInterface
    interface Calculadora {
        int calcular(int a, int b);
    }
-   ```
+```
 
 5. **@Entity, @Table, @Column (Java Persistence API - JPA):**
    - Usadas para mapear classes Java para tabelas de banco de dados, especificando detalhes como o nome da tabela, nome da coluna, etc.
-   - **@Entity, @Table, @Column (Java Persistence API - JPA):**
-   ```java
+```java
    @Entity
    @Table(name = "usuarios")
    public class Usuario {
@@ -332,12 +328,11 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
        @Column(name = "nome")
        private String nome;
    }
-   ```
+```
 
 6. **@Autowired, @Component, @Service, @Repository (Spring Framework):**
    - Usadas para configuração e injeção de dependências no contexto do Spring Framework.
-   - **@Autowired, @Component, @Service, @Repository (Spring Framework):**
-   ```java
+```java
    @Service
    public class ServicoExemplo {
        @Autowired
@@ -345,12 +340,11 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
 
        // Métodos do serviço
    }
-   ```
+```
 
 7. **@RequestMapping, @GetMapping, @PostMapping (Spring MVC):**
    - Usadas para mapear métodos em controladores Spring para manipular solicitações HTTP específicas.
-   - **@RequestMapping, @GetMapping, @PostMapping (Spring MVC):**
-   ```java
+```java
    @Controller
    @RequestMapping("/exemplo")
    public class ControladorExemplo {
@@ -359,12 +353,11 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
            return "pagina";
        }
    }
-   ```
+```
 
 8. **@NotNull, @Size, @Pattern (Bean Validation):**
    - Usadas para especificar restrições em campos de entidades para validação de dados.
-   - **@NotNull, @Size, @Pattern (Bean Validation):**
-   ```java
+```java
    public class Usuario {
        @NotNull
        @Size(min = 3, max = 50)
@@ -373,12 +366,11 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
        @Pattern(regexp = "[a-zA-Z0-9]+")
        private String username;
    }
-   ```
+```
 
 9. **@Test (JUnit):**
    - Usada para marcar métodos de teste que serão executados pelo framework de teste JUnit.
-   - **@Test (JUnit):**
-   ```java
+ ```java
    import org.junit.Test;
    import static org.junit.Assert.assertEquals;
 
@@ -388,12 +380,12 @@ Em Java, existem várias anotações que são comumente utilizadas para fornecer
            assertEquals(4, 2 + 2);
        }
    }
-   ```
+ ```
 
 10. **@Override, @FunctionalInterface, @SafeVarargs (Java 7+):**
     - Adicionadas em versões mais recentes do Java, essas anotações fornecem informações adicionais ao compilador.
-    - **@Override, @FunctionalInterface, @SafeVarargs (Java 7+):**
-    ```java
+  
+  ```java
     public interface ExemploInterface {
         @Override
         void metodoAbstrato();
