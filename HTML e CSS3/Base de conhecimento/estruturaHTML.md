@@ -161,10 +161,81 @@ Essa é uma estrutura HTML básica. Ao utilizar esses elementos de maneira combi
 - `<li>`: É usado para representar itens em uma lista.
 - `<link>`: Representa uma relação entre o documento atual e um recurso externo.
 
-### M
-
+**M**
 - `<main>`: Representa o conteúdo principal de um documento HTML.
 - `<map>`: Define um mapa de imagem com áreas ativas.
 - `<mark>`: Representa um texto destacado.
-- `<marquee>`: É usado para inserir texto rolando ou uma imagem horizontal ou verticalmente. (Não suportado no HTML5)
-- `<menu>`: É usado para criar uma lista de comand
+- `<marquee>`: Usado para inserir texto em rolagem ou uma imagem, seja horizontal ou verticalmente. (Não suportado no HTML5)
+- `<menu>`: Usado para criar uma lista de comandos de menu.
+- `<meta>`: Define metadados de um documento HTML.
+- `<meter>`: Define uma medição escalar com um intervalo conhecido ou valor fracionário.
+
+**N**
+- `<nav>`: Representa uma seção da página para representar links de navegação.
+- `<noframes>`: Fornece conteúdo alternativo para ser exibido em navegadores que não suportam elementos `<frame>`. (Não suportado no HTML5)
+- `<noscript>`: Fornece um conteúdo alternativo se um tipo de script não for suportado no navegador.
+
+**O**
+- `<object>`: Usado para incorporar um objeto no arquivo HTML.
+- `<ol>`: Define uma lista ordenada de itens.
+- `<optgroup>`: Usado para agrupar as opções de uma lista suspensa.
+- `<option>`: Define opções ou itens em uma lista suspensa.
+- `<output>`: Usado como um elemento de contêiner que pode mostrar o resultado de um cálculo.
+
+**P**
+- `<p>`: Representa um parágrafo em um documento HTML.
+- `<param>`: Define um parâmetro para um elemento `<object>`.
+- `<picture>`: Define mais de um elemento de origem e um elemento de imagem.
+- `<pre>`: Define texto pré-formatado em um documento HTML.
+- `<progress>`: Define o progresso de uma tarefa dentro de um documento HTML.
+
+**Q**
+- `<q>`: Define uma citação curta e inline.
+
+**R**
+- `<rp>`: Define um conteúdo alternativo se o navegador não suportar anotações ruby.
+- `<rt>`: Define explicações e pronúncias em anotações ruby.
+- `<ruby>`: Usado para representar anotações ruby.
+
+**S**
+- `<s>`: Renderiza texto que não é mais correto ou relevante.
+- `<samp>`: Usado para representar a saída de exemplo de um programa de computador.
+- `<script>`: Usado para declarar JavaScript dentro de um documento HTML.
+- `<section>`: Define uma seção genérica para um documento.
+- `<select>`: Representa um controle que fornece um menu de opções.
+- `<small>`: Usado para tornar o tamanho da fonte do texto um tamanho menor que o tamanho de base do documento.
+- `<source>`: Define vários recursos de mídia para diferentes elementos de mídia, como `<picture>`, `<video>` e `<audio>`.
+- `<span>`: Usado para estilização e agrupamento inline.
+- `<strike>`: Usado para exibir texto com um risco. (Não suportado no HTML5)
+- `<strong>`: Usado para definir texto importante.
+- `<style>`: Usado para conter informações de estilo para um documento HTML.
+- `<sub>`: Define um texto que é exibido como texto subscrito.
+- `<summary>`: Define um resumo que pode ser usado com a tag `<details>`.
+- `<sup>`: Define um texto que é representado como texto sobrescrito.
+- `<svg>`: Usado como contêiner para SVG (Gráficos Vetoriais Escaláveis).
+
+**T**
+- `<table>`: Usado para apresentar dados em formato tabular ou para criar uma tabela dentro de um documento HTML.
+- `<tbody>`: Representa o conteúdo do corpo de uma tabela HTML e é usado junto com as tags `<thead>` e `<tfoot>`.
+- `<td>`: Usado para definir células de uma tabela HTML que contêm dados de tabela.
+- `<template>`: Usado para conter conteúdo do lado do cliente que não será exibido no carregamento da página e pode ser renderizado posteriormente usando JavaScript.
+- `<textarea>`: Usado para definir entrada de várias linhas, como comentários, feedback e revisões, etc.
+- `<tfoot>`: Define o conteúdo do rodapé de uma tabela HTML.
+- `<th>`: Define a célula de cabeçalho de uma tabela HTML.
+- `<thead>`: Define o cabeçalho de uma tabela HTML e é usado junto com as tags `<tbody>` e `<tfoot>`.
+- `<time>`: Usado para definir data/hora dentro de um documento HTML.
+- `<title>`: Define o título ou nome de um documento HTML.
+- `<tr>`: Define as células de uma linha em uma tabela HTML.
+- `<track>`: Usado para definir trilhas de texto para elementos `<audio>` e `<video>`.
+- `<tt>`: Usado para definir texto de teletipo. (Não suportado no HTML5)
+
+**U**
+- `<u>`: Usado para renderizar texto com sublinhado.
+- `<ul>`: Define uma lista não ordenada de itens.
+
+**V**
+- `<var>`: Define o nome de uma variável usado em um contexto matemático ou de programação.
+- `<video>`: Usado para incorporar um conteúdo de vídeo em um documento HTML.
+
+**W**
+- `<wbr>`: Define uma posição dentro do texto onde uma quebra de linha é possível.
