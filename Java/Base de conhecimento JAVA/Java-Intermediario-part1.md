@@ -200,12 +200,10 @@ Em Java, as classes são a base da programação orientada a objetos (POO) e des
 
        public void depositar(double valor) {
            // Implementação para depositar dinheiro
-            this.saldo += valor;
        }
 
        public void sacar(double valor) {
            // Implementação para sacar dinheiro
-            this.saldo -= valor;
        }
 
        public double getSaldo() {
