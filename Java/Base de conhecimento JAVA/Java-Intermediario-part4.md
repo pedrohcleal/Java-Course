@@ -69,3 +69,66 @@ for (int numero : numeros) {
 Neste exemplo, a variável `numero` assume cada valor presente no array `numeros` a cada iteração do loop, eliminando a necessidade de gerenciar índices manualmente.
 
 O laço for-each é mais conciso, legível e menos propenso a erros em comparação com o loop "for" tradicional ao iterar sobre coleções. Entretanto, ele não é apropriado quando você precisa modificar os elementos da coleção durante a iteração ou quando precisa acessar elementos usando índices específicos. Além disso, funciona apenas em coleções que implementam a interface `Iterable` (como arrays, listas e conjuntos).
+
+## Expressão Lambda
+
+Em Java, expressões lambda introduzidas no Java 8 são uma adição importante para facilitar a programação funcional. As expressões lambda permitem tratar as funções como entidades de primeira classe, possibilitando a criação de funções inline de forma concisa. Essa funcionalidade é especialmente útil ao lidar com interfaces funcionais, que são interfaces que têm apenas um método abstrato e são usadas frequentemente em programação funcional.
+
+A sintaxe básica de uma expressão lambda é a seguinte:
+
+```java
+(parametros) -> expressao
+```
+
+Aqui estão alguns pontos chave sobre expressões lambda em Java:
+
+1. **Sintaxe Básica:**
+   - Uma expressão lambda é composta por uma lista de parâmetros, uma seta (`->`), e uma expressão ou um bloco de código.
+   - Se a expressão lambda não tiver parâmetros, você ainda precisa incluir os parênteses vazios `()`. Exemplo: `() -> System.out.println("Hello, Lambda!");`
+
+2. **Utilização com Interfaces Funcionais:**
+   - Expressões lambda são frequentemente usadas em conjunto com interfaces funcionais.
+   - Uma interface funcional é aquela que contém apenas um método abstrato. Exemplos incluem `Runnable`, `Callable`, `Comparator`, etc.
+
+3. **Exemplos:**
+   - Exemplo usando `Runnable`:
+
+     ```java
+     Runnable runnable = () -> System.out.println("Executando a tarefa!");
+     ```
+
+   - Exemplo usando `Comparator`:
+
+     ```java
+     List<String> lista = Arrays.asList("Maçã", "Banana", "Pera");
+     Collections.sort(lista, (s1, s2) -> s1.compareTo(s2));
+     ```
+
+   - Exemplo usando `Predicate`:
+
+     ```java
+     Predicate<Integer> isPar = (numero) -> numero % 2 == 0;
+     ```
+
+4. **Variáveis Locais e Captura de Variáveis Externas:**
+   - Expressões lambda podem acessar variáveis locais e parâmetros do método no qual estão definidas.
+   - No entanto, essas variáveis devem ser efetivamente finais ou, em outras palavras, não podem ser modificadas após a captura pela expressão lambda.
+
+     ```java
+     int valor = 10;
+     Consumer<Integer> consumer = (x) -> System.out.println(x + valor);
+     ```
+
+5. **Métodos de Referência:**
+   - Além de expressões lambda, o Java 8 introduziu métodos de referência, que são abreviações para a invocação de métodos existentes ou construtores.
+
+     ```java
+     // Método de referência para um método estático
+     Function<String, Integer> parseInt = Integer::parseInt;
+
+     // Método de referência para um método de instância de um objeto específico
+     String s = "Hello";
+     Predicate<String> startsWith = s::startsWith;
+     ```
+
+Expressões lambda tornam o código mais conciso e legível, especialmente ao lidar com tarefas simples e funções de ordem superior. Elas são amplamente utilizadas em APIs do Java 8 e posterior, como as Streams API, que permite operações funcionais em coleções de dados.
