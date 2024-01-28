@@ -262,3 +262,59 @@ Aqui estão alguns conceitos e operações comuns relacionados a matrizes em Jav
      ```
 
 Lembre-se de que matrizes em Java são objetos e, portanto, são passadas por referência. Isso significa que, ao passar uma matriz para um método ou atribuí-la a outra variável, você estará manipulando a mesma matriz na memória. Se precisar de uma cópia independente, considere o uso de métodos como `clone()` ou crie uma nova matriz e copie os elementos manualmente.
+
+## Data e Hora
+A `java.time` é uma API de manipulação de data e hora introduzida no Java 8 para substituir as antigas classes do pacote `java.util.date` que eram conhecidas por suas limitações e complexidades. A API `java.time` oferece uma abordagem mais moderna e flexível para lidar com operações relacionadas a datas e horas.
+
+A principal classe dessa API é `LocalDateTime`, que representa uma data e hora sem referência a um fuso horário específico. Aqui estão alguns conceitos e exemplos básicos de como usar a `java.time` para trabalhar com data e hora em Java:
+
+1. **Obtendo a data e hora atual:**
+   
+   ```java
+   LocalDateTime agora = LocalDateTime.now();
+   System.out.println("Data e Hora Atuais: " + agora);
+   ```
+
+2. **Criando objetos `LocalDateTime` manualmente:**
+
+   ```java
+   LocalDateTime dataHoraManual = LocalDateTime.of(2022, 1, 28, 12, 30);
+   System.out.println("Data e Hora Manual: " + dataHoraManual);
+   ```
+
+3. **Formatando e convertendo para String:**
+
+   ```java
+   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+   String dataFormatada = agora.format(formatter);
+   System.out.println("Data Formatada: " + dataFormatada);
+   ```
+
+4. **Parsando uma String para `LocalDateTime`:**
+
+   ```java
+   String dataString = "28/01/2022 15:45:30";
+   LocalDateTime dataParsada = LocalDateTime.parse(dataString, formatter);
+   System.out.println("Data Parsada: " + dataParsada);
+   ```
+
+5. **Operações com datas e horas:**
+
+   ```java
+   LocalDateTime futuro = agora.plusDays(7).minusHours(3);
+   System.out.println("Data e Hora no Futuro: " + futuro);
+   ```
+
+6. **Comparando datas:**
+
+   ```java
+   if (agora.isAfter(futuro)) {
+       System.out.println("A data atual é posterior à data no futuro.");
+   } else {
+       System.out.println("A data atual é anterior à data no futuro.");
+   }
+   ```
+
+Esses são apenas alguns exemplos básicos do que você pode fazer com a API `java.time`. A API também inclui outras classes, como `LocalDate` para representar apenas a data, `LocalTime` para representar apenas a hora, e classes mais avançadas para lidar com fusos horários, durações, períodos, entre outros.
+
+Lembre-se de que a `java.time` foi projetada para ser imutável e thread-safe, o que facilita a manipulação de datas e horas em ambientes concorrentes.
