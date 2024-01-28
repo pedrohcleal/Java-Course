@@ -82,3 +82,93 @@ MVC, que significa Model-View-Controller, é um padrão arquitetural amplamente 
    - O Controlador atua como um intermediário entre o Modelo e a View. Ele recebe eventos da View, processa esses eventos (normalmente interações do usuário) e atualiza o Modelo conforme necessário. O Controlador também é responsável por receber atualizações do Modelo e garantir que a View seja notificada para que ela possa atualizar a interface do usuário adequadamente. Em resumo, o Controlador gerencia o fluxo de dados entre o Modelo e a View e controla a lógica de fluxo da aplicação.
 
 A separação dessas responsabilidades no padrão MVC traz vários benefícios, como a manutenção mais fácil do código, maior reutilização de componentes e facilitação da colaboração em equipes de desenvolvimento. Além disso, a arquitetura MVC é escalável e oferece uma estrutura organizada para o desenvolvimento de aplicativos, o que é especialmente útil em projetos de grande porte. O padrão MVC é aplicado em muitos frameworks de desenvolvimento web e desktop, como Ruby on Rails, Django, Spring MVC (Java), Angular (JavaScript/TypeScript), entre outros.
+
+## Marcações
+
+No contexto do Spring Boot em Java, as annotations desempenham um papel crucial para simplificar a configuração e o desenvolvimento de aplicativos. As annotations são marcadores especiais que podem ser aplicados a classes, métodos, campos e outros elementos do código fonte. Elas fornecem metadados adicionais ao compilador ou ao ambiente de execução, permitindo que o Spring Boot realize diversas tarefas automaticamente.
+
+Aqui estão algumas das annotations mais comuns usadas no Spring Boot:
+
+1. **@SpringBootApplication:**
+   - Anotando a classe principal do aplicativo com `@SpringBootApplication`, você está marcando-a como a classe de inicialização do Spring Boot. Isso combina três outras annotations importantes: `@Configuration`, `@EnableAutoConfiguration` e `@ComponentScan`.
+
+```java
+@SpringBootApplication
+public class MinhaAplicacao {
+    public static void main(String[] args) {
+        SpringApplication.run(MinhaAplicacao.class, args);
+    }
+}
+```
+
+2. **@Controller:**
+   - Usado para marcar uma classe como um controlador no padrão MVC do Spring. Os métodos dentro dessa classe são mapeados para manipuladores de solicitação HTTP.
+
+```java
+@Controller
+public class MeuControlador {
+    @RequestMapping("/pagina")
+    public String minhaPagina() {
+        return "pagina";
+    }
+}
+```
+
+3. **@RestController:**
+   - Similar a `@Controller`, mas indica que cada método do controlador retorna diretamente dados no formato JSON, em vez de renderizar uma página HTML.
+
+```java
+@RestController
+public class MeuRestController {
+    @RequestMapping("/dados")
+    public String obterDados() {
+        return "Algum dado importante";
+    }
+}
+```
+
+4. **@RequestMapping:**
+   - Utilizada para mapear solicitações HTTP a métodos específicos. Pode ser aplicada em nível de classe ou método.
+
+```java
+@Controller
+@RequestMapping("/exemplo")
+public class ExemploController {
+    @RequestMapping("/metodo")
+    public String meuMetodo() {
+        return "pagina";
+    }
+}
+```
+
+5. **@Autowired:**
+   - Utilizada para injetar dependências automaticamente. Pode ser aplicada a construtores, métodos ou campos.
+
+```java
+@Service
+public class MeuServico {
+    private final OutroServico outroServico;
+
+    @Autowired
+    public MeuServico(OutroServico outroServico) {
+        this.outroServico = outroServico;
+    }
+}
+```
+
+6. **@Repository, @Service, @Component:**
+   - Usadas para marcar classes como componentes gerenciados pelo Spring. `@Repository` é usado para classes de acesso a dados, `@Service` para serviços e `@Component` para qualquer outro componente.
+
+```java
+@Repository
+public class MeuRepositorio {
+    // Implementação do acesso a dados
+}
+
+@Service
+public class MeuServico {
+    // Implementação do serviço
+}
+```
+
+Estas são apenas algumas das muitas annotations disponíveis no Spring Boot. Elas são essenciais para aproveitar ao máximo a automação e a configuração simplificada oferecidas pelo framework.
