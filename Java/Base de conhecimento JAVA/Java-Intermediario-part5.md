@@ -1,5 +1,6 @@
 # Part5 - Java
 
+## Enumeração
 Em Java, uma enumeração, ou simplesmente "enum", é um tipo de dado especial que consiste em um conjunto fixo de constantes nomeadas. As enums foram introduzidas no Java 5 para oferecer uma maneira mais elegante e segura de representar conjuntos de valores constantes.
 
 Aqui estão alguns pontos-chave sobre as classes Enum em Java:
