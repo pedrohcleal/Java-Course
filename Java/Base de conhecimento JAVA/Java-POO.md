@@ -68,6 +68,47 @@ public class Cachorro extends Animal {
 
 A herança em Java fornece uma maneira poderosa de organizar e estruturar o código, promovendo a reutilização e a extensibilidade. No entanto, é importante usá-la com cuidado para evitar problemas de design, como a dependência excessiva entre classes. O encapsulamento e o polimorfismo são outros conceitos que complementam a herança na POO e são frequentemente usados em conjunto para criar sistemas robustos e flexíveis.
 
+## Super()
+
+O método `super()` é uma construção em Java usada dentro dos construtores de uma subclasse para chamar explicitamente o construtor da superclasse. Esse é um conceito fundamental quando se trabalha com herança, e é usado para garantir que a inicialização adequada da parte herdada da classe ocorra.
+
+A chamada `super()` deve ser a primeira instrução no corpo do construtor da subclasse. Se não for explicitamente chamado, o Java automaticamente insere uma chamada implícita para o construtor padrão da superclasse.
+
+Aqui está um exemplo para ilustrar o uso do `super()`:
+
+```java
+class Animal {
+    String nome;
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public void emitirSom() {
+        System.out.println("Algum som genérico");
+    }
+}
+
+class Cachorro extends Animal {
+    String raca;
+
+    public Cachorro(String nome, String raca) {
+        super(nome);  // Chamada explícita ao construtor da superclasse
+        this.raca = raca;
+    }
+
+    public void latir() {
+        System.out.println("Au Au");
+    }
+}
+```
+
+Neste exemplo, a classe `Cachorro` estende a classe `Animal`. O construtor da classe `Animal` recebe um parâmetro `nome`. Para garantir que o construtor da superclasse seja chamado corretamente ao instanciar um objeto da subclasse `Cachorro`, a instrução `super(nome)` é usada no construtor da subclasse.
+
+Essencialmente, `super()` permite que a subclasse inicialize a parte herdada da sua superclasse antes de executar qualquer lógica específica da subclasse. Isso é útil para garantir que o estado da superclasse seja configurado corretamente antes que a subclasse faça suas próprias operações de inicialização.
+
+Vale notar que se a superclasse não tiver um construtor padrão (sem parâmetros), a chamada para `super()` deve incluir os argumentos necessários para corresponder a uma das assinaturas de construtores da superclasse.
+
 ## Upcasting e Downcasting
 
 Upcasting e downcasting são termos relacionados a manipulação de tipos em herança, especialmente em linguagens de programação orientadas a objetos, como Java. Vamos entender cada um desses conceitos:
