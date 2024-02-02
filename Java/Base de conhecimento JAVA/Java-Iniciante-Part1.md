@@ -57,6 +57,78 @@ O Java é uma linguagem de programação fortemente tipada e possui diversos tip
 
 É importante notar que esses tipos de dados primitivos são diferentes dos objetos em Java. Eles são eficientes em termos de espaço de memória e operações de baixo nível, o que os torna úteis em situações onde a eficiência é importante. Além disso, Java também suporta tipos de dados não primitivos, conhecidos como tipos de referência, que são criados a partir de classes e oferecem funcionalidades mais avançadas.
 
+### tipo var
+
+Em Java, o tipo de dado `var` foi introduzido no Java 10 como parte das melhorias da inferência de tipo, permitindo a declaração de variáveis locais sem a necessidade de especificar explicitamente o tipo da variável. É importante observar que o `var` é utilizado apenas para variáveis locais e não pode ser utilizado para campos de classe, parâmetros de método ou variáveis de instância.
+
+A utilização do `var` está associada à inferência de tipo, o que significa que o compilador deduzirá automaticamente o tipo da variável com base no tipo do valor atribuído a ela. Isso é útil para reduzir a redundância no código, tornando-o mais conciso e legível.
+
+Aqui está um exemplo de como o `var` pode ser utilizado em Java:
+
+```java
+public class ExemploVar {
+    public static void main(String[] args) {
+        // Utilizando var para inferir o tipo de uma String
+        var mensagem = "Olá, mundo!";
+        
+        // Utilizando var para inferir o tipo de um array de inteiros
+        var numeros = new int[]{1, 2, 3, 4, 5};
+        
+        // Utilizando var em uma expressão lambda
+        var somar = (int a, int b) -> a + b;
+        
+        System.out.println(mensagem);
+        System.out.println(java.util.Arrays.toString(numeros));
+        System.out.println("Soma: " + somar.apply(3, 4));
+    }
+}
+```
+
+Neste exemplo, o tipo das variáveis `mensagem`, `numeros` e `somar` é inferido automaticamente pelo compilador com base nos valores atribuídos a elas. Isso torna o código mais conciso e menos propenso a erros tipográficos.
+
+No entanto, é importante usar o `var` com moderação e garantir que o código resultante seja ainda compreensível. O abuso do `var` pode prejudicar a clareza do código, especialmente em situações onde o tipo não é óbvio.
+
+### Instanciar com var
+
+Em Java, a palavra-chave `var` pode ser usada para inferir o tipo ao criar uma instância de uma classe. Aqui está um exemplo simples:
+
+```java
+public class ExemploVarClasse {
+    public static void main(String[] args) {
+        // Utilizando var para inferir o tipo ao instanciar uma classe
+        var pessoa = new Pessoa("João", 25);
+
+        // Imprimindo informações da pessoa
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Idade: " + pessoa.getIdade());
+    }
+}
+
+class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Métodos getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+```
+
+Neste exemplo, a palavra-chave `var` é usada ao instanciar a classe `Pessoa`. O compilador deduzirá automaticamente que a variável `pessoa` é do tipo `Pessoa`, com base no tipo do objeto que está sendo criado (`new Pessoa("João", 25)`). Isso elimina a necessidade de explicitamente escrever o tipo da variável, tornando o código mais conciso.
+
+No entanto, é importante notar que, mesmo quando você usa `var` para a instanciação de classes, o tipo real da variável ainda é inferido em tempo de compilação. A execução em tempo de execução permanece fortemente tipada, preservando assim a segurança de tipo que o Java oferece.
+
 ## Operadores em Java
 
 Parece que você está pedindo uma descrição de todas as operações possíveis em Java, o que é um escopo muito amplo e não é possível abordar todas elas em um único texto. No entanto, posso fornecer uma visão geral das principais categorias de operações em Java:
