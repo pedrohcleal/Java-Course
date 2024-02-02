@@ -308,7 +308,7 @@ Exemplos:
     public class OutroExemplo { private int valor; public OutroExemplo() {} public OutroExemplo(int valor) { this.valor = valor; } }
     ```
 
-Prevenção:
+**Prevenção:**
 
 - **Uso de Records (Java 14+):**
     ```java
