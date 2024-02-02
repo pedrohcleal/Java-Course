@@ -340,14 +340,15 @@ Exemplos:
        private int valor;
        private String texto;
     /* Padrão Builder public static class Builder {
-      private int valor;
-      private String texto;
-      public Builder(int valor) { this.valor = valor; }
+       private int valor;
+       private String texto;
+       public Builder(int valor) { this.valor = valor; }
        public Builder comTexto(String texto) {
           this.texto = texto;
           return this; }
-       public ObjetoComplexo build() { return new ObjetoComplexo(this); } }
-        private ObjetoComplexo(Builder builder) {
+       public ObjetoComplexo build() {
+          return new ObjetoComplexo(this); } }
+       private ObjetoComplexo(Builder builder) {
            this.valor = builder.valor;
           this.texto = builder.texto; } }*/
     ```
