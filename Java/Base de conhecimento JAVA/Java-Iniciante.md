@@ -260,6 +260,18 @@ No Java, as estruturas de repetição, também conhecidas como loops, são usada
 
    Nesse caso, o código dentro do loop é executado primeiro e, em seguida, a condição é verificada. Se a condição for `true`, o loop continuará; caso contrário, ele sairá.
 
+4. **loop `for-each`**: itera automaticamente sobre todos os elementos da coleção, um por vez, e executa o bloco de código associado a cada elemento.
+
+    Exemplo com um array de inteiros:
+    
+    ```java
+    int[] numeros = {1, 2, 3, 4, 5};
+    
+    for (int numero : numeros) {
+        System.out.println(numero);
+    }
+    ```
+
 Além desses loops básicos, é importante mencionar que você pode usar estruturas de controle como `break` e `continue` para controlar o fluxo dentro dos loops. O `break` é usado para sair imediatamente de um loop, enquanto o `continue` é usado para pular a iteração atual e continuar com a próxima iteração. Estas estruturas de repetição são fundamentais para criar lógica de repetição em programas Java.
 
 3. Estruturas de Controle de Fluxo:
