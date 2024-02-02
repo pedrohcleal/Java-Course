@@ -305,7 +305,12 @@ Exemplos:
 
 2. **Construtores Padrão:**
     ```java
-    public class OutroExemplo { private int valor; public OutroExemplo() {} public OutroExemplo(int valor) { this.valor = valor; } }
+    public class OutroExemplo {
+       private int valor;
+       public OutroExemplo() {}
+       public OutroExemplo(int valor) {
+          this.valor = valor;
+    } }
     ```
 
 ### **Prevenção:**
@@ -318,7 +323,10 @@ Exemplos:
 - **Frameworks e Anotações:**
     ```java
     @Entity
-    public class Produto { @Id @GeneratedValue private Long id; private String nome; private BigDecimal preco; }
+    public class Produto {
+       @Id @GeneratedValue private Long id;
+       private String nome;
+       private BigDecimal preco; }
     ```
 
 - **Uso de Lombok (para reduzir getters/setters):**
@@ -328,7 +336,20 @@ Exemplos:
 
 - **Padrões de Projeto (Factory, Builder):**
     ```java
-    public class ObjetoComplexo { private int valor; private String texto; // Padrão Builder public static class Builder { private int valor; private String texto; public Builder(int valor) { this.valor = valor; } public Builder comTexto(String texto) { this.texto = texto; return this; } public ObjetoComplexo build() { return new ObjetoComplexo(this); } } private ObjetoComplexo(Builder builder) { this.valor = builder.valor; this.texto = builder.texto; } }
+    public class ObjetoComplexo {
+       private int valor;
+       private String texto;
+    /* Padrão Builder public static class Builder {
+      private int valor;
+      private String texto;
+      public Builder(int valor) { this.valor = valor; }
+       public Builder comTexto(String texto) {
+          this.texto = texto;
+          return this; }
+       public ObjetoComplexo build() { return new ObjetoComplexo(this); } }
+        private ObjetoComplexo(Builder builder) {
+           this.valor = builder.valor;
+          this.texto = builder.texto; } }*/
     ```
 
 A prevenção do boilerplate code envolve o uso de recursos da linguagem, frameworks, anotações e padrões de projeto. Isso pode melhorar a legibilidade do código, reduzir erros e facilitar a manutenção.
