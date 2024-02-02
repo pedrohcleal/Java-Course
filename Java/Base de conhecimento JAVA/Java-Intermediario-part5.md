@@ -87,6 +87,237 @@ Aqui estão alguns pontos-chave sobre as classes Enum em Java:
 
 As enums em Java são uma maneira poderosa e segura de representar conjuntos fixos de valores. Elas ajudam a tornar o código mais legível, evitando o uso de constantes mágicas e fornecendo uma estrutura mais robusta para representar conceitos específicos.
 
+## Interface
+
+Uma interface em Java é uma coleção de métodos abstratos (sem implementação) e constantes (variáveis estáticas finais) que podem ser implementados por classes que desejam fornecer uma implementação específica para esses métodos. As interfaces proporcionam um meio de definir um contrato ou um conjunto de regras que as classes devem seguir. Em Java, as interfaces são uma parte fundamental da programação orientada a objetos e são frequentemente usadas para atingir a abstração e a implementação de múltiplas interfaces.
+
+Aqui estão alguns pontos importantes sobre interfaces em Java:
+
+1. **Declaração de Interface:**
+   - Para declarar uma interface, use a palavra-chave `interface` seguida pelo nome da interface. Por exemplo:
+
+     ```java
+     public interface Imprimivel {
+         void imprimir();
+     }
+     ```
+
+2. **Métodos Abstratos:**
+   - Todos os métodos em uma interface são implicitamente públicos e abstratos. Não há necessidade de usar as palavras-chave `public` e `abstract` ao declarar esses métodos.
+
+3. **Constantes:**
+   - Interfaces podem conter constantes, que são implicitamente públicas, estáticas e finais.
+   - Por exemplo:
+
+     ```java
+     public interface Cores {
+         String VERMELHO = "Vermelho";
+         String AZUL = "Azul";
+         String VERDE = "Verde";
+     }
+     ```
+
+4. **Implementação em Classes:**
+   - Uma classe pode implementar uma ou mais interfaces usando a palavra-chave `implements`.
+   - Quando uma classe implementa uma interface, ela deve fornecer implementações para todos os métodos abstratos definidos pela interface.
+
+     ```java
+     public class Impressora implements Imprimivel {
+         @Override
+         public void imprimir() {
+             System.out.println("Imprimindo...");
+         }
+     }
+     ```
+
+5. **Herança de Interface:**
+   - Interfaces podem estender outras interfaces usando a palavra-chave `extends`. Isso permite criar hierarquias de interfaces.
+
+     ```java
+     public interface ImprimivelColorido extends Imprimivel, Cores {
+         void imprimirColorido();
+     }
+     ```
+
+6. **Default Methods e Métodos Estáticos (Java 8 em diante):**
+   - A partir do Java 8, interfaces podem ter métodos com implementação utilizando a palavra-chave `default`.
+   - Também é possível ter métodos estáticos em interfaces.
+
+     ```java
+     public interface Calculadora {
+         default int somar(int a, int b) {
+             return a + b;
+         }
+
+         static int multiplicar(int a, int b) {
+             return a * b;
+         }
+     }
+     ```
+
+7. **Uso de Interfaces:**
+   - Interfaces são amplamente utilizadas em Java para definir contratos comuns, possibilitando o desenvolvimento de classes que compartilham funcionalidades comuns, mas podem ter implementações específicas.
+
+     ```java
+     public class Exemplo implements Imprimivel, Cores {
+         @Override
+         public void imprimir() {
+             System.out.println("Implementação do método imprimir");
+         }
+     }
+     ```
+
+Interfaces em Java fornecem um mecanismo flexível para definir contratos e promovem a criação de código mais modular e reutilizável. Elas são uma parte crucial da programação orientada a objetos, facilitando a implementação de polimorfismo e permitindo a construção de sistemas mais flexíveis e extensíveis.
+
+## Record
+
+Em Java, a palavra-chave `record` foi introduzida no Java 14 como uma nova maneira de criar classes imutáveis para representar dados simples e comumente usados para transferência de dados (DTOs), entidades, entre outros. Os records são uma forma concisa de definir classes cujo principal objetivo é armazenar dados de maneira eficiente e facilitar a criação de objetos imutáveis. Eles fornecem uma série de recursos automáticos, reduzindo significativamente a quantidade de código boilerplate necessário.
+
+Aqui estão alguns pontos importantes sobre records em Java:
+
+1. **Declaração de Record:**
+   - Para declarar um record, use a palavra-chave `record` seguida pelo nome do record e a lista de componentes (campos). Os campos são automaticamente final e privados.
+
+     ```java
+     public record Pessoa(String nome, int idade) {
+     }
+     ```
+
+2. **Métodos Acessores (Getters):**
+   - Records automaticamente geram métodos acessores (getters) para todos os campos definidos.
+
+     ```java
+     Pessoa pessoa = new Pessoa("João", 30);
+     System.out.println(pessoa.nome()); // Acessando o campo nome
+     System.out.println(pessoa.idade()); // Acessando o campo idade
+     ```
+
+3. **Método `toString`:**
+   - Records geram automaticamente um método `toString` que fornece uma representação de string formatada dos valores dos campos.
+
+     ```java
+     System.out.println(pessoa); // Saída: Pessoa[nome=João, idade=30]
+     ```
+
+4. **Método `equals` e `hashCode`:**
+   - Records geram automaticamente métodos `equals` e `hashCode` que comparam os valores dos campos.
+
+     ```java
+     Pessoa pessoa1 = new Pessoa("João", 30);
+     Pessoa pessoa2 = new Pessoa("João", 30);
+
+     System.out.println(pessoa1.equals(pessoa2)); // Saída: true
+     ```
+
+5. **Imutabilidade:**
+   - Os records são automaticamente imutáveis. Uma vez que os valores dos campos são definidos no momento da criação do objeto, eles não podem ser modificados.
+
+     ```java
+     // Isso não é permitido, pois os campos são final
+     pessoa.nome("Maria");
+     ```
+
+6. **Deconstrução (Destructuring):**
+   - Records suportam deconstrução, permitindo atribuir os valores dos campos a variáveis individuais.
+
+     ```java
+     var (nome, idade) = pessoa;
+     System.out.println("Nome: " + nome + ", Idade: " + idade);
+     ```
+
+7. **Construtores:**
+   - Records geram automaticamente um construtor que aceita todos os campos como parâmetros.
+
+     ```java
+     Pessoa pessoa = new Pessoa("João", 30);
+     ```
+
+8. **Extensão de Records (Java 16 em diante):**
+   - A partir do Java 16, é possível estender records para adicionar mais métodos ou campos.
+
+     ```java
+     public record PessoaEstendida(String nome, int idade) {
+         public String saudacao() {
+             return "Olá, " + nome + "!";
+         }
+     }
+     ```
+
+Os records em Java simplificam a criação de classes imutáveis e fornecem uma abordagem mais concisa e legível para definir estruturas de dados simples. Eles são especialmente úteis quando a principal função da classe é armazenar dados e não exigir lógica de negócios complexa.
+
+## Annotation
+
+Em Java, as annotations (anotações) são marcadores especiais que podem ser adicionados a códigos-fonte para fornecer metadados sobre o código. As anotações são usadas para incorporar informações adicionais ou instruções para o compilador, ferramentas de desenvolvimento ou tempo de execução. Elas ajudam na organização e fornecem informações sem alterar diretamente a lógica do código.
+
+Aqui estão alguns pontos importantes sobre annotations em Java:
+
+1. **Sintaxe:**
+   - As annotations são precedidas pelo símbolo `@` e podem ser colocadas em vários elementos do código, como classes, métodos, variáveis, parâmetros de métodos, etc.
+
+     ```java
+     @MinhaAnnotation
+     public class MinhaClasse {
+         @MinhaAnnotation
+         private int minhaVariavel;
+
+         @MinhaAnnotation
+         public void meuMetodo(@MinhaAnnotation int parametro) {
+             // Código do método
+         }
+     }
+     ```
+
+2. **Propósito das Annotations:**
+   - As annotations podem ter vários propósitos, incluindo:
+     - **Informar o Compilador:** Algumas annotations fornecem informações adicionais ao compilador para influenciar seu comportamento durante a compilação.
+     - **Controle de Tempo de Execução:** Algumas annotations são lidas em tempo de execução para fornecer informações ou instruções durante a execução do programa.
+     - **Processamento de Anotações (Annotation Processing):** Ferramentas de processamento de anotações podem analisar annotations e gerar código, fornecendo funcionalidades adicionais.
+
+3. **Annotations Padrão em Java:**
+   - Java fornece várias annotations padrão, como `@Override`, `@Deprecated`, e `@SuppressWarnings`, que são amplamente utilizadas em diferentes contextos.
+
+     ```java
+     @Override
+     public void meuMetodo() {
+         // Implementação do método
+     }
+
+     @Deprecated
+     public void metodoAntigo() {
+         // Código obsoleto
+     }
+
+     @SuppressWarnings("unchecked")
+     public void metodoComAviso() {
+         // Código com aviso desativado
+     }
+     ```
+
+4. **Definição de Annotations Customizadas:**
+   - É possível criar annotations personalizadas para atender a requisitos específicos do código.
+   - Uma annotation personalizada é definida usando a interface `@interface`.
+
+     ```java
+     import java.lang.annotation.*;
+
+     @Retention(RetentionPolicy.RUNTIME)
+     @Target({ElementType.TYPE, ElementType.METHOD})
+     public @interface MinhaAnnotation {
+         String value() default "Padrão";
+         int numero() default 42;
+     }
+     ```
+
+5. **Retenção (Retention) e Destino (Target):**
+   - As annotations podem ter diferentes níveis de retenção (`RetentionPolicy`) que indicam até quando elas devem ser retidas (source, class ou runtime).
+   - O elemento `@Target` indica onde a annotation pode ser aplicada (classe, método, campo, etc.).
+
+6. **Processamento de Anotações (Annotation Processing):**
+   - O processamento de annotations envolve ferramentas que analisam annotations em tempo de compilação para gerar código adicional ou realizar verificações estáticas.
+   - Um exemplo de processamento de annotations é a geração automática de código com base em annotations.
+
+As annotations em Java são uma poderosa ferramenta para fornecer informações adicionais ao compilador, ferramentas de desenvolvimento e em tempo de execução. Elas ajudam na documentação do código, na automação de tarefas e na melhoria da legibilidade e manutenção do código. As annotations são amplamente utilizadas em diversos frameworks e bibliotecas para configurar e estender o comportamento das aplicações Java.
+
 ## Composição
 
 Composição é um conceito fundamental em programação orientada a objetos (OOP) que permite a criação de objetos complexos através da combinação de objetos mais simples. Em termos simples, a composição envolve a construção de objetos complexos por meio da inclusão de objetos menores como partes constituintes. Essa relação é muitas vezes chamada de "tem-um" (has-a) em oposição à relação de herança, que é conhecida como "é-um" (is-a).
