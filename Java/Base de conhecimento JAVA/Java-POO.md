@@ -144,3 +144,37 @@ Upcasting e downcasting são termos relacionados a manipulação de tipos em her
    Neste exemplo, `animal` é um `Animal`, mas o downcasting é feito para verificar se ele é realmente um `Cachorro` antes de chamar métodos específicos de `Cachorro`.
 
 É importante ter cuidado ao usar downcasting, pois pode levar a exceções em tempo de execução se a verificação não for feita corretamente. Uma prática recomendada é usar `instanceof` para verificar a compatibilidade antes de realizar downcasting e garantir que o objeto seja realmente uma instância da classe desejada.
+
+## instaceof
+
+A palavra-chave `instanceof` em Java é um operador usado para testar se um objeto é uma instância de uma determinada classe, de uma subclasse ou de uma interface. O `instanceof` retorna um valor booleano, indicando se o objeto em questão pode ser convertido para o tipo especificado sem causar uma exceção em tempo de execução.
+
+A sintaxe básica é a seguinte:
+
+```java
+if (objeto instanceof Tipo) {
+    // Código a ser executado se o objeto for uma instância do Tipo
+}
+```
+
+Aqui está um exemplo prático:
+
+```java
+public class Exemplo {
+    public static void main(String[] args) {
+        Animal animal = new Cachorro();
+
+        if (animal instanceof Cachorro) {
+            Cachorro cachorro = (Cachorro) animal;
+            cachorro.latir();
+        } else if (animal instanceof Gato) {
+            Gato gato = (Gato) animal;
+            gato.miar();
+        }
+    }
+}
+```
+
+Neste exemplo, `animal` é uma instância de `Cachorro`, e o `instanceof` é usado para verificar se `animal` é uma instância de `Cachorro` ou `Gato`. Isso ajuda a evitar exceções em tempo de execução ao realizar downcasting, garantindo que a conversão seja segura.
+
+É importante usar `instanceof` com cautela e considerar se há uma maneira mais apropriada de estruturar o código, como o uso de polimorfismo e métodos polimórficos, para evitar verificações excessivas de tipos. O `instanceof` é útil em situações em que a hierarquia de classes é necessária e é necessário realizar operações específicas com base no tipo de objeto em tempo de execução.
