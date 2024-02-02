@@ -68,46 +68,6 @@ public class Cachorro extends Animal {
 
 A herança em Java fornece uma maneira poderosa de organizar e estruturar o código, promovendo a reutilização e a extensibilidade. No entanto, é importante usá-la com cuidado para evitar problemas de design, como a dependência excessiva entre classes. O encapsulamento e o polimorfismo são outros conceitos que complementam a herança na POO e são frequentemente usados em conjunto para criar sistemas robustos e flexíveis.
 
-## Super()
-
-O método `super()` é uma construção em Java usada dentro dos construtores de uma subclasse para chamar explicitamente o construtor da superclasse. Esse é um conceito fundamental quando se trabalha com herança, e é usado para garantir que a inicialização adequada da parte herdada da classe ocorra.
-
-A chamada `super()` deve ser a primeira instrução no corpo do construtor da subclasse. Se não for explicitamente chamado, o Java automaticamente insere uma chamada implícita para o construtor padrão da superclasse.
-
-Aqui está um exemplo para ilustrar o uso do `super()`:
-
-```java
-class Animal {
-    String nome;
-
-    public Animal(String nome) {
-        this.nome = nome;
-    }
-
-    public void emitirSom() {
-        System.out.println("Algum som genérico");
-    }
-}
-
-class Cachorro extends Animal {
-    String raca;
-
-    public Cachorro(String nome, String raca) {
-        super(nome);  // Chamada explícita ao construtor da superclasse
-        this.raca = raca;
-    }
-
-    public void latir() {
-        System.out.println("Au Au");
-    }
-}
-```
-
-Neste exemplo, a classe `Cachorro` estende a classe `Animal`. O construtor da classe `Animal` recebe um parâmetro `nome`. Para garantir que o construtor da superclasse seja chamado corretamente ao instanciar um objeto da subclasse `Cachorro`, a instrução `super(nome)` é usada no construtor da subclasse.
-
-Essencialmente, `super()` permite que a subclasse inicialize a parte herdada da sua superclasse antes de executar qualquer lógica específica da subclasse. Isso é útil para garantir que o estado da superclasse seja configurado corretamente antes que a subclasse faça suas próprias operações de inicialização.
-
-Vale notar que se a superclasse não tiver um construtor padrão (sem parâmetros), a chamada para `super()` deve incluir os argumentos necessários para corresponder a uma das assinaturas de construtores da superclasse.
 
 ## Upcasting e Downcasting
 
@@ -178,3 +138,74 @@ public class Exemplo {
 Neste exemplo, `animal` é uma instância de `Cachorro`, e o `instanceof` é usado para verificar se `animal` é uma instância de `Cachorro` ou `Gato`. Isso ajuda a evitar exceções em tempo de execução ao realizar downcasting, garantindo que a conversão seja segura.
 
 É importante usar `instanceof` com cautela e considerar se há uma maneira mais apropriada de estruturar o código, como o uso de polimorfismo e métodos polimórficos, para evitar verificações excessivas de tipos. O `instanceof` é útil em situações em que a hierarquia de classes é necessária e é necessário realizar operações específicas com base no tipo de objeto em tempo de execução.
+
+## Super()
+
+O método `super()` é uma construção em Java usada dentro dos construtores de uma subclasse para chamar explicitamente o construtor da superclasse. Esse é um conceito fundamental quando se trabalha com herança, e é usado para garantir que a inicialização adequada da parte herdada da classe ocorra.
+
+A chamada `super()` deve ser a primeira instrução no corpo do construtor da subclasse. Se não for explicitamente chamado, o Java automaticamente insere uma chamada implícita para o construtor padrão da superclasse.
+
+Aqui está um exemplo para ilustrar o uso do `super()`:
+
+```java
+class Animal {
+    String nome;
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public void emitirSom() {
+        System.out.println("Algum som genérico");
+    }
+}
+
+class Cachorro extends Animal {
+    String raca;
+
+    public Cachorro(String nome, String raca) {
+        super(nome);  // Chamada explícita ao construtor da superclasse
+        this.raca = raca;
+    }
+
+    public void latir() {
+        System.out.println("Au Au");
+    }
+}
+```
+
+Neste exemplo, a classe `Cachorro` estende a classe `Animal`. O construtor da classe `Animal` recebe um parâmetro `nome`. Para garantir que o construtor da superclasse seja chamado corretamente ao instanciar um objeto da subclasse `Cachorro`, a instrução `super(nome)` é usada no construtor da subclasse.
+
+Essencialmente, `super()` permite que a subclasse inicialize a parte herdada da sua superclasse antes de executar qualquer lógica específica da subclasse. Isso é útil para garantir que o estado da superclasse seja configurado corretamente antes que a subclasse faça suas próprias operações de inicialização.
+
+Vale notar que se a superclasse não tiver um construtor padrão (sem parâmetros), a chamada para `super()` deve incluir os argumentos necessários para corresponder a uma das assinaturas de construtores da superclasse.
+
+
+## @Override
+
+A sobreposição (ou override em inglês) é um conceito na Programação Orientada a Objetos (POO) que permite a uma subclasse fornecer uma implementação específica de um método que já está definido em sua superclasse. Isso significa que a subclasse está substituindo (ou sobrepondo) a implementação da superclasse com sua própria implementação. Isso é particularmente útil para personalizar o comportamento de um método em uma classe derivada.
+
+Na linguagem de programação Java, a anotação `@Override` é usada para indicar explicitamente que um método em uma classe está sendo sobreposto de uma superclasse. O compilador Java pode usar essa anotação para verificar se o método na subclasse realmente está substituindo um método na superclasse. Se não, o compilador gera um erro.
+
+Aqui está um exemplo simples:
+
+```java
+class Animal {
+    void fazerBarulho() {
+        System.out.println("Algum som genérico");
+    }
+}
+
+class Cachorro extends Animal {
+    @Override
+    void fazerBarulho() {
+        System.out.println("Latindo");
+    }
+}
+```
+
+Neste exemplo, a classe `Cachorro` estende a classe `Animal` e sobrepõe o método `fazerBarulho`. A anotação `@Override` é usada para indicar explicitamente que o método está substituindo o método da superclasse. Se houver um erro de digitação no nome do método ou se o método na superclasse não existir, o compilador gerará um erro.
+
+Além disso, usar a anotação `@Override` não é estritamente necessário, mas é uma prática recomendada porque ajuda a evitar erros de digitação e sinaliza explicitamente a intenção do programador de sobrepor um método da superclasse.
+
+Em resumo, a sobreposição permite que uma subclasse forneça uma implementação específica para um método da superclasse, enquanto a anotação `@Override` ajuda a garantir que essa sobreposição seja feita corretamente, evitando erros comuns.
