@@ -41,3 +41,46 @@ A melhoria de desempenho em códigos Java envolve a otimização de várias áre
    - Exemplo: Não é necessário micro otimizar código que é executado raramente ou não é um gargalo real.
 
 Lembre-se de que otimizar o código deve ser feito de maneira equilibrada, priorizando a clareza e a manutenção do código. Medir o desempenho antes e depois das otimizações é crucial para garantir que as mudanças realmente resultem em melhorias significativas.
+
+## Uso de ´final´
+
+O uso da palavra-chave `final` em Java pode ter um impacto positivo na performance do código em alguns casos, principalmente quando aplicado a variáveis, métodos e classes. Aqui estão algumas maneiras em que o uso de `final` pode contribuir para melhorar a performance:
+
+1. **Variáveis Finais:**
+   - Ao declarar uma variável como `final`, você indica ao compilador que o valor dessa variável não será alterado após a atribuição inicial. Isso pode permitir que o compilador aplique otimizações.
+   - Exemplo:
+     ```java
+     final int constante = 10;
+     ```
+
+2. **Métodos Finais:**
+   - Quando um método é declarado como `final`, ele não pode ser sobrescrito por subclasses. Isso pode permitir ao compilador realizar otimizações, como inlining de métodos, onde o corpo do método é diretamente inserido no local de chamada.
+   - Exemplo:
+     ```java
+     public final void metodoFinal() {
+         // corpo do método
+     }
+     ```
+
+3. **Classes Finais:**
+   - Ao declarar uma classe como `final`, você impede que outras classes a estendam. Isso pode permitir otimizações adicionais, já que o compilador tem certeza de que a classe não será estendida.
+   - Exemplo:
+     ```java
+     public final class MinhaClasse {
+         // corpo da classe
+     }
+     ```
+
+4. **Parâmetros Finais em Métodos:**
+   - Declarar parâmetros de métodos como `final` indica que o valor do parâmetro não será modificado dentro do método. Isso pode ajudar o compilador a otimizar o código e fornecer algumas garantias adicionais de imutabilidade.
+   - Exemplo:
+     ```java
+     public void meuMetodo(final int parametro) {
+         // corpo do método
+     }
+     ```
+
+5. **Segurança em Threads:**
+   - Em contextos multithread, variáveis ou referências declaradas como `final` podem ser mais seguras. Isso ocorre porque, uma vez que um objeto é atribuído a uma variável final, o estado do objeto não pode ser alterado, reduzindo a complexidade em ambientes concorrentes.
+
+É importante notar que, embora o uso de `final` possa fornecer algumas otimizações, nem sempre resultará em melhorias significativas de desempenho. Além disso, é crucial manter um equilíbrio entre a otimização e a clareza do código. O uso indiscriminado de `final` pode tornar o código mais rígido e difícil de manter, e deve ser aplicado com consideração cuidadosa.
