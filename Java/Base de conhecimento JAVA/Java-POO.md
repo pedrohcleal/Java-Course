@@ -227,3 +227,53 @@ Neste exemplo, a classe `Cachorro` estende a classe `Animal` e sobrepõe o méto
 Além disso, usar a anotação `@Override` não é estritamente necessário, mas é uma prática recomendada porque ajuda a evitar erros de digitação e sinaliza explicitamente a intenção do programador de sobrepor um método da superclasse.
 
 Em resumo, a sobreposição permite que uma subclasse forneça uma implementação específica para um método da superclasse, enquanto a anotação `@Override` ajuda a garantir que essa sobreposição seja feita corretamente, evitando erros comuns.
+
+## Classes e métodos `final` 
+
+Em Java, as palavras-chave `final` podem ser aplicadas a classes, métodos e variáveis para fornecer um comportamento específico e limitar certas características. Vamos discutir sobre `final` aplicado a classes e métodos:
+
+### `final` em Classes:
+
+1. **`final` em Classes:**
+   - Quando aplicado a uma classe, a palavra-chave `final` indica que a classe não pode ser estendida, ou seja, não pode ter subclasses.
+   - Isso significa que nenhum outra classe pode herdar características dessa classe final.
+
+   Exemplo:
+
+   ```java
+   final class ClasseFinal {
+       // código da classe
+   }
+   ```
+
+   Se alguém tentar estender a classe `ClasseFinal`, o compilador gerará um erro.
+
+### `final` em Métodos:
+
+1. **`final` em Métodos:**
+   - Quando aplicado a um método, a palavra-chave `final` indica que o método não pode ser sobrescrito por subclasses.
+   - Isso significa que a implementação do método na classe onde foi declarado é a última e não pode ser alterada nas subclasses.
+
+   Exemplo:
+
+   ```java
+   class ClasseBase {
+       final void metodoFinal() {
+           // código do método
+       }
+   }
+   ```
+
+   Neste caso, se uma classe estender `ClasseBase`, não será possível sobrescrever o método `metodoFinal`.
+
+### Benefícios e Considerações:
+
+- **Segurança e Integridade do Código:** O uso de `final` em classes e métodos pode contribuir para a integridade do código, especialmente quando se deseja garantir que certas partes do código não sejam alteradas.
+
+- **Performance:** Em alguns casos, o compilador pode otimizar o código de métodos finais, uma vez que ele sabe que não será alterado por subclasses.
+
+- **Design Imutável:** O uso de `final` pode ser parte de um design de classe imutável, onde os objetos não podem ser alterados após a sua criação.
+
+- **Evitar Ambiguidades:** Em situações em que a preservação do comportamento original é crucial, o uso de `final` evita ambiguidades introduzidas por sobrescrita de métodos.
+
+No entanto, é importante usar `final` com sabedoria, pois o seu uso excessivo pode limitar a flexibilidade e extensibilidade do código. Muitas vezes, o design flexível e orientado a interfaces é preferido em vez do uso excessivo de `final`.
