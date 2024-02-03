@@ -3,5 +3,13 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Secao13-EnumeracoesEcomposicoes/composition2-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance1-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance2-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance3-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance4-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance5-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance6-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance7-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secao14-Heranca-Polimorfismo/inheritance8-java" vcs="Git" />
   </component>
 </project>
