@@ -57,6 +57,78 @@ O Java é uma linguagem de programação fortemente tipada e possui diversos tip
 
 É importante notar que esses tipos de dados primitivos são diferentes dos objetos em Java. Eles são eficientes em termos de espaço de memória e operações de baixo nível, o que os torna úteis em situações onde a eficiência é importante. Além disso, Java também suporta tipos de dados não primitivos, conhecidos como tipos de referência, que são criados a partir de classes e oferecem funcionalidades mais avançadas.
 
+### tipo var
+
+Em Java, o tipo de dado `var` foi introduzido no Java 10 como parte das melhorias da inferência de tipo, permitindo a declaração de variáveis locais sem a necessidade de especificar explicitamente o tipo da variável. É importante observar que o `var` é utilizado apenas para variáveis locais e não pode ser utilizado para campos de classe, parâmetros de método ou variáveis de instância.
+
+A utilização do `var` está associada à inferência de tipo, o que significa que o compilador deduzirá automaticamente o tipo da variável com base no tipo do valor atribuído a ela. Isso é útil para reduzir a redundância no código, tornando-o mais conciso e legível.
+
+Aqui está um exemplo de como o `var` pode ser utilizado em Java:
+
+```java
+public class ExemploVar {
+    public static void main(String[] args) {
+        // Utilizando var para inferir o tipo de uma String
+        var mensagem = "Olá, mundo!";
+        
+        // Utilizando var para inferir o tipo de um array de inteiros
+        var numeros = new int[]{1, 2, 3, 4, 5};
+        
+        // Utilizando var em uma expressão lambda
+        var somar = (int a, int b) -> a + b;
+        
+        System.out.println(mensagem);
+        System.out.println(java.util.Arrays.toString(numeros));
+        System.out.println("Soma: " + somar.apply(3, 4));
+    }
+}
+```
+
+Neste exemplo, o tipo das variáveis `mensagem`, `numeros` e `somar` é inferido automaticamente pelo compilador com base nos valores atribuídos a elas. Isso torna o código mais conciso e menos propenso a erros tipográficos.
+
+No entanto, é importante usar o `var` com moderação e garantir que o código resultante seja ainda compreensível. O abuso do `var` pode prejudicar a clareza do código, especialmente em situações onde o tipo não é óbvio.
+
+### Instanciar com var
+
+Em Java, a palavra-chave `var` pode ser usada para inferir o tipo ao criar uma instância de uma classe. Aqui está um exemplo simples:
+
+```java
+public class ExemploVarClasse {
+    public static void main(String[] args) {
+        // Utilizando var para inferir o tipo ao instanciar uma classe
+        var pessoa = new Pessoa("João", 25);
+
+        // Imprimindo informações da pessoa
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Idade: " + pessoa.getIdade());
+    }
+}
+
+class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Métodos getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+```
+
+Neste exemplo, a palavra-chave `var` é usada ao instanciar a classe `Pessoa`. O compilador deduzirá automaticamente que a variável `pessoa` é do tipo `Pessoa`, com base no tipo do objeto que está sendo criado (`new Pessoa("João", 25)`). Isso elimina a necessidade de explicitamente escrever o tipo da variável, tornando o código mais conciso.
+
+No entanto, é importante notar que, mesmo quando você usa `var` para a instanciação de classes, o tipo real da variável ainda é inferido em tempo de compilação. A execução em tempo de execução permanece fortemente tipada, preservando assim a segurança de tipo que o Java oferece.
+
 ## Operadores em Java
 
 Parece que você está pedindo uma descrição de todas as operações possíveis em Java, o que é um escopo muito amplo e não é possível abordar todas elas em um único texto. No entanto, posso fornecer uma visão geral das principais categorias de operações em Java:
@@ -133,6 +205,55 @@ Parece que você está pedindo uma descrição de todas as operações possívei
    São usadas para acessar e manipular elementos em arrays e coleções (listas, conjuntos, mapas, etc.).
 
 Essas são apenas algumas das muitas operações disponíveis em Java. Cada categoria possui várias nuances e variações. Certifique-se de consultar a documentação oficial do Java ou outros recursos de aprendizado para obter informações detalhadas sobre cada tipo de operação.
+
+## Operadores aritméticos
+Em Java, você pode realizar operações aritméticas básicas, como adição, subtração, multiplicação e divisão, usando os operadores aritméticos embutidos. Aqui estão os operadores aritméticos disponíveis em Java:
+
+1. **Adição (+):** Use o operador `+` para adicionar dois valores.
+   
+   ```java
+   int resultado = 5 + 3; // resultado será 8
+   ```
+
+2. **Subtração (-):** Use o operador `-` para subtrair um valor de outro.
+   
+   ```java
+   int resultado = 10 - 4; // resultado será 6
+   ```
+
+3. **Multiplicação (*):** Use o operador `*` para multiplicar dois valores.
+   
+   ```java
+   int resultado = 6 * 3; // resultado será 18
+   ```
+
+4. **Divisão (/):** Use o operador `/` para dividir um valor pelo outro. O resultado será um número decimal se os operandos forem números inteiros e não forem divisíveis.
+   
+   ```java
+   double resultado = 15.0 / 4.0; // resultado será 3.75
+   ```
+
+5. **Resto (%):** Use o operador `%` para obter o resto da divisão de um valor por outro.
+   
+   ```java
+   int resto = 10 % 3; // resto será 1 (10 dividido por 3 é 3 com resto 1)
+   ```
+
+6. **Incremento (++) e Decremento (--):** Você também pode usar os operadores de incremento e decremento para aumentar ou diminuir o valor de uma variável por 1.
+   
+   ```java
+   int numero = 5;
+   numero++; // Incrementa o valor de 'numero' para 6
+   numero--; // Decrementa o valor de 'numero' para 5 novamente
+   ```
+
+Além disso, você pode usar parênteses para controlar a precedência das operações, assim como na matemática. Por exemplo:
+
+```java
+int resultado = (5 + 3) * 2; // resultado será 16 (a adição é feita primeiro)
+```
+
+Lembre-se de que os tipos de dados usados nas operações podem afetar o resultado. Se você estiver trabalhando com números inteiros, a divisão resultará em um número inteiro truncado, a menos que você use um tipo de dado de ponto flutuante (como `double`) para o resultado. Certifique-se de escolher os tipos de dados apropriados para suas operações aritméticas, dependendo dos requisitos do seu programa.
 
 ## Estruturas de controle
 
@@ -211,6 +332,18 @@ No Java, as estruturas de repetição, também conhecidas como loops, são usada
 
    Nesse caso, o código dentro do loop é executado primeiro e, em seguida, a condição é verificada. Se a condição for `true`, o loop continuará; caso contrário, ele sairá.
 
+4. **loop `for-each`**: itera automaticamente sobre todos os elementos da coleção, um por vez, e executa o bloco de código associado a cada elemento.
+
+    Exemplo com um array de inteiros:
+    
+    ```java
+    int[] numeros = {1, 2, 3, 4, 5};
+    
+    for (int numero : numeros) {
+        System.out.println(numero);
+    }
+    ```
+
 Além desses loops básicos, é importante mencionar que você pode usar estruturas de controle como `break` e `continue` para controlar o fluxo dentro dos loops. O `break` é usado para sair imediatamente de um loop, enquanto o `continue` é usado para pular a iteração atual e continuar com a próxima iteração. Estas estruturas de repetição são fundamentais para criar lógica de repetição em programas Java.
 
 3. Estruturas de Controle de Fluxo:
@@ -234,6 +367,59 @@ Além desses loops básicos, é importante mencionar que você pode usar estrutu
 
 Essas estruturas de controle são essenciais para a programação em Java, pois permitem que você crie programas mais complexos, tome decisões com base em condições e execute ações repetitivas. Elas desempenham um papel crucial na lógica e na estruturação de seus programas.
 
+## Expressões lógicas
+
+Expressões lógicas em Java referem-se a construções que envolvem operadores lógicos, como AND, OR e NOT, para avaliar condições booleanas. Essas expressões são amplamente utilizadas em estruturas de controle de fluxo, como condicionais (if, else if, else), loops (for, while, do-while) e em avaliações de decisões em geral. Vamos explorar as principais características das expressões lógicas em Java:
+
+1. Operadores Lógicos:
+   Java fornece três operadores lógicos principais:
+   - `&&` (AND lógico): Retorna true se ambos os operandos forem true.
+   - `||` (OR lógico): Retorna true se pelo menos um dos operandos for true.
+   - `!` (NOT lógico): Inverte o valor de verdade de uma expressão booleana.
+
+2. Operandos:
+   As expressões lógicas em Java geralmente envolvem operandos que são valores booleanos ou expressões que podem ser avaliadas como booleanas. Por exemplo:
+   ```java
+   boolean a = true;
+   boolean b = false;
+   boolean resultado = a && b; // resultado é false
+   ```
+
+3. Ordem de Avaliação:
+   Java segue uma ordem específica de avaliação de expressões lógicas. O operador `&&` é avaliado antes do `||`, e a avaliação para ambos é interrompida assim que o resultado for determinado. Isso é conhecido como "avaliação de circuito curto". Por exemplo:
+   ```java
+   boolean resultado = (false && minhaFuncao()); // minhaFuncao() não é chamada devido à avaliação de circuito curto
+   ```
+
+4. Precedência de Operadores:
+   Os operadores lógicos têm precedência em relação a outros operadores em Java, mas é recomendável usar parênteses para tornar a intenção do código mais clara, se necessário.
+
+5. Uso em Estruturas de Controle:
+   Expressões lógicas são frequentemente usadas em instruções condicionais e loops para controlar o fluxo do programa. Por exemplo:
+   ```java
+   if (idade >= 18 && temCarteiraDeMotorista) {
+       System.out.println("Pode dirigir.");
+   } else {
+       System.out.println("Não pode dirigir.");
+   }
+   ```
+
+6. Avaliação de Expressões Complexas:
+   Você pode criar expressões lógicas complexas combinando vários operadores lógicos e parênteses. Isso permite que você avalie condições mais elaboradas.
+   ```java
+   boolean condicaoComplexa = (a && b) || (!c && (d || e));
+   ```
+
+7. Uso de Expressões Ternárias:
+   Java também permite o uso de expressões ternárias para avaliar condições em uma única linha. Por exemplo:
+   ```java
+   String mensagem = (idade >= 18) ? "Pode votar" : "Não pode votar";
+   ```
+
+8. Short-Circuiting:
+   Como mencionado anteriormente, o Java utiliza a avaliação de circuito curto para economizar tempo de processamento, interrompendo a avaliação de uma expressão lógica assim que o resultado for determinado. Isso é especialmente útil quando há efeitos colaterais, como chamadas de função, envolvidos nas expressões.
+
+Expressões lógicas são uma parte fundamental da programação em Java e são amplamente usadas para controlar o fluxo do programa e tomar decisões com base em condições booleanas. Ter um bom entendimento de como funcionam os operadores lógicos e como criar expressões lógicas eficazes é essencial para escrever código Java robusto e funcional.
 
 ## Tipos de Dados de Referência (Reference Data Types)
 
@@ -372,137 +558,65 @@ Manipulação de strings em Java é uma parte essencial da programação, já qu
 
 A manipulação de strings em Java é uma habilidade fundamental para o desenvolvimento de aplicativos, pois as strings são amplamente usadas na entrada/saída, formatação, processamento de texto e muito mais. Certifique-se de consultar a documentação oficial da linguagem para obter mais detalhes sobre os métodos e funcionalidades relacionados a strings.
 
-## Formatação de texto e variáveis em Java
+## Métodos em String builder
 
-Em Java, a formação de texto e o uso de variáveis em conjunto com a impressão (exibição) de informações podem ser realizados principalmente através das classes `System.out` e `System.err`, que são usadas para saída padrão e saída de erros, respectivamente. O método mais comum para imprimir texto e variáveis em Java é o `System.out.println()`. Aqui está como você pode formar texto e usar variáveis com esse método:
+`StringBuilder` é uma classe em Java que faz parte do pacote `java.lang` e é usada para criar e manipular strings mutáveis. Ela é semelhante à classe `StringBuffer`, mas é mais eficiente em termos de desempenho, uma vez que não é sincronizada, tornando-a adequada para operações em threads únicas quando a concorrência não é uma preocupação. Aqui estão alguns dos principais métodos oferecidos pela classe `StringBuilder`:
 
-1. **Concatenação de Strings:**
-
-   Você pode usar o operador de concatenação de strings (`+`) para combinar texto com variáveis. Por exemplo:
-
-   ```java
-   String nome = "João";
-   int idade = 30;
-   
-   System.out.println("Nome: " + nome + ", Idade: " + idade);
-   ```
-
-   Neste exemplo, estamos concatenando as strings "Nome: ", "João", ", Idade: " e o valor da variável `idade` para formar uma única string que é impressa no console.
-
-2. **Formatação de Strings:**
-
-   Você também pode usar formatação de strings usando a classe `String.format()` ou o método `System.out.printf()`. Isso permite que você controle a aparência dos valores impressos. Por exemplo:
-
-   ```java
-   String nome = "João";
-   int idade = 30;
-   
-   System.out.printf("Nome: %s, Idade: %d%n", nome, idade);
-   ```
-
-   Neste exemplo, usamos `%s` e `%d` como marcadores de posição para a variável `nome` (string) e `idade` (inteiro), respectivamente. O `%n` é usado para uma nova linha.
-
-3. **Uso de Variáveis Diretamente:**
-
-   Em alguns casos simples, você pode imprimir variáveis diretamente sem concatená-las com texto. Por exemplo:
-
-   ```java
-   int numero = 42;
-   System.out.println("O número é: " + numero);
-   ```
-
-   Você pode simplesmente imprimir a variável `numero` sem adicionar texto adicional se isso for suficiente para a saída.
-
-4. **Escape Sequences:**
-
-   Você pode usar sequências de escape, como `\n` para nova linha ou `\t` para tabulação, para formatar sua saída. Por exemplo:
-
-   ```java
-   System.out.println("Linha 1\nLinha 2");
-   ```
-
-   Isso imprimirá duas linhas no console, uma após a outra.
-
-Lembre-se de que, ao usar variáveis em texto impresso, é importante garantir que os tipos e os formatos estejam corretos para evitar erros em tempo de execução. Além disso, o uso adequado de espaços e caracteres especiais pode melhorar a legibilidade da saída.
-
-## Classe Scanner;
-
-A Classe `Scanner` no Java, faz parte do pacote `java.util` e é usada para ler dados de entrada do usuário ou de fontes de dados, como arquivos ou streams, de forma simples e eficiente. Ela foi introduzida no Java 5 para facilitar a leitura de dados em diversos formatos.
-
-A classe `Scanner` oferece métodos para analisar e ler diferentes tipos de dados, como números inteiros, números de ponto flutuante, strings e outros tipos primitivos. Ela é uma alternativa flexível e poderosa para a leitura de entrada, especialmente quando se lida com entradas do usuário.
-
-Aqui estão alguns conceitos e funcionalidades importantes da classe `Scanner`:
-
-1. **Criação de Instância**: Para usar a classe `Scanner`, você precisa criar uma instância dela, geralmente associando-a a uma fonte de dados, como um objeto `InputStream` (para entrada de console ou de arquivo) ou um objeto `String` (para análise de strings). Por exemplo:
+1. **`append()`**: Este é um dos métodos mais usados em `StringBuilder`. Ele é usado para adicionar dados ao final da sequência existente. Você pode passar vários tipos de dados como argumento, incluindo strings, caracteres, números inteiros, booleanos, etc. Ele retorna uma referência ao próprio `StringBuilder`, permitindo a concatenação encadeada.
 
 ```java
-Scanner scanner = new Scanner(System.in); // Para entrada do console
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");
 ```
 
-2. **Métodos de Leitura**: A classe `Scanner` fornece vários métodos para ler diferentes tipos de dados, como `nextInt()`, `nextDouble()`, `nextLine()`, entre outros. Você pode escolher o método apropriado com base no tipo de dado que deseja ler.
+2. **`insert()`**: Este método permite inserir dados em uma posição específica dentro da sequência. Você especifica o índice onde deseja inserir os dados e o valor que deseja inserir.
 
 ```java
-int numero = scanner.nextInt();
-String texto = scanner.nextLine();
-double decimal = scanner.nextDouble();
+StringBuilder sb = new StringBuilder("Hello");
+sb.insert(5, " World"); // Insere " World" após o quinto caractere
 ```
 
-3. **Delimitadores**: Você pode configurar delimitadores personalizados para dividir os dados de entrada em tokens. O delimitador padrão é o espaço em branco.
+3. **`delete()`**: Esse método é usado para remover um intervalo de caracteres da sequência. Você precisa fornecer o índice inicial e o índice final (exclusivo) dos caracteres a serem excluídos.
 
 ```java
-scanner.useDelimiter(",");
+StringBuilder sb = new StringBuilder("Hello World");
+sb.delete(5, 11); // Remove " World"
 ```
 
-4. **Verificação de Disponibilidade**: A classe `Scanner` também oferece métodos para verificar se há mais dados disponíveis na entrada, como `hasNextInt()`, `hasNextDouble()`, etc., o que ajuda a evitar erros de leitura.
+4. **`replace()`**: O método `replace()` permite substituir um intervalo de caracteres por uma nova sequência.
 
 ```java
-if (scanner.hasNextInt()) {
-    int numero = scanner.nextInt();
-} else {
-    System.out.println("Entrada inválida.");
-}
+StringBuilder sb = new StringBuilder("Hello World");
+sb.replace(6, 11, "Java"); // Substitui "World" por "Java"
 ```
 
-5. **Fechamento**: É importante fechar um objeto `Scanner` quando você terminar de usá-lo para liberar recursos e evitar vazamentos de memória.
+5. **`charAt()`**: Este método retorna o caractere na posição especificada.
 
 ```java
-scanner.close();
+StringBuilder sb = new StringBuilder("Hello");
+char c = sb.charAt(1); // Retorna 'e'
 ```
 
-A classe `Scanner` é uma ferramenta versátil para lidar com entrada de dados em Java, tornando mais fácil a interação com o usuário ou a leitura de informações de arquivos. No entanto, é importante lidar com exceções, como `InputMismatchException` ou `NoSuchElementException`, que podem ser lançadas se os dados de entrada não corresponderem ao tipo esperado ou se não houver mais dados disponíveis.
-
-### O método next().charAt(0) 
-
-O método `next().charAt(0)` é uma combinação de métodos da classe `Scanner` e da classe `String` em Java, frequentemente utilizada para obter o primeiro caractere de uma entrada de texto fornecida pelo usuário.
-
-Aqui está como funciona:
-
-1. `next()`: O método `next()` da classe `Scanner` lê a próxima sequência de caracteres até encontrar um delimitador (por padrão, um espaço em branco) e retorna essa sequência como uma string. Isso significa que ele captura a primeira palavra ou token da entrada.
-
-2. `charAt(0)`: Após obter a string usando `next()`, você pode usar o método `charAt(0)` da classe `String` para acessar o primeiro caractere dessa string. O índice `0` indica o primeiro caractere na string.
-
-Juntando esses dois métodos, você pode ler o primeiro caractere da primeira palavra da entrada do usuário. Aqui está um exemplo:
+6. **`length()`**: Retorna o comprimento atual da sequência.
 
 ```java
-import java.util.Scanner;
-
-public class ExemploScanner {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Digite uma palavra: ");
-        String palavra = scanner.next(); // Lê a primeira palavra
-
-        if (!palavra.isEmpty()) {
-            char primeiroCaractere = palavra.charAt(0); // Obtém o primeiro caractere
-            System.out.println("O primeiro caractere da palavra é: " + primeiroCaractere);
-        } else {
-            System.out.println("Nenhuma palavra foi digitada.");
-        }
-
-        scanner.close();
-    }
-}
+StringBuilder sb = new StringBuilder("Hello");
+int length = sb.length(); // Retorna 5
 ```
 
-Neste exemplo, o programa solicita ao usuário que digite uma palavra. Ele usa `next()` para ler a primeira palavra digitada e, em seguida, usa `charAt(0)` para obter o primeiro caractere dessa palavra. O programa verifica se a entrada não está vazia para evitar exceções.
+7. **`toString()`**: Converte a sequência `StringBuilder` em uma `String`.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+String str = sb.toString(); // Converte para "Hello"
+```
+
+8. **`reverse()`**: Inverte a sequência de caracteres no `StringBuilder`.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.reverse(); // Torna-se "olleH"
+```
+
+Esses são alguns dos métodos mais comuns da classe `StringBuilder`. Eles tornam a manipulação de strings mais eficiente e flexível quando você precisa realizar muitas operações de concatenação e edição em uma string mutável.
+
