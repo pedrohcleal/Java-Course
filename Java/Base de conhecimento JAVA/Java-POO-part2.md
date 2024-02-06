@@ -60,3 +60,82 @@ Em Java, o polimorfismo é um conceito fundamental que permite que objetos de di
    - Neste exemplo, mesmo que `animal1` seja declarado como tipo `Animal`, o método `fazerSom` chamado é o da classe `Cachorro`, porque `animal1` é, na verdade, uma instância de `Cachorro`.
 
 O polimorfismo em Java facilita a criação de código flexível e reutilizável, pois permite tratar objetos de diferentes tipos de maneira uniforme. Isso é fundamental para a implementação de conceitos como herança e interfaces, proporcionando uma maior abstração e modularidade ao código.
+
+## Classes abstratas
+
+Uma classe abstrata em Java é uma classe que não pode ser instanciada diretamente, mas serve como uma base para outras classes. Ela é declarada usando a palavra-chave `abstract`. Uma classe abstrata pode conter métodos abstratos (métodos sem implementação) e métodos concretos (métodos com implementação).
+
+Principais características e conceitos associados a classes abstratas:
+
+1. **Declaração:**
+   - Uma classe abstrata é declarada usando a palavra-chave `abstract`.
+   - Pode conter tanto métodos abstratos quanto métodos concretos.
+   - Exemplo de declaração de uma classe abstrata:
+
+     ```java
+     public abstract class Animal {
+         public abstract void emitirSom(); // Método abstrato
+         
+         public void dormir() {
+             System.out.println("Zzz..."); // Método concreto
+         }
+     }
+     ```
+
+2. **Métodos Abstratos:**
+   - Métodos abstratos são declarados sem uma implementação na classe abstrata.
+   - As subclasses devem fornecer uma implementação para esses métodos.
+   - Exemplo:
+
+     ```java
+     public abstract class Animal {
+         public abstract void emitirSom(); // Método abstrato
+     }
+
+     public class Cachorro extends Animal {
+         public void emitirSom() {
+             System.out.println("Latido"); // Implementação do método abstrato
+         }
+     }
+     ```
+
+3. **Objetivo:**
+   - O principal objetivo das classes abstratas é fornecer uma estrutura comum para outras classes que serão derivadas dela.
+   - Elas são frequentemente usadas em conjunto com herança para criar uma hierarquia de classes.
+
+4. **Herança:**
+   - Uma classe abstrata pode ser estendida por outras classes, que são conhecidas como subclasses.
+   - As subclasses devem fornecer implementações para todos os métodos abstratos da classe abstrata pai.
+   - Exemplo de herança:
+
+     ```java
+     public class Gato extends Animal {
+         public void emitirSom() {
+             System.out.println("Miado"); // Implementação do método abstrato
+         }
+     }
+     ```
+
+5. **Instanciação:**
+   - Não é possível criar uma instância direta de uma classe abstrata usando `new ClasseAbstrata()`.
+   - Pode-se usar uma referência de tipo da classe abstrata para se referir a uma instância de uma subclasse.
+
+     ```java
+     Animal animal = new Gato();
+     ```
+
+6. **Construtores:**
+   - Uma classe abstrata pode ter construtores, que são chamados quando uma instância de uma subclasse é criada.
+   - No entanto, a instância da classe abstrata em si não pode ser criada.
+
+     ```java
+     public abstract class Animal {
+         public Animal() {
+             System.out.println("Construindo um animal");
+         }
+
+         public abstract void emitirSom();
+     }
+     ```
+
+As classes abstratas são uma ferramenta poderosa na programação orientada a objetos, permitindo a criação de hierarquias de classes e fornecendo uma estrutura comum para comportamentos relacionados. Elas são especialmente úteis quando você deseja garantir que determinados métodos sejam implementados por todas as subclasses.
