@@ -50,3 +50,26 @@ O tratamento de exceções em Java é uma técnica fundamental para lidar com er
    - Exceções em Java podem ser classificadas como verificadas (checked) ou não verificadas (unchecked). Exceções verificadas são aquelas que o compilador exige que sejam tratadas ou declaradas no método usando a palavra-chave `throws`. Exceções não verificadas incluem subclasses de `RuntimeException` e não exigem tratamento ou declaração.
 
 O tratamento de exceções em Java é uma prática essencial para criar programas robustos, fornecendo uma maneira de lidar com situações imprevistas e manter a integridade do sistema durante a execução.
+
+## Pilha de chamada de métodos
+
+A pilha de chamadas de métodos, também conhecida como "stack" em inglês, é uma estrutura de dados fundamental no contexto de execução de programas Java. Essa pilha é usada para controlar a execução de métodos e manter o contexto de cada chamada de método durante a execução do programa.
+
+Aqui está uma visão geral de como a pilha de chamadas de métodos funciona em Java:
+
+1. **Criação de Frame (Quadro):**
+   - Cada vez que um método é chamado, um bloco de memória chamado "frame" é criado na pilha de chamadas de métodos para esse método específico. O frame contém informações como variáveis locais, operandos, endereço de retorno e outros detalhes relacionados à execução do método.
+
+2. **Empilhamento (Push) e Desempilhamento (Pop):**
+   - À medida que os métodos são chamados, seus frames correspondentes são empilhados na pilha. Quando um método conclui sua execução, seu frame é removido da pilha, processo conhecido como desempilhamento (pop). Isso ocorre de forma LIFO (Last In, First Out), ou seja, o último método que entrou é o primeiro a sair.
+
+3. **Chamadas Recursivas:**
+   - Quando um método chama a si mesmo de forma recursiva, novos frames são empilhados para cada chamada recursiva. Cada chamada recursiva tem seu próprio conjunto de variáveis locais e outros dados.
+
+4. **Overflow e Underflow da Pilha:**
+   - A pilha de chamadas de métodos tem um tamanho limitado. Se a pilha atingir seu limite, ocorre um erro conhecido como "StackOverflowError". Por outro lado, se um método tentar acessar um frame que não está presente na pilha, ocorre um "StackUnderflowError".
+
+5. **Chamadas de Métodos e Retornos:**
+   - Quando um método é chamado, o endereço de retorno é empilhado junto com o frame do método chamador. Isso permite que, quando o método chamado é concluído, o controle seja transferido de volta ao método chamador no endereço de retorno desempilhado.
+
+A pilha de chamadas de métodos desempenha um papel crítico na execução de programas Java, garantindo que a execução de métodos seja gerenciada de maneira eficiente e que o controle seja transferido de volta corretamente após a conclusão de cada método. O entendimento dessa estrutura é essencial para compreender como o controle de fluxo é mantido durante a execução de um programa Java.
