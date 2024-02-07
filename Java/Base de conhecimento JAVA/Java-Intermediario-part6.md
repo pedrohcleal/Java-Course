@@ -53,23 +53,44 @@ O tratamento de exceções em Java é uma prática essencial para criar programa
 
 ## Pilha de chamada de métodos
 
-A pilha de chamadas de métodos, também conhecida como "stack" em inglês, é uma estrutura de dados fundamental no contexto de execução de programas Java. Essa pilha é usada para controlar a execução de métodos e manter o contexto de cada chamada de método durante a execução do programa.
+A pilha de chamadas de métodos, ou "call stack", é uma estrutura fundamental em linguagens de programação como Java, que mantém o controle do fluxo de execução do programa. No contexto de tratamento de exceções, a pilha de chamadas de métodos desempenha um papel importante ao rastrear a origem e o encadeamento das chamadas de métodos quando uma exceção ocorre.
 
-Aqui está uma visão geral de como a pilha de chamadas de métodos funciona em Java:
+Quando um método é chamado em Java, um novo quadro de pilha (stack frame) é criado e adicionado à pilha de chamadas. Esse quadro contém informações como variáveis locais, endereço de retorno e outros dados necessários para a execução do método. Quando um método é concluído, seu quadro é removido da pilha.
 
-1. **Criação de Frame (Quadro):**
-   - Cada vez que um método é chamado, um bloco de memória chamado "frame" é criado na pilha de chamadas de métodos para esse método específico. O frame contém informações como variáveis locais, operandos, endereço de retorno e outros detalhes relacionados à execução do método.
+Ao ocorrer uma exceção, o Java procura automaticamente por um bloco `catch` correspondente no método atual. Se não houver um bloco de `catch` no método atual, a exceção é propagada para o método que chamou o método atual, continuando assim até que um bloco `catch` adequado seja encontrado ou até atingir o topo da pilha.
 
-2. **Empilhamento (Push) e Desempilhamento (Pop):**
-   - À medida que os métodos são chamados, seus frames correspondentes são empilhados na pilha. Quando um método conclui sua execução, seu frame é removido da pilha, processo conhecido como desempilhamento (pop). Isso ocorre de forma LIFO (Last In, First Out), ou seja, o último método que entrou é o primeiro a sair.
+Vamos considerar um exemplo para ilustrar esse processo:
 
-3. **Chamadas Recursivas:**
-   - Quando um método chama a si mesmo de forma recursiva, novos frames são empilhados para cada chamada recursiva. Cada chamada recursiva tem seu próprio conjunto de variáveis locais e outros dados.
+```java
+public class ExcecaoExemplo {
 
-4. **Overflow e Underflow da Pilha:**
-   - A pilha de chamadas de métodos tem um tamanho limitado. Se a pilha atingir seu limite, ocorre um erro conhecido como "StackOverflowError". Por outro lado, se um método tentar acessar um frame que não está presente na pilha, ocorre um "StackUnderflowError".
+    public static void main(String[] args) {
+        try {
+            metodo1();
+        } catch (Exception e) {
+            System.out.println("Exceção capturada: " + e.getMessage());
+        }
+    }
 
-5. **Chamadas de Métodos e Retornos:**
-   - Quando um método é chamado, o endereço de retorno é empilhado junto com o frame do método chamador. Isso permite que, quando o método chamado é concluído, o controle seja transferido de volta ao método chamador no endereço de retorno desempilhado.
+    public static void metodo1() {
+        try {
+            metodo2();
+        } catch (RuntimeException e) {
+            System.out.println("Exceção capturada em metodo1: " + e.getMessage());
+        }
+    }
 
-A pilha de chamadas de métodos desempenha um papel crítico na execução de programas Java, garantindo que a execução de métodos seja gerenciada de maneira eficiente e que o controle seja transferido de volta corretamente após a conclusão de cada método. O entendimento dessa estrutura é essencial para compreender como o controle de fluxo é mantido durante a execução de um programa Java.
+    public static void metodo2() {
+        int resultado = dividir(10, 0);
+        System.out.println("Resultado: " + resultado);
+    }
+
+    public static int dividir(int a, int b) {
+        return a / b;
+    }
+}
+```
+
+Neste exemplo, o método `dividir` pode lançar uma exceção `ArithmeticException` se a divisão por zero ocorrer. Se essa exceção não for tratada dentro do método `dividir`, ela será propagada para o método `metodo2`. Se também não for tratada em `metodo2`, a exceção será propagada para `metodo1`. Finalmente, o bloco `catch` em `metodo1` captura a exceção e exibe uma mensagem.
+
+A pilha de chamadas de métodos mantém o rastro das chamadas de métodos, permitindo que o programa trate exceções de maneira hierárquica e localize onde a exceção ocorreu originalmente. Isso facilita a depuração e o entendimento do fluxo de controle durante situações excepcionais.
