@@ -33,3 +33,24 @@ public interface ExemploRepository extends JpaRepository<Exemplo, Long> {
 No exemplo acima, `Exemplo` é uma entidade JPA, e `ExemploRepository` é o repositório que estende `JpaRepository`. Os métodos `findByNome` e `encontrarPorNomeEIdade` são exemplos de consultas que podem ser derivadas automaticamente ou definidas explicitamente.
 
 O uso de `JpaRepository` no Spring Data JPA facilita o desenvolvimento de operações de persistência de dados, eliminando a necessidade de escrever consultas SQL manualmente e fornecendo métodos convenientes para interagir com o banco de dados.
+
+## JPA vs JDBC
+
+Sim, o JPA (Java Persistence API) é uma melhoria significativa em relação ao JDBC (Java Database Connectivity) quando se trata de interação com bancos de dados em aplicações Java. Aqui estão algumas razões pelas quais o JPA é considerado uma evolução em relação ao JDBC:
+
+1. **Abstração de Nível Mais Alto:**
+   - O JDBC é uma API de baixo nível que exige que os desenvolvedores escrevam consultas SQL manualmente e manipulem diretamente os resultados. Já o JPA fornece uma camada de abstração de nível mais alto, permitindo que os desenvolvedores interajam com objetos Java ao invés de lidar diretamente com SQL.
+
+2. **Mapeamento Objeto-Relacional (ORM):**
+   - Uma das principais vantagens do JPA é o suporte ao mapeamento objeto-relacional. Isso significa que as entidades Java podem ser mapeadas diretamente para tabelas no banco de dados, eliminando a necessidade de tradução manual entre objetos Java e registros de banco de dados.
+
+3. **Produtividade:**
+   - O JPA, em conjunto com frameworks como o Hibernate (uma implementação popular do JPA), oferece uma maior produtividade. Os desenvolvedores podem se concentrar mais na lógica de negócios em vez de lidar com detalhes de manipulação de dados e SQL.
+
+4. **Consulta Orientada a Objetos:**
+   - O JPA permite que os desenvolvedores realizem consultas usando uma linguagem orientada a objetos chamada JPQL (Java Persistence Query Language). Isso simplifica a escrita de consultas em comparação com SQL tradicional, que é mais orientado a conjuntos de dados.
+
+5. **Portabilidade:**
+   - O código que utiliza JPA é mais portátil entre diferentes bancos de dados, uma vez que as consultas e o mapeamento objeto-relacional são tratados pela implementação JPA (como o Hibernate). Isso facilita a troca do banco de dados subjacente sem a necessidade de modificar significativamente o código da aplicação.
+
+Em resumo, o JPA oferece uma camada de abstração mais alta, simplifica o desenvolvimento, promove o mapeamento objeto-relacional e facilita a portabilidade do código entre diferentes bancos de dados. Isso faz com que seja uma escolha mais poderosa e produtiva em comparação com o JDBC, especialmente em aplicações empresariais e projetos que envolvem uma modelagem de dados mais complexa.
