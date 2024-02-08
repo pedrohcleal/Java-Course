@@ -36,7 +36,7 @@ O uso de `JpaRepository` no Spring Data JPA facilita o desenvolvimento de opera�
 
 ## JPA vs JDBC
 
-Sim, o JPA (Java Persistence API) é uma melhoria significativa em relação ao JDBC (Java Database Connectivity) quando se trata de interação com bancos de dados em aplicações Java. Aqui estão algumas razões pelas quais o JPA é considerado uma evolução em relação ao JDBC:
+O JPA (Java Persistence API) é uma melhoria significativa em relação ao JDBC (Java Database Connectivity) quando se trata de interação com bancos de dados em aplicações Java. Aqui estão algumas razões pelas quais o JPA é considerado uma evolução em relação ao JDBC:
 
 1. **Abstração de Nível Mais Alto:**
    - O JDBC é uma API de baixo nível que exige que os desenvolvedores escrevam consultas SQL manualmente e manipulem diretamente os resultados. Já o JPA fornece uma camada de abstração de nível mais alto, permitindo que os desenvolvedores interajam com objetos Java ao invés de lidar diretamente com SQL.
