@@ -40,7 +40,7 @@ public class Main {
                 list.add(product);
             } else if (ch == 'c') {
                 var product = new Product(name, price);
-                list.add(product);
+                list.add(product); // list.add(new Product(name, price));
             }
         }
         int cont = 0;
