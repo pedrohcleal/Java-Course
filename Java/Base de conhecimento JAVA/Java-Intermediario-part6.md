@@ -2,47 +2,75 @@
 
 ## Classe `Optional<>`
 
-`Optional` é uma classe introduzida no Java 8 no pacote `java.util`. Ela foi projetada para ajudar a lidar com valores possivelmente nulos de maneira mais segura e expressiva. O objetivo do `Optional` é evitar o uso excessivo de `null` e, assim, reduzir a possibilidade de `NullPointerException`.
+A classe `Optional` em Java foi introduzida no Java 8 como parte do pacote `java.util`. Ela foi projetada para lidar com situações em que um valor pode ou não estar presente, permitindo que você evite a necessidade de verificar constantemente se uma referência é nula. A principal ideia por trás do `Optional` é fornecer uma maneira mais expressiva e segura de representar valores opcionais, incentivando boas práticas de programação.
 
-A principal ideia por trás do `Optional` é representar a presença ou ausência de um valor sem a necessidade de usar `null`. Em vez de retornar `null` quando um valor não está presente, um método pode retornar um `Optional` que pode conter ou não um valor.
+Aqui estão alguns conceitos-chave sobre a classe `Optional`:
 
-Alguns pontos-chave sobre `Optional`:
+1. **Representação de Valores Opcionais:**
+   `Optional` é uma espécie de invólucro (wrapper) que pode conter um valor ou nenhum valor (null). Isso ajuda a expressar de maneira mais clara a possibilidade de um valor ausente.
 
-1. **Construção de Optional:**
+2. **Evita NullPointerException:**
+   Usar `Optional` pode ajudar a reduzir a incidência de `NullPointerException`, pois você não precisa verificar manualmente se um objeto é nulo antes de acessar seus métodos ou propriedades.
+
+3. **Métodos Principais:**
+   Alguns dos métodos principais fornecidos por `Optional` incluem `of`, `ofNullable`, `isPresent`, `get`, `orElse`, `orElseGet`, e `orElseThrow`. Aqui está um exemplo simples de como você pode usar alguns desses métodos:
+
    ```java
-   Optional<String> optionalValue = Optional.of("Hello, World!"); // Valor presente
-   Optional<String> emptyOptional = Optional.empty(); // Valor ausente
-   Optional<String> nullableOptional = Optional.ofNullable(possivelValorNulo); // Valor que pode ser nulo
-   ```
-
-2. **Verificação da Presença de Valor:**
-   ```java
-   if (optionalValue.isPresent()) {
-       String value = optionalValue.get(); // Obtém o valor se presente
+   Optional<String> optionalString = Optional.of("Valor presente");
+   
+   // Verificar se o valor está presente
+   if (optionalString.isPresent()) {
+       System.out.println("Valor presente: " + optionalString.get());
+   } else {
+       System.out.println("Valor ausente");
    }
+   
+   // Usar orElse para fornecer um valor padrão se ausente
+   String valorOuPadrao = optionalString.orElse("Valor padrão");
+   System.out.println("Valor ou padrão: " + valorOuPadrao);
    ```
 
-3. **Manipulação de Valores:**
+4. **Método `orElseGet`:**
+   Em comparação com `orElse`, o método `orElseGet` aceita um `Supplier` que será invocado apenas quando o valor estiver ausente. Isso permite a avaliação preguiçosa, o que pode ser útil para evitar a execução desnecessária de código.
+
    ```java
-   String value = optionalValue.orElse("Default Value"); // Retorna o valor se presente, senão retorna um valor padrão
-   optionalValue.ifPresent(val -> System.out.println(val)); // Executa uma ação se o valor estiver presente
+   String valorOuCalculado = optionalString.orElseGet(() -> calcularValor());
    ```
 
-4. **Tratamento de Valores Nulos:**
-   O uso de `Optional` pode reduzir a necessidade de verificar nulidade, tornando o código mais limpo e menos propenso a `NullPointerException`.
+5. **Evitar o Uso Excessivo:**
+   Embora `Optional` seja útil em muitos casos, não é apropriado usá-lo em todos os lugares. É mais adequado para retornos de métodos ou argumentos que podem ser opcionais. Não é recomendado usá-lo para campos de classe ou parâmetros de método, por exemplo.
 
-5. **Operações Funcionais:**
-   `Optional` também oferece métodos funcionais como `map`, `filter` e `flatMap`, que permitem realizar operações em valores opcionais de maneira mais elegante.
+Em resumo, a classe `Optional` em Java fornece uma abordagem mais segura e expressiva para lidar com valores opcionais, ajudando a evitar problemas relacionados a `NullPointerException` e tornando o código mais legível.
 
-Exemplo de uso com um método que retorna `Optional`:
+## NullPointerException 
+
+`NullPointerException` é uma exceção que ocorre em tempo de execução em linguagens de programação que têm tratamento explícito de ponteiros ou referências de objetos, como Java. Essa exceção é lançada quando um programa tenta acessar um objeto usando uma referência que aponta para `null` (um valor nulo).
+
+Em Java, os objetos são alocados dinamicamente na memória heap, e as referências são usadas para acessar esses objetos. Se uma referência não aponta para nenhum objeto (ou seja, seu valor é `null`) e você tentar acessar um método ou uma propriedade desse objeto através dessa referência, uma `NullPointerException` será lançada.
+
+Exemplo de código que pode causar `NullPointerException`:
+
 ```java
-public Optional<String> buscarAlgo() {
-    // Lógica para obter o valor (pode ser nulo)
-    // Retorna Optional com o valor ou Optional vazio se não encontrado
+String texto = null;
+int comprimento = texto.length(); // Isso resultará em NullPointerException
+```
+
+Neste exemplo, a variável `texto` é atribuída como `null`, e quando tentamos chamar o método `length()` nela, uma exceção será lançada porque não podemos chamar métodos em uma referência que aponta para `null`.
+
+Para evitar `NullPointerException`, é importante verificar se uma referência é `null` antes de tentar acessar métodos ou propriedades dela. O uso adequado de estruturas como `if` ou a classe `Optional` pode ajudar a lidar com valores nulos de forma mais segura.
+
+```java
+String texto = null;
+
+// Verificar se a referência é null antes de acessar
+if (texto != null) {
+    int comprimento = texto.length(); // Isso será executado apenas se texto não for null
+} else {
+    System.out.println("A variável 'texto' é null.");
 }
 ```
 
-Em relação ao contexto original, ao usar `Optional` com Spring Data JPA, o método `orElseThrow` foi utilizado para lançar uma exceção caso o valor não esteja presente. Isso é uma prática comum para indicar que a ausência do valor é uma situação excepcional que deve ser tratada.
+Essa abordagem ajuda a evitar exceções indesejadas e torna o código mais robusto.
 
 ## Tratamento de erros
 
