@@ -1,5 +1,49 @@
 # Java part 6
 
+## Classe `Optional<>`
+
+`Optional` é uma classe introduzida no Java 8 no pacote `java.util`. Ela foi projetada para ajudar a lidar com valores possivelmente nulos de maneira mais segura e expressiva. O objetivo do `Optional` é evitar o uso excessivo de `null` e, assim, reduzir a possibilidade de `NullPointerException`.
+
+A principal ideia por trás do `Optional` é representar a presença ou ausência de um valor sem a necessidade de usar `null`. Em vez de retornar `null` quando um valor não está presente, um método pode retornar um `Optional` que pode conter ou não um valor.
+
+Alguns pontos-chave sobre `Optional`:
+
+1. **Construção de Optional:**
+   ```java
+   Optional<String> optionalValue = Optional.of("Hello, World!"); // Valor presente
+   Optional<String> emptyOptional = Optional.empty(); // Valor ausente
+   Optional<String> nullableOptional = Optional.ofNullable(possivelValorNulo); // Valor que pode ser nulo
+   ```
+
+2. **Verificação da Presença de Valor:**
+   ```java
+   if (optionalValue.isPresent()) {
+       String value = optionalValue.get(); // Obtém o valor se presente
+   }
+   ```
+
+3. **Manipulação de Valores:**
+   ```java
+   String value = optionalValue.orElse("Default Value"); // Retorna o valor se presente, senão retorna um valor padrão
+   optionalValue.ifPresent(val -> System.out.println(val)); // Executa uma ação se o valor estiver presente
+   ```
+
+4. **Tratamento de Valores Nulos:**
+   O uso de `Optional` pode reduzir a necessidade de verificar nulidade, tornando o código mais limpo e menos propenso a `NullPointerException`.
+
+5. **Operações Funcionais:**
+   `Optional` também oferece métodos funcionais como `map`, `filter` e `flatMap`, que permitem realizar operações em valores opcionais de maneira mais elegante.
+
+Exemplo de uso com um método que retorna `Optional`:
+```java
+public Optional<String> buscarAlgo() {
+    // Lógica para obter o valor (pode ser nulo)
+    // Retorna Optional com o valor ou Optional vazio se não encontrado
+}
+```
+
+Em relação ao contexto original, ao usar `Optional` com Spring Data JPA, o método `orElseThrow` foi utilizado para lançar uma exceção caso o valor não esteja presente. Isso é uma prática comum para indicar que a ausência do valor é uma situação excepcional que deve ser tratada.
+
 ## Tratamento de erros
 
 O tratamento de exceções em Java é uma técnica fundamental para lidar com erros durante a execução de um programa, permitindo que o código responda de maneira apropriada a situações inesperadas. O mecanismo de tratamento de exceções em Java é baseado no uso de três blocos principais: try, catch e finally.
