@@ -54,3 +54,49 @@ O JPA (Java Persistence API) é uma melhoria significativa em relação ao JDBC 
    - O código que utiliza JPA é mais portátil entre diferentes bancos de dados, uma vez que as consultas e o mapeamento objeto-relacional são tratados pela implementação JPA (como o Hibernate). Isso facilita a troca do banco de dados subjacente sem a necessidade de modificar significativamente o código da aplicação.
 
 Em resumo, o JPA oferece uma camada de abstração mais alta, simplifica o desenvolvimento, promove o mapeamento objeto-relacional e facilita a portabilidade do código entre diferentes bancos de dados. Isso faz com que seja uma escolha mais poderosa e produtiva em comparação com o JDBC, especialmente em aplicações empresariais e projetos que envolvem uma modelagem de dados mais complexa.
+
+## Classe `Optional<>` 
+
+A classe `Optional` em Java é parte do pacote `java.util` e foi introduzida no Java 8 como uma maneira de lidar com valores nulos de forma mais segura e expressiva. Ela encapsula um valor que pode ser nulo ou não nulo, permitindo que você realize operações de forma mais concisa e evitando exceções do tipo `NullPointerException`. A utilização de `Optional` é especialmente comum em projetos que fazem uso do framework Spring.
+
+No contexto do Spring, o uso de `Optional` é recomendado em certos pontos, como em métodos de retorno de dados em serviços ou repositórios. Aqui estão algumas situações típicas em que `Optional` é útil em projetos Spring:
+
+1. **Retorno de métodos em serviços ou repositórios:**
+   ```java
+   public Optional<User> findUserById(Long userId) {
+       // Lógica para buscar um usuário pelo ID
+       // Retorna Optional.ofNullable(user) se encontrado, ou Optional.empty() se não encontrado
+   }
+   ```
+
+   Essa abordagem permite que o chamador do método trate o resultado de forma mais explícita, sem depender de checagem de nulos.
+
+2. **Injeção de dependências opcionais:**
+   Ao injetar dependências em beans gerenciados pelo Spring, você pode usar `Optional` para indicar que a dependência é opcional:
+   ```java
+   @Autowired
+   public void setOptionalDependency(Optional<SomeService> optionalService) {
+       // Lógica para lidar com a dependência opcional, se presente
+   }
+   ```
+
+3. **Mapeamento em Streams:**
+   O uso de `Optional` é comum ao mapear streams de dados, principalmente ao lidar com mapeamentos que podem resultar em nulos:
+   ```java
+   List<String> result = userList.stream()
+                                  .map(User::getOptionalName)
+                                  .flatMap(Optional::stream)
+                                  .collect(Collectors.toList());
+   ```
+
+   Isso é útil quando você tem métodos que retornam `Optional` e deseja realizar operações em uma sequência de chamadas.
+
+4. **Validação de parâmetros:**
+   `Optional` também pode ser usado para validar parâmetros de métodos, indicando que certos argumentos são opcionais:
+   ```java
+   public void processData(String mandatoryParam, Optional<String> optionalParam) {
+       // Lógica para processar dados, levando em consideração o parâmetro opcional
+   }
+   ```
+
+Ao utilizar `Optional` em conjunto com Spring, você pode tornar seu código mais seguro, expressivo e evitar a necessidade de verificações manuais de nulos, contribuindo para um design mais robusto e legível. No entanto, é importante ter em mente que o uso excessivo e inadequado de `Optional` pode tornar o código mais complexo do que o necessário, então é recomendável avaliar caso a caso.
