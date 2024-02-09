@@ -173,7 +173,9 @@ public class MeuServico {
 
 Estas são apenas algumas das muitas annotations disponíveis no Spring Boot. Elas são essenciais para aproveitar ao máximo a automação e a configuração simplificada oferecidas pelo framework.
 
-## `record` No ecossistema Spring, especialmente em aplicações que seguem o estilo arquitetural RESTful, o uso de Data Transfer Objects (DTOs) é comum para transferir dados entre as camadas da aplicação. Um Record DTO é uma abordagem específica que aproveita a capacidade de criação simplificada de registros introduzida no Java 16 para criar DTOs de forma concisa.
+## `record` 
+
+No ecossistema Spring, especialmente em aplicações que seguem o estilo arquitetural RESTful, o uso de Data Transfer Objects (DTOs) é comum para transferir dados entre as camadas da aplicação. Um Record DTO é uma abordagem específica que aproveita a capacidade de criação simplificada de registros introduzida no Java 16 para criar DTOs de forma concisa.
 
 Aqui está uma explicação sobre Record DTOs no ecossistema Spring:
 
