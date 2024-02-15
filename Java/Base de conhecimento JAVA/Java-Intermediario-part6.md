@@ -166,3 +166,43 @@ public class ExcecaoExemplo {
 Neste exemplo, o método `dividir` pode lançar uma exceção `ArithmeticException` se a divisão por zero ocorrer. Se essa exceção não for tratada dentro do método `dividir`, ela será propagada para o método `metodo2`. Se também não for tratada em `metodo2`, a exceção será propagada para `metodo1`. Finalmente, o bloco `catch` em `metodo1` captura a exceção e exibe uma mensagem.
 
 A pilha de chamadas de métodos mantém o rastro das chamadas de métodos, permitindo que o programa trate exceções de maneira hierárquica e localize onde a exceção ocorreu originalmente. Isso facilita a depuração e o entendimento do fluxo de controle durante situações excepcionais.
+
+## `throws`
+
+Em Java, a palavra-chave `throws` é usada na declaração de uma função ou método para indicar que a função pode lançar exceções de um determinado tipo. Isso significa que, ao chamar essa função, o código que a chama precisa lidar com essas exceções usando um bloco `try-catch` ou propagar a exceção adicionando a cláusula `throws` à sua própria declaração.
+
+A sintaxe básica é a seguinte:
+
+```java
+public void minhaFuncao() throws TipoDeExcecao {
+    // código da função que pode lançar a exceção
+}
+```
+
+Aqui está um exemplo mais detalhado:
+
+```java
+public class Exemplo {
+
+    public void minhaFuncao() throws MinhaExcecao {
+        // código que pode lançar MinhaExcecao
+    }
+
+    public static void main(String[] args) {
+        Exemplo exemplo = new Exemplo();
+
+        try {
+            exemplo.minhaFuncao();
+        } catch (MinhaExcecao e) {
+            // lidar com a exceção
+            e.printStackTrace();
+        }
+    }
+}
+
+class MinhaExcecao extends Exception {
+    // Defina a classe de exceção personalizada, se necessário
+}
+```
+
+Neste exemplo, `minhaFuncao()` é declarada como lançando uma exceção do tipo `MinhaExcecao`. No método `main`, ao chamar `minhaFuncao()`, o código é envolvido em um bloco `try-catch` para lidar com a possível exceção. Se `minhaFuncao()` lançar `MinhaExcecao`, o bloco `catch` será executado para tratar a exceção conforme necessário.
