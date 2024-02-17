@@ -206,3 +206,48 @@ class MinhaExcecao extends Exception {
 ```
 
 Neste exemplo, `minhaFuncao()` é declarada como lançando uma exceção do tipo `MinhaExcecao`. No método `main`, ao chamar `minhaFuncao()`, o código é envolvido em um bloco `try-catch` para lidar com a possível exceção. Se `minhaFuncao()` lançar `MinhaExcecao`, o bloco `catch` será executado para tratar a exceção conforme necessário.
+
+## Classe personalizada de erros
+
+Em Java, é possível criar classes personalizadas que estendem a classe `Exception` para criar exceções personalizadas. Essas exceções podem ser úteis quando você precisa lidar com situações específicas em seu código que não podem ser representadas adequadamente por exceções padrão do Java.
+
+A criação de uma classe de exceção personalizada envolve estender a classe `Exception` ou uma de suas subclasses diretas, como `RuntimeException`. Aqui está um exemplo básico:
+
+```java
+public class MinhaExcecaoPersonalizada extends Exception {
+
+    public MinhaExcecaoPersonalizada() {
+        super("Esta é uma exceção personalizada.");
+    }
+
+    public MinhaExcecaoPersonalizada(String mensagem) {
+        super(mensagem);
+    }
+}
+```
+
+Neste exemplo, `MinhaExcecaoPersonalizada` é uma classe que estende `Exception`. Ela fornece dois construtores: um sem argumentos, que define uma mensagem padrão, e outro que permite especificar uma mensagem personalizada.
+
+Agora, você pode usar essa exceção personalizada em seu código da seguinte maneira:
+
+```java
+public class Exemplo {
+
+    public void meuMetodo() throws MinhaExcecaoPersonalizada {
+        // Alguma lógica que pode lançar a exceção personalizada
+        throw new MinhaExcecaoPersonalizada("Ocorreu um erro específico neste método.");
+    }
+
+    public static void main(String[] args) {
+        Exemplo exemplo = new Exemplo();
+
+        try {
+            exemplo.meuMetodo();
+        } catch (MinhaExcecaoPersonalizada e) {
+            System.out.println("Exceção capturada: " + e.getMessage());
+        }
+    }
+}
+```
+
+No exemplo acima, o método `meuMetodo()` lança uma instância de `MinhaExcecaoPersonalizada`. No método `main`, essa exceção é capturada usando um bloco `try-catch`, e a mensagem da exceção é exibida. Essas classes de exceção personalizadas proporcionam uma maneira estruturada de lidar com erros específicos em seu código.
