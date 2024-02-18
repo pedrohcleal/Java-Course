@@ -130,3 +130,45 @@ Estes são apenas exemplos básicos e muitas outras funcionalidades estão dispo
 A manipulação de arquivos em Java é uma habilidade essencial para o desenvolvimento de aplicações robustas e completas. Através das classes e APIs disponíveis, você pode realizar diversas operações com arquivos de texto e binários, abrindo um mundo de possibilidades para o armazenamento e gerenciamento de dados em seus projetos.
 
 **Lembre-se:** este guia é apenas um ponto de partida. Explore os recursos mencionados e pratique a manipulação de arquivos em seus projetos para dominar essa importante habilidade.
+
+## FileReader e BufferedReader
+
+`FileReader` e `BufferedReader` são classes em Java que facilitam a leitura de dados a partir de arquivos. Vamos entender cada uma delas:
+
+### 1. `FileReader`:
+
+A classe `FileReader` em Java é usada para criar um fluxo de caracteres vinculado a um arquivo. Ela é usada principalmente para ler dados de arquivos de texto. Aqui está um exemplo básico de como usar `FileReader`:
+
+```java
+try (FileReader fileReader = new FileReader("arquivo.txt")) {
+    int caractere;
+    while ((caractere = fileReader.read()) != -1) {
+        System.out.print((char) caractere);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+No exemplo acima, o método `read()` de `FileReader` lê um caractere por vez do arquivo associado. O loop continua até que o método `read()` retorne -1, indicando o final do arquivo.
+
+### 2. `BufferedReader`:
+
+Embora `FileReader` seja útil para ler caracteres de um arquivo, `BufferedReader` fornece uma camada adicional de funcionalidade, tornando a leitura mais eficiente. Ele armazena em buffer os caracteres, o que reduz o número de operações de leitura física no arquivo. Isso pode melhorar o desempenho ao ler grandes volumes de dados. Aqui está um exemplo que usa `BufferedReader` em conjunto com `FileReader`:
+
+```java
+try (BufferedReader bufferedReader = new BufferedReader(new FileReader("arquivo.txt"))) {
+    String linha;
+    while ((linha = bufferedReader.readLine()) != null) {
+        System.out.println(linha);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+No exemplo acima, `readLine()` do `BufferedReader` é usado para ler uma linha completa do arquivo. Isso é mais eficiente do que ler caractere por caractere, especialmente ao lidar com arquivos de texto.
+
+Além da eficiência, `BufferedReader` oferece métodos convenientes, como `readLine()`, que facilitam a leitura de linhas inteiras de um arquivo. Isso é especialmente útil ao trabalhar com dados estruturados em linhas, como em arquivos CSV ou logs.
+
+Lembre-se de que ao trabalhar com `FileReader` e `BufferedReader`, é importante lidar com exceções (por exemplo, `IOException`) para garantir que erros durante a leitura do arquivo sejam tratados adequadamente. O uso do bloco `try-with-resources` (introduzido no Java 7) garante que os recursos associados aos fluxos sejam fechados corretamente após o uso.
