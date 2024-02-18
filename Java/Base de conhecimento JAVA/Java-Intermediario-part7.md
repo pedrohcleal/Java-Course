@@ -76,3 +76,6 @@ Aqui estão alguns conceitos e exemplos básicos relacionados à manipulação d
     ```
 
 Estes são apenas exemplos básicos e muitas outras funcionalidades estão disponíveis na API Java para manipulação de arquivos. Sempre é recomendável usar as classes do pacote NIO para operações mais avançadas devido à sua eficiência e funcionalidades adicionais.
+
+Descreva sobre  Manipulação de arquivos em Java
+
