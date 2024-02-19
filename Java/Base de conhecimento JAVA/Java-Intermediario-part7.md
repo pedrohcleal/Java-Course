@@ -131,7 +131,7 @@ A manipulação de arquivos em Java é uma habilidade essencial para o desenvolv
 
 **Lembre-se:** este guia é apenas um ponto de partida. Explore os recursos mencionados e pratique a manipulação de arquivos em seus projetos para dominar essa importante habilidade.
 
-## FileReader e BufferedReader
+## `FileReader` e `BufferedReader`
 
 `FileReader` e `BufferedReader` são classes em Java que facilitam a leitura de dados a partir de arquivos. Vamos entender cada uma delas:
 
@@ -172,3 +172,41 @@ No exemplo acima, `readLine()` do `BufferedReader` é usado para ler uma linha c
 Além da eficiência, `BufferedReader` oferece métodos convenientes, como `readLine()`, que facilitam a leitura de linhas inteiras de um arquivo. Isso é especialmente útil ao trabalhar com dados estruturados em linhas, como em arquivos CSV ou logs.
 
 Lembre-se de que ao trabalhar com `FileReader` e `BufferedReader`, é importante lidar com exceções (por exemplo, `IOException`) para garantir que erros durante a leitura do arquivo sejam tratados adequadamente. O uso do bloco `try-with-resources` (introduzido no Java 7) garante que os recursos associados aos fluxos sejam fechados corretamente após o uso.
+
+## `FileWriter` e `BufferedWriter`
+
+Assim como `FileReader` e `BufferedReader` são usados para leitura de arquivos, `FileWriter` e `BufferedWriter` são classes em Java utilizadas para escrever dados em arquivos. Vamos explorar cada uma delas:
+
+### 1. `FileWriter`:
+
+A classe `FileWriter` é usada para criar um fluxo de caracteres vinculado a um arquivo para operações de escrita. Aqui está um exemplo básico de como usar `FileWriter` para escrever em um arquivo:
+
+```java
+try (FileWriter fileWriter = new FileWriter("arquivo_saida.txt")) {
+    fileWriter.write("Conteúdo a ser escrito no arquivo");
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+No exemplo acima, o método `write()` é usado para escrever uma string no arquivo associado. Se o arquivo não existir, o `FileWriter` o criará; se existir, o conteúdo anterior será substituído pelo novo.
+
+### 2. `BufferedWriter`:
+
+Semelhante ao `BufferedReader`, `BufferedWriter` fornece uma camada adicional de funcionalidade para melhorar a eficiência ao escrever em arquivos. Ele armazena em buffer os dados antes de escrevê-los fisicamente no arquivo, o que pode resultar em melhor desempenho ao lidar com grandes volumes de dados. Aqui está um exemplo que utiliza `BufferedWriter` em conjunto com `FileWriter`:
+
+```java
+try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("arquivo_saida.txt"))) {
+    bufferedWriter.write("Conteúdo a ser escrito no arquivo");
+    bufferedWriter.newLine(); // Adiciona uma nova linha
+    bufferedWriter.write("Outro conteúdo na próxima linha");
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+No exemplo acima, `newLine()` é usado para adicionar uma nova linha após o primeiro conteúdo, proporcionando uma formatação mais legível no arquivo. O método `write()` é utilizado para escrever as strings no arquivo.
+
+Assim como com `FileReader` e `BufferedReader`, ao trabalhar com `FileWriter` e `BufferedWriter`, é importante lidar com exceções (por exemplo, `IOException`). O uso do bloco `try-with-resources` garante que os recursos associados aos fluxos sejam fechados corretamente após o uso.
+
+Essas classes são frequentemente utilizadas juntas para manipulação eficiente de arquivos de texto, proporcionando leitura e escrita eficazes, especialmente ao lidar com grandes quantidades de dados.
