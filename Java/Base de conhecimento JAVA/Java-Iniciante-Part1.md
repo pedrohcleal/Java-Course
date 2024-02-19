@@ -556,6 +556,39 @@ Manipulação de strings em Java é uma parte essencial da programação, já qu
    String trimmed = padded.trim(); // Remove espaços em branco
    ```
 
+### `toCharArray()`
+Em Java, o método `toCharArray()` é utilizado para converter uma string em um array de caracteres (`char[]`). A função retorna um novo array contendo os caracteres da string original. A assinatura do método é a seguinte:
+
+```java
+public char[] toCharArray()
+```
+
+Aqui está um exemplo simples de como usar o método `toCharArray()`:
+
+```java
+public class ExemploToCharArray {
+    public static void main(String[] args) {
+        // Definindo uma string
+        String minhaString = "Hello, World!";
+
+        // Usando o método toCharArray() para obter um array de caracteres
+        char[] arrayDeCaracteres = minhaString.toCharArray();
+
+        // Iterando sobre o array de caracteres e imprimindo cada caractere
+        for (char c : arrayDeCaracteres) {
+            System.out.print(c + " ");
+        }
+    }
+}
+```
+
+Neste exemplo, a string "Hello, World!" é convertida em um array de caracteres usando o método `toCharArray()`, e em seguida, cada caractere do array é impresso na tela. O output esperado seria:
+
+```
+H e l l o ,   W o r l d !
+```
+
+Este método pode ser útil em situações onde você precisa manipular individualmente cada caractere de uma string, ou quando precisa trabalhar com funções que aceitam arrays de caracteres em vez de strings.
 A manipulação de strings em Java é uma habilidade fundamental para o desenvolvimento de aplicativos, pois as strings são amplamente usadas na entrada/saída, formatação, processamento de texto e muito mais. Certifique-se de consultar a documentação oficial da linguagem para obter mais detalhes sobre os métodos e funcionalidades relacionados a strings.
 
 ## Métodos em String builder
