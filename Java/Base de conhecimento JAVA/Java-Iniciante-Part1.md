@@ -364,6 +364,27 @@ Além desses loops básicos, é importante mencionar que você pode usar estrutu
              // Código a ser executado se nenhum dos casos anteriores for correspondido
      }
      ```
+- A **Switch Expression**, introduzida no Java 12, é uma forma mais concisa e expressiva de escrever blocos `switch`. Ela substitui a antiga sintaxe verbosa com `case` e `break` por uma sintaxe mais curta usando setas `->`. Aqui está um exemplo resumido de uso:
+
+```java
+public class SwitchExpressionExample {
+    public static void main(String[] args) {
+        int dayOfWeek = 2;
+
+        String dayName = switch (dayOfWeek) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4, 5 -> "Thursday or Friday"; // Múltiplos casos podem ser agrupados
+            default -> "Invalid day";
+        };
+
+        System.out.println(dayName);
+    }
+}
+```
+
+Neste exemplo, a expressão `switch` é usada para atribuir um valor à variável `dayName` com base no valor de `dayOfWeek`. As setas `->` são utilizadas para indicar a correspondência entre os casos e os valores associados. Essa abordagem torna o código mais limpo e legível em comparação com a sintaxe tradicional do `switch`.
 
 Essas estruturas de controle são essenciais para a programação em Java, pois permitem que você crie programas mais complexos, tome decisões com base em condições e execute ações repetitivas. Elas desempenham um papel crucial na lógica e na estruturação de seus programas.
 
