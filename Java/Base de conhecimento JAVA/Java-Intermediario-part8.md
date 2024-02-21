@@ -43,6 +43,8 @@ Aqui estão algumas características e métodos importantes da classe `Stack`:
 
 A classe `Stack` em Java é útil quando você precisa implementar uma estrutura de dados baseada em pilha. No entanto, é importante observar que, a partir do Java 1.6, é recomendado usar a interface `Deque` ou a classe `ArrayDeque` em vez da classe `Stack`, devido a questões de desempenho. A classe `Stack` herda da classe `Vector`, que é sincronizada, o que pode resultar em penalidades de desempenho desnecessárias em muitos casos.
 
+##  Interface `Deque` e a classe `ArrayDeque`
+
 A interface `Deque` em Java representa uma fila dupla, ou seja, uma fila em que você pode adicionar e remover elementos tanto no início quanto no final. O nome "Deque" é uma abreviação de "Double Ended Queue". Essa interface estende a interface `Queue` e adiciona métodos para operações de inserção e remoção no início e no final da fila.
 
 Alguns dos métodos principais da interface `Deque` incluem:
