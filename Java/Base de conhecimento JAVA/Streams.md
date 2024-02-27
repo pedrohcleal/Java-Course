@@ -1,5 +1,65 @@
 # Streams - Java
 
+## Streams
+
+O método `.stream()` em Java faz parte do conjunto de recursos introduzidos no Java 8, conhecido como Java Streams. Ele é utilizado principalmente para criar uma sequência de elementos que pode ser processada de forma funcional, aproveitando a programação funcional e facilitando a realização de operações em coleções de dados.
+
+A principal ideia por trás do uso de streams é facilitar o processamento de grandes conjuntos de dados de maneira concisa e eficiente. As streams permitem que você realize operações em elementos de dados de forma sequencial ou paralela.
+
+Aqui estão alguns conceitos e características importantes relacionados ao método `.stream()`:
+
+1. **Obtendo uma Stream:**
+   - O método `.stream()` está disponível em várias classes, incluindo coleções como List, Set e Map, bem como em arrays.
+
+     Exemplo com uma lista:
+     ```java
+     List<String> lista = Arrays.asList("Maçã", "Banana", "Pera");
+     Stream<String> stream = lista.stream();
+     ```
+
+2. **Operações Intermediárias e Terminais:**
+   - As operações em uma stream podem ser classificadas como intermediárias ou terminais.
+   - Operações intermediárias (como `filter`, `map`, `sorted`, etc.) retornam uma nova stream e podem ser encadeadas.
+   - Operações terminais (como `forEach`, `collect`, `reduce`, etc.) realizam uma ação final na stream e encerram a sequência de operações.
+
+     Exemplo de operações intermediárias e terminais:
+     ```java
+     List<String> lista = Arrays.asList("Maçã", "Banana", "Pera");
+
+     lista.stream()
+           .filter(fruta -> fruta.startsWith("M"))
+           .map(String::toUpperCase)
+           .forEach(System.out::println);
+     ```
+
+3. **Operações Paralelas:**
+   - Streams oferecem suporte a processamento paralelo facilmente.
+   - O método `.parallelStream()` cria uma stream que pode ser processada em paralelo, o que pode melhorar o desempenho em máquinas com vários núcleos de processamento.
+
+     Exemplo de stream paralela:
+     ```java
+     List<String> lista = Arrays.asList("Maçã", "Banana", "Pera");
+
+     lista.parallelStream()
+           .filter(fruta -> fruta.startsWith("M"))
+           .map(String::toUpperCase)
+           .forEach(System.out::println);
+     ```
+
+4. **Coleta (Collectors):**
+   - A operação terminal `.collect()` é frequentemente usada para converter uma stream de volta para uma coleção ou outro tipo de estrutura de dados.
+   - A interface `Collectors` fornece métodos de utilidade para criar coletores comuns.
+
+     Exemplo de coleta em uma lista:
+     ```java
+     List<String> lista = Arrays.asList("Maçã", "Banana", "Pera");
+     List<String> resultado = lista.stream()
+                                   .filter(fruta -> fruta.startsWith("M"))
+                                   .collect(Collectors.toList());
+     ```
+
+O uso de streams em Java oferece uma maneira mais expressiva e eficiente de realizar operações em conjuntos de dados, tornando o código mais conciso e legível. Ao combinar o método `.stream()` com outras operações de stream, é possível criar pipelines de processamento de dados de forma eficaz.
+
 ## Método `filter()`
 
 Em Java, o método `filter()` faz parte da API de Streams, introduzida no Java 8. Esse método é utilizado para filtrar elementos com base em uma condição fornecida por um predicado. A ideia central é aplicar o predicado a cada elemento da Stream e incluir apenas os elementos que atendem à condição especificada.
