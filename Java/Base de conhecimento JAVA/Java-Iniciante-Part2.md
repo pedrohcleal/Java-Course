@@ -1,5 +1,68 @@
 # Java iniciante - part2
 
+## Tipo `char`
+
+Em Java, o tipo de dado `char` é utilizado para representar caracteres Unicode de 16 bits. Ele é uma primitiva numérica integral sem sinal que representa um único caractere. O valor padrão de um `char` é '\u0000' (valor nulo).
+
+Principais métodos relacionados a `char` em Java:
+
+1. **Construtores:**
+   - Não existem construtores específicos para `char`. Você pode simplesmente atribuir um caractere a uma variável do tipo `char`.
+
+2. **Métodos de Conversão:**
+   - **`char toUpperCase(char ch)` e `char toLowerCase(char ch)`:** Convertem o caractere para maiúsculo ou minúsculo, respectivamente.
+
+   ```java
+   char myChar = 'a';
+   char upperCaseChar = Character.toUpperCase(myChar);
+   char lowerCaseChar = Character.toLowerCase(myChar);
+   ```
+
+   - **`String toString(char ch)`:** Converte o caractere para uma string.
+
+   ```java
+   char myChar = 'A';
+   String charAsString = Character.toString(myChar);
+   ```
+
+3. **Verificação de Características:**
+   - **`boolean isDigit(char ch)`, `boolean isLetter(char ch)`, `boolean isWhitespace(char ch)`, etc.:** Verificam se o caractere é um dígito, uma letra, um espaço em branco, etc.
+
+   ```java
+   char myChar = '5';
+   if (Character.isDigit(myChar)) {
+       System.out.println("É um dígito.");
+   }
+   ```
+
+4. **Conversões de Tipo:**
+   - É possível converter um `char` para outros tipos numéricos, como `int`:
+
+   ```java
+   char myChar = 'A';
+   int charToInt = (int) myChar;
+   ```
+
+   - A conversão inversa também é possível.
+
+   ```java
+   int myInt = 65;
+   char intToChar = (char) myInt;
+   ```
+
+5. **Iteração com Laço `for`:**
+   - Como `char` é uma primitiva numérica, você pode utilizá-lo em uma iteração com o laço `for`. Por exemplo, para percorrer os caracteres de 'A' a 'Z':
+
+   ```java
+   for (char c = 'A'; c <= 'Z'; c++) {
+       System.out.print(c + " ");
+   }
+   ```
+
+   Isso imprimirá todos os caracteres de A a Z separados por espaços.
+
+Lembre-se de que o tipo `char` em Java representa um único caractere e é diferente do tipo `String`, que é uma sequência de caracteres.
+
 ## Funções matemáticas
 
 Em Java, as funções matemáticas são realizadas por meio das classes e métodos da biblioteca padrão da linguagem. Essas classes fornecem uma variedade de funções matemáticas para realizar operações comuns, como cálculos aritméticos, exponenciação, raiz quadrada e outras operações matemáticas avançadas. Vou descrever algumas das principais classes e métodos relacionados a funções matemáticas em Java:
