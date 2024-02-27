@@ -210,3 +210,39 @@ No exemplo acima, `newLine()` é usado para adicionar uma nova linha após o pri
 Assim como com `FileReader` e `BufferedReader`, ao trabalhar com `FileWriter` e `BufferedWriter`, é importante lidar com exceções (por exemplo, `IOException`). O uso do bloco `try-with-resources` garante que os recursos associados aos fluxos sejam fechados corretamente após o uso.
 
 Essas classes são frequentemente utilizadas juntas para manipulação eficiente de arquivos de texto, proporcionando leitura e escrita eficazes, especialmente ao lidar com grandes quantidades de dados.
+
+## Caminhos File
+
+Na classe `Path` da API NIO.2 em Java, existem vários métodos úteis para manipulação de caminhos. Aqui estão descrições breves dos métodos que você mencionou: `getPath()`, `getParent()`, e `getName()`.
+
+1. **`getPath()`**:
+   - **Descrição**: Retorna a representação do caminho como uma sequência de caracteres (String).
+   - **Exemplo**:
+     ```java
+     Path path = Paths.get("/caminho/para/arquivo.txt");
+     String pathString = path.getPath();
+     System.out.println("Caminho como string: " + pathString);
+     // Saída: /caminho/para/arquivo.txt
+     ```
+
+2. **`getParent()`**:
+   - **Descrição**: Retorna o componente pai do caminho como um objeto `Path`. O componente pai é o diretório que contém o arquivo ou diretório representado pelo caminho.
+   - **Exemplo**:
+     ```java
+     Path path = Paths.get("/caminho/para/arquivo.txt");
+     Path parent = path.getParent();
+     System.out.println("Diretório pai: " + parent);
+     // Saída: /caminho/para
+     ```
+
+3. **`getName()`**:
+   - **Descrição**: Retorna o nome do arquivo ou diretório representado pelo caminho. Se o caminho representar um diretório, o último componente do caminho será retornado.
+   - **Exemplo**:
+     ```java
+     Path path = Paths.get("/caminho/para/arquivo.txt");
+     Path fileName = path.getFileName();
+     System.out.println("Nome do arquivo: " + fileName);
+     // Saída: arquivo.txt
+     ```
+
+Esses métodos são úteis para extrair informações específicas de um caminho, como o caminho como uma string, o diretório pai ou o nome do arquivo ou diretório. Eles facilitam a manipulação e análise de caminhos de arquivo de maneira mais granular.
