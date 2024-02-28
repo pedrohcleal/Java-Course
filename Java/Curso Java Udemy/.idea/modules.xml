@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Curso Java Udemy.iml" filepath="$PROJECT_DIR$/.idea/Curso Java Udemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examples/Examples.iml" filepath="$PROJECT_DIR$/Examples/Examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/Secao10-Memorias_Arrays_Listas/Secao10-Memorias_Arrays_Listas.iml" filepath="$PROJECT_DIR$/Secao10-Memorias_Arrays_Listas/Secao10-Memorias_Arrays_Listas.iml" />
       <module fileurl="file://$PROJECT_DIR$/Secao11-date-time/Secao11-date-time.iml" filepath="$PROJECT_DIR$/Secao11-date-time/Secao11-date-time.iml" />
       <module fileurl="file://$PROJECT_DIR$/Secao13-EnumeracoesEcomposicoes/Secao13-EnumeracoesEcomposicoes.iml" filepath="$PROJECT_DIR$/Secao13-EnumeracoesEcomposicoes/Secao13-EnumeracoesEcomposicoes.iml" />
