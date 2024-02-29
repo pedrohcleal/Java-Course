@@ -1,30 +1,39 @@
-# Repositório de Bases de Conhecimento em Linguagens de Programação
+Lógica de programação e algoritmos
 
-Bem-vindo ao nosso repositório! Aqui, reunimos materiais de estudo e resumos práticos sobre linguagens de programação essenciais, incluindo Java, SQL, CSS e HTML.
+Sintaxe da linguagem Java
 
-## Estrutura do Repositório
+Classes, atributos e métodos
 
-- **/Java**: Arquivos utilizados em cursos online e resumos teóricos sobre Java.
-  
-- **/SQL**: Conteúdo relacionado a SQL, incluindo materiais de cursos e resumos.
+Construtores, sobrecarga, encapsulamento
 
-- **/HTML_CSS**: Recursos para aprender e aprimorar habilidades em HTML e CSS.
+Estruturas de dados: arrays e coleções
 
-## Como Contribuir
+Enumerações, composição
 
-Sua contribuição é valiosa! Se deseja adicionar ou corrigir algo, siga estes passos:
+Herança, polimorfismo, interfaces
 
-1. Faça um fork do repositório.
-2. Crie uma branch para suas alterações: `git checkout -b sua-feature`.
-3. Faça as alterações desejadas.
-4. Commit suas mudanças: `git commit -m 'Adicionando novo conteúdo'`.
-5. Faça push para a branch: `git push origin sua-feature`.
-6. Abra um Pull Request para revisão.
+Tratamento de exceções
 
-### Diretrizes de Contribuição
+Generics
 
-- Mantenha as informações claras e precisas.
-- Organize os arquivos de forma compreensível.
-- Adicione créditos aos cursos e fontes utilizadas.
+Programação funcional e expressões lambda, Stream API
 
-Agradecemos por tornar este repositório uma fonte valiosa para estudantes e desenvolvedores. Happy coding! 🚀
+Manipulação de arquivos
+
+Nós também vamos aprender as principais ferramentas e frameworks para se trabalhar com Java profissionalmente no mercado, tais como:
+
+JDBC para acesso a dados baseado em SQL
+
+JavaFX para interface gráfica
+
+Git / Github para versionamento
+
+Spring Boot - principal framework Java para desenvolvimento comercial em Java
+
+JPA / Hibernate para acesso a dados com mapeamento objeto-relacional (ORM)
+
+Maven para gerenciamento de dependências de projeto
+
+Spring Data JPA - framework para acesso a dados ORM
+
+Spring Data MongoDB - framework para acesso a dados NoSQL ao banco MongoDB
