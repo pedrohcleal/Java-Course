@@ -211,3 +211,43 @@ Aqui estão alguns pontos importantes sobre interfaces em Java:
      ```
 
 Interfaces em Java fornecem um mecanismo flexível para definir contratos e promovem a criação de código mais modular e reutilizável. Elas são uma parte crucial da programação orientada a objetos, facilitando a implementação de polimorfismo e permitindo a construção de sistemas mais flexíveis e extensíveis.
+
+##  Inversão de controle e Injeção de dependencia
+
+A Inversão de Controle (IoC) e a Injeção de Dependência (DI) são conceitos fundamentais em design de software e são frequentemente utilizados em Java para promover um design mais flexível e modular. Vamos entender cada um deles:
+
+1. **Inversão de Controle (IoC):**
+   
+   A IoC é um princípio de design onde o controle da execução de uma aplicação é invertido. Em vez de o desenvolvedor controlar explicitamente o fluxo do programa, o controle é transferido para um framework ou container. Em outras palavras, em vez de criar e chamar diretamente objetos e métodos, o framework é responsável por gerenciar essas interações.
+
+   Em Java, isso muitas vezes é alcançado através do uso de frameworks de IoC, como o Spring Framework. O Spring, por exemplo, gerencia a criação, configuração e destruição de objetos (beans) em uma aplicação. Isso simplifica o código do desenvolvedor e promove a modularidade.
+
+2. **Injeção de Dependência (DI):**
+   
+   A Injeção de Dependência é uma técnica relacionada à IoC. Ela lida com a forma como os componentes de uma aplicação obtêm suas dependências. Em vez de criar suas próprias dependências, um componente recebe suas dependências de uma fonte externa. Isso promove a reutilização de código, facilita a substituição de componentes e torna o sistema mais testável.
+
+   Existem três formas principais de realizar a Injeção de Dependência:
+
+   - **Injeção de Dependência via Construtor (Constructor Injection):** As dependências são fornecidas através do construtor da classe.
+   
+   - **Injeção de Dependência via Método (Method Injection):** As dependências são passadas através de métodos.
+   
+   - **Injeção de Dependência via Propriedade (Property Injection):** As dependências são atribuídas a propriedades do objeto.
+
+   Exemplo de Injeção de Dependência via Construtor:
+
+   ```java
+   public class ExemploService {
+       private final Dependencia dependencia;
+
+       public ExemploService(Dependencia dependencia) {
+           this.dependencia = dependencia;
+       }
+
+       // Métodos da classe que utilizam a dependência
+   }
+   ```
+
+   No exemplo acima, a dependência é passada no construtor, permitindo uma fácil substituição ou alteração da implementação da dependência.
+
+Ao utilizar a IoC e a DI em conjunto, desenvolvedores podem criar sistemas mais flexíveis, testáveis e de fácil manutenção. Esses conceitos são especialmente prevalentes em frameworks como o Spring, que fazem uso extensivo dessas práticas para facilitar o desenvolvimento de aplicações Java empresariais.
