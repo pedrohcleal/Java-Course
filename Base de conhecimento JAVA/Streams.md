@@ -240,3 +240,35 @@ Aqui estão algumas das principais operações que podem ser realizadas com `Int
    ```
 
 Essas são apenas algumas das operações que podem ser realizadas com `IntStream`. Essa abstração é poderosa e flexível, permitindo a manipulação eficiente de grandes conjuntos de dados inteiros. O uso adequado de operações de stream pode levar a um código mais conciso e legível.
+
+## boxed()
+
+O método `.boxed()` em Java é usado em conjunto com streams de tipos primitivos, como `IntStream`, `LongStream`, ou `DoubleStream`, para converter os elementos primitivos em seus equivalentes de classes embrulhadoras (wrapper classes) correspondentes. Isso é útil quando você precisa trabalhar com streams de tipos primitivos em situações que exigem objetos, como ao utilizar métodos que esperam instâncias de classes em vez de tipos primitivos.
+
+A razão para essa conversão é que as streams de tipos primitivos, como `IntStream`, foram introduzidas no Java para fornecer uma representação mais eficiente em termos de consumo de memória e desempenho ao lidar com grandes volumes de dados. No entanto, em alguns casos, é necessário trabalhar com tipos de objeto, como ao utilizar coleções que aceitam apenas objetos.
+
+Aqui está um exemplo de como o método `.boxed()` pode ser usado:
+
+```java
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class BoxedExample {
+    public static void main(String[] args) {
+        // Criando um IntStream de valores inteiros
+        IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+
+        // Usando o método .boxed() para converter inteiros em Integer
+        List<Integer> integerList = intStream.boxed().collect(Collectors.toList());
+
+        // Imprimindo a lista resultante
+        System.out.println(integerList);
+    }
+}
+```
+
+Neste exemplo, `intStream.boxed()` converte os valores inteiros do `IntStream` em objetos `Integer`, e em seguida, o método `collect(Collectors.toList())` é utilizado para coletar esses valores em uma lista de `Integer`. Isso pode ser útil, por exemplo, quando você precisa armazenar os valores em uma estrutura de dados que aceita apenas objetos.
+
+Lembre-se de que, embora o método `.boxed()` seja útil em certas situações, ele pode introduzir algum overhead devido à criação de objetos adicionais, e em alguns casos, pode ser mais eficiente usar streams de tipos primitivos diretamente.
+
