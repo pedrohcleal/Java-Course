@@ -189,3 +189,54 @@ public class CountExample {
 Neste exemplo, o método `.count()` é utilizado para contar o número de elementos na Stream de frutas. O resultado é impresso, mostrando o número total de elementos na lista.
 
 Em resumo, o método `.distinct()` é utilizado para obter elementos únicos em uma stream, enquanto o método `.count()` é utilizado para contar o número total de elementos em uma stream. Ambos são úteis em diferentes cenários, dependendo dos requisitos específicos da manipulação de dados.
+
+## IntStream
+
+Em Java, `IntStream` faz parte do pacote `java.util.stream` e é uma parte da API de Streams introduzida no Java 8. `IntStream` é uma especialização de `Stream` que lida especificamente com dados primitivos do tipo `int`. Ele fornece uma maneira conveniente e eficiente de lidar com operações em sequências de valores inteiros.
+
+A principal ideia por trás de `IntStream` é permitir a execução de operações de forma mais concisa e funcional, como map, filter, e reduce, em conjuntos de dados inteiros sem a necessidade de loops explícitos. Isso ajuda a melhorar a legibilidade do código e a facilitar a paralelização de operações.
+
+Aqui estão algumas das principais operações que podem ser realizadas com `IntStream`:
+
+1. **Criar um IntStream:**
+   ```java
+   IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+   ```
+
+2. **Operações de Transformação (`map`, `filter`):**
+   ```java
+   IntStream doubledValues = intStream.map(x -> x * 2);
+   IntStream evenValues = intStream.filter(x -> x % 2 == 0);
+   ```
+
+3. **Operações de Redução (`sum`, `average`, `min`, `max`):**
+   ```java
+   int sum = intStream.sum();
+   OptionalDouble average = intStream.average();
+   OptionalInt min = intStream.min();
+   OptionalInt max = intStream.max();
+   ```
+
+4. **Operações de Agregação (`reduce`):**
+   ```java
+   int sum = intStream.reduce(0, (x, y) -> x + y);
+   ```
+
+5. **Operações de Iteração (`forEach`, `forEachOrdered`):**
+   ```java
+   intStream.forEach(System.out::println);
+   ```
+
+6. **Operações de Criação (`range`, `rangeClosed`):**
+   ```java
+   IntStream range = IntStream.range(1, 5); // 1, 2, 3, 4
+   IntStream rangeClosed = IntStream.rangeClosed(1, 5); // 1, 2, 3, 4, 5
+   ```
+
+7. **Operações de Paralelismo (`parallel`, `sequential`):**
+   ```java
+   IntStream parallelStream = intStream.parallel();
+   IntStream sequentialStream = parallelStream.sequential();
+   ```
+
+Essas são apenas algumas das operações que podem ser realizadas com `IntStream`. Essa abstração é poderosa e flexível, permitindo a manipulação eficiente de grandes conjuntos de dados inteiros. O uso adequado de operações de stream pode levar a um código mais conciso e legível.
