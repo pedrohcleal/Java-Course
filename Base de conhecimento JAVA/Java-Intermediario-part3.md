@@ -289,3 +289,44 @@ for (String elemento : lista) {
 
 Esses são apenas alguns dos métodos básicos disponíveis para manipulação de listas em Java. A escolha entre diferentes implementações de lista, como `ArrayList`, `LinkedList`, ou `Vector`, depende dos requisitos específicos do seu programa em termos de desempenho e uso.
 
+## Iterator
+
+Em Java, a interface `Iterator` faz parte do pacote `java.util` e é utilizada para percorrer elementos de uma coleção de forma sequencial, sem expor a estrutura interna da coleção. A interface `Iterator` fornece métodos para percorrer elementos, verificar se há mais elementos disponíveis e remover elementos da coleção durante o processo de iteração.
+
+A principal característica da interface `Iterator` é o conceito de "ponteiro" ou "cursor" que aponta para o próximo elemento na coleção. Os métodos mais importantes da interface `Iterator` incluem:
+
+1. **`boolean hasNext()`**: Retorna `true` se houver mais elementos na coleção, e `false` caso contrário.
+
+2. **`Object next()`**: Retorna o próximo elemento na coleção e move o ponteiro para o próximo. Se não houver mais elementos, pode lançar uma exceção `NoSuchElementException`.
+
+3. **`void remove()`**: Remove o último elemento retornado pelo método `next()` da coleção. Esse método é opcional e nem todas as implementações de `Iterator` suportam a remoção.
+
+Ao usar a interface `Iterator`, você pode iterar por coleções como listas (`ArrayList`, `LinkedList`), conjuntos (`HashSet`, `TreeSet`), mapas (`HashMap`, `TreeMap`), entre outros. Normalmente, é preferível usar um loop `while` em conjunto com os métodos `hasNext()` e `next()` para percorrer todos os elementos da coleção.
+
+Aqui está um exemplo simples de como usar a interface `Iterator`:
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        List<String> lista = new ArrayList<>();
+        lista.add("Elemento 1");
+        lista.add("Elemento 2");
+        lista.add("Elemento 3");
+
+        // Obtendo um Iterator para a lista
+        Iterator<String> iterator = lista.iterator();
+
+        // Iterando pelos elementos usando o while e hasNext()
+        while (iterator.hasNext()) {
+            String elemento = iterator.next();
+            System.out.println(elemento);
+        }
+    }
+}
+```
+
+Este exemplo ilustra como usar um `Iterator` para percorrer os elementos de uma lista. Lembre-se de que o Java 5 introduziu a sintaxe de "foreach" (também conhecida como "enhanced for loop") que simplifica a iteração sobre coleções, tornando o uso direto de `Iterator` menos comum em código moderno.
