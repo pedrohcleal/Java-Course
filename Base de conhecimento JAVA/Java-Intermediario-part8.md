@@ -357,6 +357,62 @@ Vamos considerar um exemplo para entender melhor:
 
 O problema do diamante destaca os desafios associados à herança múltipla, e é por isso que algumas linguagens de programação, como Java, optaram por não suportá-la diretamente. A preferência por composição sobre herança é uma prática recomendada para evitar problemas relacionados à complexidade da herança múltipla.
 
+## Interface Comparable
+
+Em Java, a interface `Comparable` é parte do pacote `java.lang` e é usada para fornecer uma ordem natural aos objetos de uma classe. Essa interface contém um único método chamado `compareTo`, que é implementado pela classe cujas instâncias podem ser comparadas entre si. A implementação desse método determina como os objetos da classe são ordenados em relação uns aos outros.
+
+A assinatura do método `compareTo` é a seguinte:
+
+```java
+int compareTo(T o);
+```
+
+- `o`: O objeto a ser comparado.
+
+O método retorna um valor inteiro que indica a relação de ordem entre o objeto atual (aquele em que o método é chamado) e o objeto passado como argumento. Os possíveis valores de retorno são:
+
+- Um valor negativo se o objeto atual for menor que o objeto comparado (`o`).
+- Zero se o objeto atual for igual ao objeto comparado (`o`).
+- Um valor positivo se o objeto atual for maior que o objeto comparado (`o`).
+
+A implementação do método `compareTo` deve ser consistente com o método `equals`. Ou seja, se dois objetos são considerados iguais pelo método `equals`, então seu resultado de `compareTo` deve ser zero.
+
+Exemplo de uma classe que implementa a interface `Comparable`:
+
+```java
+import java.util.Arrays;
+
+class Exemplo implements Comparable<Exemplo> {
+    private int valor;
+
+    public Exemplo(int valor) {
+        this.valor = valor;
+    }
+
+    @Override
+    public int compareTo(Exemplo outro) {
+        // Comparação com base no valor
+        return this.valor - outro.valor;
+    }
+
+    public static void main(String[] args) {
+        Exemplo[] exemplos = {
+            new Exemplo(3),
+            new Exemplo(1),
+            new Exemplo(2)
+        };
+
+        Arrays.sort(exemplos);
+
+        for (Exemplo exemplo : exemplos) {
+            System.out.println(exemplo.valor);
+        }
+    }
+}
+```
+
+Neste exemplo, a classe `Exemplo` implementa `Comparable` e fornece uma ordenação com base no campo `valor`. Ao chamar `Arrays.sort(exemplos)`, os objetos do array `exemplos` são ordenados automaticamente com base na implementação do método `compareTo`.
+
 ##  Inversão de controle e Injeção de dependencia
 
 A Inversão de Controle (IoC) e a Injeção de Dependência (DI) são conceitos fundamentais em design de software e são frequentemente utilizados em Java para promover um design mais flexível e modular. Vamos entender cada um deles:
