@@ -189,3 +189,86 @@ public class CountExample {
 Neste exemplo, o método `.count()` é utilizado para contar o número de elementos na Stream de frutas. O resultado é impresso, mostrando o número total de elementos na lista.
 
 Em resumo, o método `.distinct()` é utilizado para obter elementos únicos em uma stream, enquanto o método `.count()` é utilizado para contar o número total de elementos em uma stream. Ambos são úteis em diferentes cenários, dependendo dos requisitos específicos da manipulação de dados.
+
+## IntStream
+
+Em Java, `IntStream` faz parte do pacote `java.util.stream` e é uma parte da API de Streams introduzida no Java 8. `IntStream` é uma especialização de `Stream` que lida especificamente com dados primitivos do tipo `int`. Ele fornece uma maneira conveniente e eficiente de lidar com operações em sequências de valores inteiros.
+
+A principal ideia por trás de `IntStream` é permitir a execução de operações de forma mais concisa e funcional, como map, filter, e reduce, em conjuntos de dados inteiros sem a necessidade de loops explícitos. Isso ajuda a melhorar a legibilidade do código e a facilitar a paralelização de operações.
+
+Aqui estão algumas das principais operações que podem ser realizadas com `IntStream`:
+
+1. **Criar um IntStream:**
+   ```java
+   IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+   ```
+
+2. **Operações de Transformação (`map`, `filter`):**
+   ```java
+   IntStream doubledValues = intStream.map(x -> x * 2);
+   IntStream evenValues = intStream.filter(x -> x % 2 == 0);
+   ```
+
+3. **Operações de Redução (`sum`, `average`, `min`, `max`):**
+   ```java
+   int sum = intStream.sum();
+   OptionalDouble average = intStream.average();
+   OptionalInt min = intStream.min();
+   OptionalInt max = intStream.max();
+   ```
+
+4. **Operações de Agregação (`reduce`):**
+   ```java
+   int sum = intStream.reduce(0, (x, y) -> x + y);
+   ```
+
+5. **Operações de Iteração (`forEach`, `forEachOrdered`):**
+   ```java
+   intStream.forEach(System.out::println);
+   ```
+
+6. **Operações de Criação (`range`, `rangeClosed`):**
+   ```java
+   IntStream range = IntStream.range(1, 5); // 1, 2, 3, 4
+   IntStream rangeClosed = IntStream.rangeClosed(1, 5); // 1, 2, 3, 4, 5
+   ```
+
+7. **Operações de Paralelismo (`parallel`, `sequential`):**
+   ```java
+   IntStream parallelStream = intStream.parallel();
+   IntStream sequentialStream = parallelStream.sequential();
+   ```
+
+Essas são apenas algumas das operações que podem ser realizadas com `IntStream`. Essa abstração é poderosa e flexível, permitindo a manipulação eficiente de grandes conjuntos de dados inteiros. O uso adequado de operações de stream pode levar a um código mais conciso e legível.
+
+## boxed()
+
+O método `.boxed()` em Java é usado em conjunto com streams de tipos primitivos, como `IntStream`, `LongStream`, ou `DoubleStream`, para converter os elementos primitivos em seus equivalentes de classes embrulhadoras (wrapper classes) correspondentes. Isso é útil quando você precisa trabalhar com streams de tipos primitivos em situações que exigem objetos, como ao utilizar métodos que esperam instâncias de classes em vez de tipos primitivos.
+
+A razão para essa conversão é que as streams de tipos primitivos, como `IntStream`, foram introduzidas no Java para fornecer uma representação mais eficiente em termos de consumo de memória e desempenho ao lidar com grandes volumes de dados. No entanto, em alguns casos, é necessário trabalhar com tipos de objeto, como ao utilizar coleções que aceitam apenas objetos.
+
+Aqui está um exemplo de como o método `.boxed()` pode ser usado:
+
+```java
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class BoxedExample {
+    public static void main(String[] args) {
+        // Criando um IntStream de valores inteiros
+        IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+
+        // Usando o método .boxed() para converter inteiros em Integer
+        List<Integer> integerList = intStream.boxed().collect(Collectors.toList());
+
+        // Imprimindo a lista resultante
+        System.out.println(integerList);
+    }
+}
+```
+
+Neste exemplo, `intStream.boxed()` converte os valores inteiros do `IntStream` em objetos `Integer`, e em seguida, o método `collect(Collectors.toList())` é utilizado para coletar esses valores em uma lista de `Integer`. Isso pode ser útil, por exemplo, quando você precisa armazenar os valores em uma estrutura de dados que aceita apenas objetos.
+
+Lembre-se de que, embora o método `.boxed()` seja útil em certas situações, ele pode introduzir algum overhead devido à criação de objetos adicionais, e em alguns casos, pode ser mais eficiente usar streams de tipos primitivos diretamente.
+
