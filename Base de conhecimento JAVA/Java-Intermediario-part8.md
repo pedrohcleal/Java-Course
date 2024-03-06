@@ -417,6 +417,73 @@ Neste exemplo, a classe `Exemplo` implementa `Comparable` e fornece uma ordenaç
 
 A Inversão de Controle (IoC) e a Injeção de Dependência (DI) são conceitos fundamentais em design de software e são frequentemente utilizados em Java para promover um design mais flexível e modular. Vamos entender cada um deles:
 
+## Default Methods
+
+Em Java, a introdução de default methods em interfaces foi uma das características mais significativas introduzidas com o lançamento do Java 8. Default methods permitem que interfaces forneçam implementações padrão para métodos, o que facilita a evolução de bibliotecas e APIs sem quebrar a compatibilidade com versões anteriores.
+
+A principal motivação por trás da introdução de default methods foi permitir a adição de novos métodos em interfaces existentes sem a necessidade de modificar todas as classes que implementam essas interfaces.
+
+A sintaxe para um método padrão em uma interface é a seguinte:
+
+```java
+public interface MinhaInterface {
+    // Método abstrato (sem implementação)
+    void metodoAbstrato();
+
+    // Método padrão (com implementação)
+    default void metodoPadrao() {
+        // Implementação padrão
+    }
+}
+```
+
+Aqui estão algumas características e pontos importantes relacionados aos default methods em interfaces:
+
+1. **Implementação Padrão:**
+   - Um default method fornece uma implementação padrão do método na interface.
+   - As classes que implementam a interface podem optar por não fornecer uma implementação própria para esse método, herdando a implementação padrão da interface.
+
+2. **Herança Múltipla:**
+   - Default methods foram introduzidos, em parte, para lidar com o problema da herança múltipla em interfaces.
+   - Uma classe pode implementar várias interfaces que contêm default methods sem a ambiguidade associada à herança múltipla de classes.
+
+3. **Sobrescrita Opcional:**
+   - Uma classe que implementa uma interface pode optar por sobrescrever um default method, fornecendo sua própria implementação.
+
+4. **Resolução de Conflitos:**
+   - Se uma classe implementa duas interfaces que têm um default method com a mesma assinatura, ocorre um conflito.
+   - Nesse caso, a classe deve fornecer uma implementação própria para resolver o conflito.
+
+5. **Prioridade para Métodos de Classes Base:**
+   - Se uma classe implementa uma interface e herda um método com a mesma assinatura de sua classe base, a implementação da classe base tem prioridade sobre o default method.
+
+Exemplo:
+
+```java
+public interface MinhaInterfaceA {
+    default void metodo() {
+        System.out.println("Interface A");
+    }
+}
+
+public interface MinhaInterfaceB {
+    default void metodo() {
+        System.out.println("Interface B");
+    }
+}
+
+public class MinhaClasse implements MinhaInterfaceA, MinhaInterfaceB {
+    // Resolução do conflito entre as interfaces A e B
+    @Override
+    public void metodo() {
+        MinhaInterfaceA.super.metodo(); // Chamada explicita para o método de A
+        MinhaInterfaceB.super.metodo(); // Chamada explicita para o método de B
+    }
+}
+```
+
+O código acima ilustra como resolver o conflito quando duas interfaces têm um default method com a mesma assinatura. A classe `MinhaClasse` fornece sua própria implementação, chamando explicitamente os métodos das interfaces envolvidas.
+
 1. **Inversão de Controle (IoC):**
    
    A IoC é um princípio de design onde o controle da execução de uma aplicação é invertido. Em vez de o desenvolvedor controlar explicitamente o fluxo do programa, o controle é transferido para um framework ou container. Em outras palavras, em vez de criar e chamar diretamente objetos e métodos, o framework é responsável por gerenciar essas interações.
