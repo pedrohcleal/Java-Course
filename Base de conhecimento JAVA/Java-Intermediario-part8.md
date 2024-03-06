@@ -283,10 +283,6 @@ class Exemplo implements Comparable<Exemplo> {
 
 Neste exemplo, a classe `Exemplo` implementa `Comparable` e fornece uma ordenação com base no campo `valor`. Ao chamar `Arrays.sort(exemplos)`, os objetos do array `exemplos` são ordenados automaticamente com base na implementação do método `compareTo`.
 
-##  Inversão de controle e Injeção de dependencia
-
-A Inversão de Controle (IoC) e a Injeção de Dependência (DI) são conceitos fundamentais em design de software e são frequentemente utilizados em Java para promover um design mais flexível e modular. Vamos entender cada um deles:
-
 ## Default Methods
 
 Em Java, a introdução de default methods em interfaces foi uma das características mais significativas introduzidas com o lançamento do Java 8. Default methods permitem que interfaces forneçam implementações padrão para métodos, o que facilita a evolução de bibliotecas e APIs sem quebrar a compatibilidade com versões anteriores.
@@ -353,6 +349,10 @@ public class MinhaClasse implements MinhaInterfaceA, MinhaInterfaceB {
 ```
 
 O código acima ilustra como resolver o conflito quando duas interfaces têm um default method com a mesma assinatura. A classe `MinhaClasse` fornece sua própria implementação, chamando explicitamente os métodos das interfaces envolvidas.
+
+##  Inversão de controle e Injeção de dependencia
+
+A Inversão de Controle (IoC) e a Injeção de Dependência (DI) são conceitos fundamentais em design de software e são frequentemente utilizados em Java para promover um design mais flexível e modular. Vamos entender cada um deles:
 
 1. **Inversão de Controle (IoC):**
    
