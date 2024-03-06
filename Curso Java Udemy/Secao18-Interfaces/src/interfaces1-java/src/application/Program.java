@@ -5,10 +5,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
-import CarRental;
-import Vehicle;
-import BrazilTaxService;
-import RentalService;
 
 public class Program {
 

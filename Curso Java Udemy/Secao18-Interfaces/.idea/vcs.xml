@@ -4,5 +4,9 @@
     <mapping directory="$PROJECT_DIR$/../../.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/interfaces1-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/interfaces2-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/interfaces3-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/interfaces4-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/interfaces5-java" vcs="Git" />
   </component>
 </project>
