@@ -40,15 +40,3 @@ Além disso, são exploradas ferramentas e frameworks essenciais para o desenvol
 ## Como Contribuir
 
 Se você é um estudante do curso ou tem interesse em contribuir com este repositório, sinta-se à vontade para enviar pull requests com correções, melhorias ou novos recursos.
-
-## Autores
-
-- Professor Nelio Alves - [Perfil no GitHub](https://github.com/nelioalves)
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
-
---- 
-
-Este repositório é mantido pela comunidade de estudantes do curso "Java COMPLETO - Programação Orientada a Objetos + Projetos".
