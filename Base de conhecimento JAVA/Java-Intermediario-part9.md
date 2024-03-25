@@ -113,3 +113,38 @@ Carol - 35
 ```
 
 Essa é apenas uma aplicação comum da interface `Comparable<T>`. Ela permite que objetos sejam comparados e ordenados de acordo com uma ordem natural específica definida pela classe.
+
+## Tipos coringa
+
+Em Java, os "tipos coringa" são usados em conjunção com Generics para fornecer flexibilidade adicional ao lidar com tipos parametrizados desconhecidos ou genéricos. Eles são representados pelo caractere curinga (`?`) e são usados em situações em que você não se importa com o tipo exato, mas apenas com a estrutura ou funcionalidade associada ao tipo.
+
+Existem três tipos principais de curingas em Java: o curinga não-limitado (`?`), o curinga limitado superior (`? extends Tipo`), e o curinga limitado inferior (`? super Tipo`).
+
+1. **Curinga não-limitado (`?`)**:
+   O curinga não-limitado é usado quando você não se importa com o tipo exato, mas apenas com o uso genérico da classe ou método. Por exemplo, se você tem uma lista de elementos de tipo desconhecido e só quer imprimir esses elementos, você pode usar um curinga não-limitado.
+
+   ```java
+   List<?> lista;
+   ```
+
+   Com esse tipo de declaração, você pode usar a lista para acessar os elementos, mas não pode adicionar novos elementos a ela (exceto `null`, porque qualquer referência pode ser atribuída a um tipo curinga).
+
+2. **Curinga limitado superior (`? extends Tipo`)**:
+   O curinga limitado superior é usado quando você deseja especificar que o tipo desconhecido deve ser uma subclasse de um tipo específico. Isso é útil quando você quer apenas ler elementos da estrutura, mas não adicioná-los. Por exemplo, se você tem uma lista de `Number` e só quer ler os elementos, pode usar um curinga limitado superior.
+
+   ```java
+   List<? extends Number> lista;
+   ```
+
+   Com essa declaração, você pode garantir que a lista só pode conter elementos que são subtipos de `Number`, permitindo operações de leitura seguras.
+
+3. **Curinga limitado inferior (`? super Tipo`)**:
+   O curinga limitado inferior é usado quando você deseja especificar que o tipo desconhecido deve ser uma superclasse de um tipo específico. Isso é útil quando você quer adicionar elementos à estrutura, mas não precisa ler os elementos com precisão. Por exemplo, se você tem uma lista de `Object` e deseja adicionar elementos a ela, pode usar um curinga limitado inferior.
+
+   ```java
+   List<? super Number> lista;
+   ```
+
+   Com essa declaração, você pode garantir que a lista pode conter objetos do tipo `Number` ou de suas superclasses, permitindo a adição segura de elementos.
+
+Os tipos coringa fornecem flexibilidade ao lidar com código genérico em Java, permitindo lidar com tipos parametrizados desconhecidos de forma mais genérica e segura. No entanto, é importante entender suas limitações e usá-los com cuidado para evitar problemas de tipo em tempo de execução.
