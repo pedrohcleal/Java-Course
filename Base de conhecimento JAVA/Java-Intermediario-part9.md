@@ -171,3 +171,27 @@ Em resumo:
 - `extends T`: Permite acessar elementos da coleção. Usado quando você precisa de uma coleção em que você só pode obter elementos do tipo `T` ou de suas subclasses.
 
 A escolha entre `super T` e `extends T` depende do que você pretende fazer com a coleção genérica em seu código.
+
+## Equals e Hashcode
+
+Em Java, os métodos `equals()` e `hashCode()` estão relacionados à implementação de comparação e identificação de objetos, especialmente em estruturas de dados como coleções.
+
+### equals():
+O método `equals()` é usado para determinar se dois objetos são iguais. Ele é um método da classe `Object`, mas geralmente é sobrescrito nas classes personalizadas para fornecer uma comparação mais significativa com base no conteúdo dos objetos. O contrato geral do método `equals()` é o seguinte:
+
+1. Reflexivo: Um objeto deve ser igual a si mesmo. Ou seja, `obj.equals(obj)` deve retornar `true`.
+2. Simétrico: Se `obj1.equals(obj2)` retorna `true`, então `obj2.equals(obj1)` também deve retornar `true`.
+3. Transitivo: Se `obj1.equals(obj2)` e `obj2.equals(obj3)` retornam `true`, então `obj1.equals(obj3)` também deve retornar `true`.
+4. Consistente: O resultado do método `equals()` deve permanecer o mesmo se os objetos não forem modificados.
+5. Não nulo: `obj.equals(null)` deve sempre retornar `false`.
+
+### hashCode():
+O método `hashCode()` é usado para retornar um valor numérico único que representa o objeto. Esse valor é frequentemente usado em algoritmos de tabela de dispersão (hash table) para melhorar a eficiência da busca de objetos em estruturas de dados como `HashMap` e `HashSet`. O contrato do método `hashCode()` é:
+
+1. Se `obj1.equals(obj2)` retorna `true`, então `obj1.hashCode()` deve retornar o mesmo valor que `obj2.hashCode()`.
+2. Não há garantia de que dois objetos diferentes tenham hashcodes diferentes. No entanto, é desejável que distribuam bem os objetos para evitar colisões em estruturas de dados hash.
+3. Se `equals()` for sobrescrito em uma classe, `hashCode()` também deve ser sobrescrito.
+
+A recomendação mais comum ao implementar `hashCode()` é usar os mesmos campos que são usados na implementação de `equals()` para calcular o valor hash. Isso garante que objetos iguais tenham o mesmo valor hash.
+
+A não conformidade com essas regras pode levar a comportamentos inesperados em estruturas de dados baseadas em hash. Portanto, é importante sempre sobrescrever os métodos `equals()` e `hashCode()` juntos quando você está criando uma classe personalizada.
