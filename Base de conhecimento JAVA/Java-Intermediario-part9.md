@@ -195,3 +195,57 @@ O método `hashCode()` é usado para retornar um valor numérico único que repr
 A recomendação mais comum ao implementar `hashCode()` é usar os mesmos campos que são usados na implementação de `equals()` para calcular o valor hash. Isso garante que objetos iguais tenham o mesmo valor hash.
 
 A não conformidade com essas regras pode levar a comportamentos inesperados em estruturas de dados baseadas em hash. Portanto, é importante sempre sobrescrever os métodos `equals()` e `hashCode()` juntos quando você está criando uma classe personalizada.
+
+## Set<T>
+
+Em Java, `Set<T>` é uma interface que representa uma coleção que não permite elementos duplicados. Ela estende a interface `Collection<T>` e define um conjunto de métodos para manipulação de conjuntos, como adicionar, remover, verificar a existência de elementos, entre outros. `Set<T>` é uma das principais implementações do conceito matemático de conjuntos na linguagem Java.
+
+Aqui estão algumas características importantes de `Set<T>`:
+
+1. **Não permite elementos duplicados**: Um `Set<T>` não permite que um elemento seja adicionado mais de uma vez. Se você tentar adicionar um elemento que já está presente no conjunto, a operação de adição será ignorada.
+
+2. **Sem garantia de ordem**: A implementação de `Set<T>` geralmente não garante a ordem dos elementos. Ou seja, não há garantia de que os elementos serão armazenados na mesma ordem em que foram inseridos.
+
+3. **Aceita elementos nulos**: `Set<T>` geralmente aceita elementos nulos, mas apenas um elemento nulo é permitido, já que não permite elementos duplicados.
+
+4. **Implementações comuns**: Algumas das implementações mais comuns da interface `Set<T>` incluem `HashSet`, `TreeSet` e `LinkedHashSet`.
+
+   - `HashSet`: Implementação baseada em tabela de dispersão (hash table), oferecendo alta performance de inserção, remoção e busca, mas não garante ordem dos elementos.
+   - `TreeSet`: Implementação baseada em árvore, que mantém os elementos em ordem natural ou de acordo com um Comparator fornecido durante a criação do TreeSet.
+   - `LinkedHashSet`: Implementação que mantém a ordem de inserção dos elementos, além de oferecer as operações de um HashSet.
+
+Aqui está um exemplo de como usar um `Set<T>`:
+
+```java
+import java.util.*;
+
+public class ExemploSet {
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<>();
+
+        // Adicionando elementos
+        set.add("Maçã");
+        set.add("Banana");
+        set.add("Laranja");
+        set.add("Maçã"); // Não será adicionado, pois "Maçã" já está presente
+
+        // Verificando a existência de um elemento
+        System.out.println("Contém 'Banana'?: " + set.contains("Banana")); // Deve imprimir true
+        System.out.println("Contém 'Pêra'?: " + set.contains("Pêra")); // Deve imprimir false
+
+        // Iterando sobre os elementos do conjunto
+        System.out.println("Elementos do conjunto:");
+        for (String elemento : set) {
+            System.out.println(elemento);
+        }
+
+        // Removendo um elemento
+        set.remove("Laranja");
+
+        // Verificando o tamanho do conjunto
+        System.out.println("Tamanho do conjunto: " + set.size()); // Deve imprimir 2
+    }
+}
+```
+
+Neste exemplo, criamos um `Set<String>` usando a implementação `HashSet`. Adicionamos alguns elementos ao conjunto e verificamos a existência de elementos usando o método `contains()`. Em seguida, iteramos sobre os elementos do conjunto e removemos um deles. Por fim, verificamos o tamanho atual do conjunto usando o método `size()`.
