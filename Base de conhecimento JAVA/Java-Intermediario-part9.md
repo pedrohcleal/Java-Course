@@ -148,3 +148,26 @@ Existem três tipos principais de curingas em Java: o curinga não-limitado (`?`
    Com essa declaração, você pode garantir que a lista pode conter objetos do tipo `Number` ou de suas superclasses, permitindo a adição segura de elementos.
 
 Os tipos coringa fornecem flexibilidade ao lidar com código genérico em Java, permitindo lidar com tipos parametrizados desconhecidos de forma mais genérica e segura. No entanto, é importante entender suas limitações e usá-los com cuidado para evitar problemas de tipo em tempo de execução.
+
+## Diferença entre Super T e Extends T
+
+Em Java, `super T` e `extends T` são utilizados em contextos diferentes quando se trata de generics, especificando restrições de tipo em declarações de tipo coringa.
+
+1. **`super T`**:
+   - `super T` é utilizado para permitir que o tipo coringa represente qualquer superclasse de `T`, incluindo `T` e todas as suas superclasses.
+   - É útil quando você precisa adicionar elementos a uma coleção genérica.
+   - Por exemplo, `List<? super Number>` significa que a lista pode conter elementos de `Number` ou de qualquer superclasse de `Number`.
+   - Permite adicionar elementos ao contêiner com segurança, pois você pode ter certeza de que eles são pelo menos do tipo `T` ou de uma superclasse de `T`.
+
+2. **`extends T`**:
+   - `extends T` é utilizado para permitir que o tipo coringa represente qualquer subtipo de `T`, incluindo `T` e todas as suas subclasses.
+   - É útil quando você precisa apenas acessar elementos de uma coleção genérica, sem a necessidade de adicionar novos elementos.
+   - Por exemplo, `List<? extends Number>` significa que a lista pode conter elementos de `Number` ou de qualquer subclasse de `Number`.
+   - Restringe o tipo do elemento que pode ser acessado da coleção, garantindo que você só possa obter elementos do tipo `T` ou de uma subclasse de `T`.
+
+Em resumo:
+
+- `super T`: Permite adicionar elementos ao contêiner. Usado quando você precisa de uma coleção em que você pode adicionar elementos do tipo `T` ou de suas superclasses.
+- `extends T`: Permite acessar elementos da coleção. Usado quando você precisa de uma coleção em que você só pode obter elementos do tipo `T` ou de suas subclasses.
+
+A escolha entre `super T` e `extends T` depende do que você pretende fazer com a coleção genérica em seu código.
