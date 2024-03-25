@@ -49,3 +49,67 @@ caixaDeStrings.setConteudo("Olá");
 Generics também são úteis para criar classes e métodos que trabalham com tipos desconhecidos, como em estruturas de dados genéricas ou algoritmos de ordenação genéricos.
 
 Em resumo, Generics em Java oferecem uma maneira poderosa de escrever código genérico e reutilizável, melhorando a segurança de tipos e a clareza do código. Eles são uma parte fundamental da linguagem Java moderna e são amplamente utilizados em muitas bibliotecas e frameworks.
+
+## Comparable<T>
+
+A interface `Comparable<T>` em Java é usada para definir uma ordem natural para objetos de uma determinada classe. Isso permite que esses objetos sejam comparados entre si e ordenados em coleções, como Listas ou Conjuntos, usando métodos como `Collections.sort()`.
+
+A interface `Comparable<T>` contém um único método:
+
+```java
+int compareTo(T objeto)
+```
+
+O método `compareTo()` compara o objeto atual com outro objeto do mesmo tipo (`T`) e retorna um valor inteiro que indica a relação de ordem entre os dois objetos. Este método deve ser implementado pela classe que deseja ter uma ordem natural definida.
+
+- Se o objeto atual for considerado menor que o objeto passado como parâmetro, o método deve retornar um número negativo.
+- Se o objeto atual for considerado maior que o objeto passado como parâmetro, o método deve retornar um número positivo.
+- Se os dois objetos forem considerados iguais, o método deve retornar zero.
+
+Por exemplo, considere uma classe `Pessoa` que possui um atributo `idade`. Podemos implementar a interface `Comparable<Pessoa>` para permitir a ordenação de objetos `Pessoa` com base em suas idades:
+
+```java
+public class Pessoa implements Comparable<Pessoa> {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    @Override
+    public int compareTo(Pessoa outraPessoa) {
+        return this.idade - outraPessoa.getIdade();
+    }
+}
+```
+
+Com essa implementação, podemos ordenar uma lista de pessoas por idade simplesmente chamando `Collections.sort()`:
+
+```java
+List<Pessoa> pessoas = new ArrayList<>();
+pessoas.add(new Pessoa("Alice", 30));
+pessoas.add(new Pessoa("Bob", 25));
+pessoas.add(new Pessoa("Carol", 35));
+
+Collections.sort(pessoas);
+
+for (Pessoa pessoa : pessoas) {
+    System.out.println(pessoa.getNome() + " - " + pessoa.getIdade());
+}
+```
+
+Isso resultaria na seguinte saída ordenada por idade:
+
+```
+Bob - 25
+Alice - 30
+Carol - 35
+```
+
+Essa é apenas uma aplicação comum da interface `Comparable<T>`. Ela permite que objetos sejam comparados e ordenados de acordo com uma ordem natural específica definida pela classe.
