@@ -14,28 +14,24 @@ public class Main2 {
         }
         for (String letra: message.split("")) {
             char letter = letra.toLowerCase().charAt(0);
-            if (abc.contains(letter)) {
-                int indice = abc.indexOf(letter);
+            int indice = abc.indexOf(letter);
                 if (letter < 'n') {
                     indice += 13;
-                    if (Character.isUpperCase(letra.charAt(0))) {
-                        rot13.append(abc.get(indice).toString().toUpperCase());
-                    }
-                    else {rot13.append(abc.get(indice).toString().toLowerCase());
-                    }
+                }
+                else if(letter < 'z') {
+                    indice -= 13;
                 }
                 else {
-                    indice -= 13;
-                    if (Character.isUpperCase(letra.charAt(0))) {
-                        rot13.append(abc.get(indice).toString().toUpperCase());
-                    }
-                    else {rot13.append(abc.get(indice).toString().toLowerCase());
-                    }
+                    rot13.append(letra);
                 }
-            } else {
-                rot13.append(letter);
+
+                if (Character.isUpperCase(letra.charAt(0))) {
+                    rot13.append(abc.get(indice).toString().toUpperCase());
+                }
+                else {rot13.append(abc.get(indice).toString().toLowerCase());
+                }
+
             }
-        }
         return rot13.toString();
     }
 }

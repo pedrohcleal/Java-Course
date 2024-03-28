@@ -1,20 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+java.util.List
 
-
-public class Main2 {
+public class josephus_survival {
     public static int josephusSurvivor(final int n, final int k) {
         int contador = 0;
-
-        List<Integer> numeros =
-                    IntStream.rangeClosed(1, n)
-                    .boxed().collect(Collectors.toList());
+        List<Integer> numeros = IntStream.rangeClosed(1, n)
+                        .boxed().collect(Collectors.toList());
 
         System.out.println("lista: " + numeros);
 
-        while (numeros.size() > 1){
+        while (numeros.size() > 1) {
             contador += k - 1;
             //System.out.println(contador);
             while (contador >= numeros.size()) {
@@ -43,4 +37,5 @@ public class Main2 {
         System.out.println(josephusSurvivor(100, 1)
                 + " Resultado esperado: 100");
     }
+
 }
