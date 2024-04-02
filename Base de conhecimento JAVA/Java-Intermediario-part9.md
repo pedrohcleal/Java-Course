@@ -249,3 +249,33 @@ public class ExemploSet {
 ```
 
 Neste exemplo, criamos um `Set<String>` usando a implementação `HashSet`. Adicionamos alguns elementos ao conjunto e verificamos a existência de elementos usando o método `contains()`. Em seguida, iteramos sobre os elementos do conjunto e removemos um deles. Por fim, verificamos o tamanho atual do conjunto usando o método `size()`.
+
+## Comparator<T>
+
+Em Java, a interface `Comparator<T>` é usada para fornecer uma maneira de comparar objetos de um tipo específico `T`. Essa interface é genérica, o que significa que você pode usá-la para comparar objetos de qualquer tipo.
+
+A interface `Comparator<T>` contém um único método abstrato chamado `compare()`, que recebe dois argumentos do tipo `T` e retorna um valor inteiro. Este método é usado para comparar dois objetos e determinar sua ordem relativa. Aqui está a assinatura do método:
+
+```java
+int compare(T obj1, T obj2);
+```
+
+O método `compare()` retorna um número inteiro que segue as seguintes convenções:
+
+- Retorna um valor negativo se o `obj1` deve ser classificado antes de `obj2`.
+- Retorna zero se `obj1` e `obj2` são considerados iguais em termos de ordenação.
+- Retorna um valor positivo se `obj1` deve ser classificado após `obj2`.
+
+Esses retornos específicos permitem a implementação de várias estratégias de ordenação. Por exemplo, se você estiver classificando números inteiros em ordem crescente, poderá simplesmente subtrair `obj2` de `obj1`:
+
+```java
+int compare(Integer obj1, Integer obj2) {
+    return obj1 - obj2;
+}
+```
+
+Você também pode usar a interface `Comparator<T>` com métodos de ordenação como `Collections.sort()` ou com classes que requerem uma lógica de comparação, como em um `TreeSet` ou `PriorityQueue`. Além disso, a interface `Comparator<T>` pode ser usada em conjunto com a interface `Comparable<T>`, onde a última permite que um objeto defina sua própria lógica de comparação, enquanto a primeira permite a definição de uma lógica de comparação separada.
+
+Por exemplo, você pode ter uma classe `Pessoa` que implementa `Comparable<Pessoa>` para definir sua ordem natural com base em algum critério (por exemplo, idade), e depois usar um `Comparator<Pessoa>` para classificar as pessoas com base em critérios diferentes (por exemplo, nome).
+
+No geral, a interface `Comparator<T>` fornece uma maneira flexível e poderosa de comparar objetos em Java, permitindo a implementação de diferentes lógicas de ordenação com base em requisitos específicos.
