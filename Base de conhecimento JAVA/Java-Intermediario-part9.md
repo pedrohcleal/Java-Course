@@ -279,3 +279,48 @@ Você também pode usar a interface `Comparator<T>` com métodos de ordenação 
 Por exemplo, você pode ter uma classe `Pessoa` que implementa `Comparable<Pessoa>` para definir sua ordem natural com base em algum critério (por exemplo, idade), e depois usar um `Comparator<Pessoa>` para classificar as pessoas com base em critérios diferentes (por exemplo, nome).
 
 No geral, a interface `Comparator<T>` fornece uma maneira flexível e poderosa de comparar objetos em Java, permitindo a implementação de diferentes lógicas de ordenação com base em requisitos específicos.
+
+## Lambda
+
+Em Java, uma expressão lambda é uma nova característica introduzida na versão 8 da linguagem. Ela permite a criação de funções anônimas de forma concisa. As expressões lambda são úteis principalmente para simplificar o código ao lidar com interfaces funcionais, que são interfaces que possuem um único método abstrato.
+
+A sintaxe básica de uma expressão lambda é a seguinte:
+
+```java
+(parametros) -> expressao
+```
+
+- `parametros`: São os parâmetros da função lambda, que podem ser zero ou mais, separados por vírgulas. Se não houver parâmetros, você ainda precisa usar parênteses vazios `()`.
+- `->`: É o operador de seta, que separa os parâmetros da expressão lambda.
+- `expressao`: É o corpo da função lambda, que pode ser uma única instrução ou um bloco de código encapsulado por chaves `{}`.
+
+Por exemplo, considere uma interface funcional `Operacao` que define um método `executar()`:
+
+```java
+interface Operacao {
+    int executar(int a, int b);
+}
+```
+
+Você pode criar uma instância dessa interface usando uma expressão lambda:
+
+```java
+Operacao soma = (a, b) -> a + b;
+```
+
+Neste exemplo, a expressão lambda `(a, b) -> a + b` representa uma função que recebe dois inteiros `a` e `b` e retorna sua soma.
+
+As expressões lambda são frequentemente usadas em conjunto com as APIs de stream e functional do Java 8. Por exemplo:
+
+```java
+List<String> lista = Arrays.asList("Java", "é", "fantástico");
+
+lista.stream()
+    .filter(s -> s.length() > 2)
+    .map(s -> s.toUpperCase())
+    .forEach(System.out::println);
+```
+
+Neste código, `s -> s.length() > 2` é uma expressão lambda que é usada para filtrar strings com comprimento superior a 2, e `s -> s.toUpperCase()` é uma expressão lambda que é usada para converter cada string para maiúsculas.
+
+As expressões lambda tornam o código mais legível, conciso e mais fácil de escrever quando você precisa passar comportamentos como parâmetros de métodos ou quando precisa implementar interfaces funcionais. Elas desempenham um papel fundamental na adoção de um estilo de programação funcional em Java.
