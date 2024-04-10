@@ -1,31 +1,50 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class _6kyu_Longest_Strict_Bouncy_Subarray {
     public static void main(String[] args) {
-        List<Integer> numbs = Arrays.asList(7,9,6,10,5,11,10,12,13,4,2,5,1,6,4,8);
-
-        System.out.println(longestBouncyList(numbs));
-        System.out.println("resultado esperado = [7,9,6,10,5,11,10,12]");
-
+        String[] strs = {"","cbc","c","ca"};
+        String[] strs2 = {"flower","flow","flight"};
+        String[] strs3 = {"a"};
+        System.out.println(longestCommonPrefix(strs));
+        System.out.println(longestCommonPrefix(strs2));
+        System.out.println(longestCommonPrefix(strs3));
     }
-    static List<Integer> longestBouncyList(List<Integer> arr) {
-        List<Integer> result = new ArrayList<>();
-        
 
-        for (int i = 0; i < arr.size(); i++) {
+    public static String longestCommonPrefix(String[] strs) {
+        String word = strs[0];
 
+        for (int i1 = 0; i1 < word.length();i1 ++){
+            String prefixo = word.substring(0,i1+1);
+            for (int int2 = 1; int2 < strs.length; int2++){
+                if (!strs[int2].startsWith(prefixo)){
+                    return prefixo.substring(0,i1);
+                }
+            }
         }
-        return result;
+        return strs[0];
     }
 }
-// arr = [7,9,6,10,5,11,10,12,13,4,2,5,1,6,4,8,3,5,67,1,7,8]
 
 
 
-//       [7,9,6,10,5,11,10,12]
-
-//       [0,1,2,3,4,5,6]
-//        0,1   3,4,5,6
-//       [1,5,2,7,4,1,4]
+//Escreva uma função para encontrar a string
+//de prefixo comum mais longa entre uma matriz
+//de strings.
+//if (word2.contains(prefixo)){
+//                        currentstr = new StringBuilder(prefixo);
+//                        if (currentstr.length() > finalstr.length()){
+//                            finalstr = new StringBuilder(currentstr);
+//                            //System.out.println("finalstr = " + finalstr);
+//                        }
+//                        //System.out.println("ok");
+//                    }
+//for (int i2 = i+1; i2 < strs.length; i2++ ){
+//                    String word2 = strs[i2];
+//                    if (!word2.startsWith(prefixo.toString()))  {
+//                        currentstr = new StringBuilder(prefixo.substring(0,i1-2));
+//                        System.out.println(currentstr);
+//                        if (currentstr.length() > finalstr.length()){
+//                            finalstr = new StringBuilder(currentstr);
+//                            //System.out.println("finalstr = " + finalstr);
+//                        }
+//                    }
+//
+//                }
