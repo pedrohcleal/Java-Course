@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class _5kyusquare_matrix_mult {
     public static void main(String[] args) {
         int[][] a = {
@@ -15,6 +18,8 @@ public class _5kyusquare_matrix_mult {
         int sum1 = 0;
         int sum2 = 0;
 
+        List<Integer> listresult = Arrays.asList();
+
         System.out.println(b[0][0]);
         System.out.println(a[0][0]);
 
@@ -22,13 +27,13 @@ public class _5kyusquare_matrix_mult {
         System.out.println(a[0][1]);
 
         System.out.println("start\n");
-        for (int j = 0; j < a.length; j++) {
+        for (int j = 0; j < a.length;) {
             for (int k = 0; k < a.length; k++){
                 System.out.println("a= " + a[j][k]);
                 System.out.println("b= " + b[k][j]);
                 sum1 += a[j][k] *b[k][j];
             }
-            result[0][0] = sum1;
+            listresult.add(sum1);
             System.out.println(sum1);
             sum1 = 0;
             break;
