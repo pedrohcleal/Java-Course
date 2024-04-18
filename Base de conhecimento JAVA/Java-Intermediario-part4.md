@@ -99,75 +99,7 @@ Aqui estão alguns pontos chave sobre expressões lambda em Java:
 
 Expressões lambda tornam o código mais conciso e legível, especialmente ao lidar com tarefas simples e funções de ordem superior. Elas são amplamente utilizadas em APIs do Java 8 e posterior, como as Streams API, que permite operações funcionais em coleções de dados.
 
-## Matrizes em Java
 
-Em Java, uma matriz é uma estrutura de dados bidimensional que armazena elementos em linhas e colunas. Cada elemento da matriz pode ser acessado através de dois índices: um para a linha e outro para a coluna. A matriz em Java é na verdade um array de arrays, onde cada array interno representa uma linha da matriz.
-
-Aqui estão alguns conceitos e operações comuns relacionados a matrizes em Java:
-
-1. **Declaração e Inicialização:**
-   - Você pode declarar e inicializar uma matriz em uma única linha.
-
-     ```java
-     // Declaração e inicialização de uma matriz de inteiros 3x3
-     int[][] matriz = new int[3][3];
-     ```
-
-   - Também é possível inicializar a matriz com valores específicos.
-
-     ```java
-     int[][] matriz = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
-     ```
-
-2. **Acesso aos Elementos:**
-   - Os elementos de uma matriz são acessados usando índices. Lembre-se de que os índices em Java começam em 0.
-
-     ```java
-     int valor = matriz[1][2]; // Obtém o valor na segunda linha, terceira coluna
-     ```
-
-3. **Iteração sobre Matriz:**
-   - Você pode usar loops (por exemplo, `for` ou `foreach`) para percorrer todos os elementos de uma matriz.
-
-     ```java
-     for (int i = 0; i < matriz.length; i++) {
-         for (int j = 0; j < matriz[i].length; j++) {
-             System.out.print(matriz[i][j] + " ");
-         }
-         System.out.println();
-     }
-     ```
-
-4. **Tamanho da Matriz:**
-   - Você pode obter o número de linhas e colunas de uma matriz usando as propriedades `length`.
-
-     ```java
-     int linhas = matriz.length;          // Número de linhas
-     int colunas = matriz[0].length;      // Número de colunas (assumindo que todas as linhas têm o mesmo comprimento)
-     ```
-
-5. **Matrizes Irregulares:**
-   - Em Java, é possível criar matrizes em que cada linha tem um comprimento diferente.
-
-     ```java
-     int[][] matrizIrregular = { {1, 2}, {3, 4, 5}, {6, 7, 8, 9} };
-     ```
-
-6. **Matrizes Multidimensionais:**
-   - Você pode ter matrizes com mais de duas dimensões em Java, embora o uso prático de matrizes multidimensionais seja mais limitado.
-
-     ```java
-     int[][][] matrizTridimensional = new int[3][3][3];
-     ```
-
-7. **Clone de Matriz:**
-   - Para criar uma cópia independente de uma matriz, você pode usar o método `clone()`.
-
-     ```java
-     int[][] copiaMatriz = matriz.clone();
-     ```
-
-Lembre-se de que matrizes em Java são objetos e, portanto, são passadas por referência. Isso significa que, ao passar uma matriz para um método ou atribuí-la a outra variável, você estará manipulando a mesma matriz na memória. Se precisar de uma cópia independente, considere o uso de métodos como `clone()` ou crie uma nova matriz e copie os elementos manualmente.
 
 ## Data e Hora
 A `java.time` é uma API de manipulação de data e hora introduzida no Java 8 para substituir as antigas classes do pacote `java.util.date` que eram conhecidas por suas limitações e complexidades. A API `java.time` oferece uma abordagem mais moderna e flexível para lidar com operações relacionadas a datas e horas.
