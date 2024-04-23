@@ -99,6 +99,48 @@ Aqui estão alguns pontos chave sobre expressões lambda em Java:
 
 Expressões lambda tornam o código mais conciso e legível, especialmente ao lidar com tarefas simples e funções de ordem superior. Elas são amplamente utilizadas em APIs do Java 8 e posterior, como as Streams API, que permite operações funcionais em coleções de dados.
 
+### Runnable, Callable & Comparator
+
+1. **Runnable**: A interface `Runnable` em Java é usada para criar threads independentes que podem ser executadas em paralelo. Ela define um único método chamado `run()`, que contém o código que será executado pela thread. Para utilizar a interface `Runnable`, você precisa implementar esse método em uma classe e então passá-la como argumento para um objeto `Thread`, ou usar um `ExecutorService` para executá-la.
+
+   Exemplo:
+   ```java
+   public class MyRunnable implements Runnable {
+       public void run() {
+           // Código que será executado pela thread
+       }
+   }
+   ```
+
+2. **Callable**: A interface `Callable` é similar à `Runnable`, mas difere na capacidade de retornar um resultado e de lançar exceções. A interface `Callable` possui um método chamado `call()` que pode retornar um resultado e lançar exceções verificadas. Ela é frequentemente utilizada junto com um `ExecutorService` para executar tarefas assíncronas e recuperar resultados.
+
+   Exemplo:
+   ```java
+   import java.util.concurrent.Callable;
+
+   public class MyCallable implements Callable<String> {
+       public String call() throws Exception {
+           // Código que será executado assincronamente
+           return "Resultado da tarefa";
+       }
+   }
+   ```
+
+3. **Comparator**: A interface `Comparator` é usada para definir uma ordem de classificação personalizada para objetos em Java. Ela permite que você compare dois objetos e especifique como eles devem ser ordenados. A interface `Comparator` possui um único método chamado `compare()`, que retorna um valor inteiro negativo, zero ou positivo, dependendo se o primeiro objeto deve ser classificado antes, igual ou depois do segundo objeto.
+
+   Exemplo:
+   ```java
+   import java.util.Comparator;
+
+   public class MyComparator implements Comparator<String> {
+       public int compare(String s1, String s2) {
+           return s1.compareTo(s2); // Ordena em ordem alfabética
+       }
+   }
+   ```
+
+Esses conceitos são fundamentais em Java para trabalhar com threads, execução assíncrona e ordenação de objetos.
+
 
 
 ## Data e Hora
