@@ -287,6 +287,58 @@ for (String elemento : lista) {
 
 Esses são apenas alguns dos métodos básicos disponíveis para manipulação de listas em Java. A escolha entre diferentes implementações de lista, como `ArrayList`, `LinkedList`, ou `Vector`, depende dos requisitos específicos do seu programa em termos de desempenho e uso.
 
+## Conversão de tipos
+
+Em Java, a conversão entre arrays e Listas (implementadas pela interface List) é uma operação comum e útil. Aqui estão algumas maneiras de realizar essa conversão:
+
+### De Array para Lista:
+1. **Usando Arrays.asList():**
+   - Este é o método mais simples e direto para converter um array em uma Lista.
+   ```java
+   String[] array = {"um", "dois", "três"};
+   List<String> lista = Arrays.asList(array);
+   ```
+   - A lista resultante é uma visualização do array original, o que significa que qualquer alteração na lista será refletida no array e vice-versa. No entanto, a lista não suporta operações que modificam sua estrutura (como adição ou remoção de elementos).
+
+2. **Iterando manualmente:**
+   - Você pode percorrer os elementos do array e adicioná-los individualmente à lista.
+   ```java
+   String[] array = {"um", "dois", "três"};
+   List<String> lista = new ArrayList<>();
+   for (String elemento : array) {
+       lista.add(elemento);
+   }
+   ```
+
+### De Lista para Array:
+1. **Usando toArray():**
+   - A interface List possui um método `toArray()` que pode ser usado para converter uma Lista em um array.
+   ```java
+   List<String> lista = new ArrayList<>();
+   lista.add("um");
+   lista.add("dois");
+   lista.add("três");
+   
+   String[] array = lista.toArray(new String[0]);
+   ```
+   - Se o array passado como argumento para `toArray()` for grande o suficiente para armazenar os elementos da lista, ele será usado. Caso contrário, um novo array do tipo apropriado será alocado.
+
+2. **Iterando manualmente:**
+   - Você pode percorrer os elementos da lista e adicioná-los individualmente ao array.
+   ```java
+   List<String> lista = new ArrayList<>();
+   lista.add("um");
+   lista.add("dois");
+   lista.add("três");
+   
+   String[] array = new String[lista.size()];
+   for (int i = 0; i < lista.size(); i++) {
+       array[i] = lista.get(i);
+   }
+   ```
+
+Essas são algumas maneiras básicas de converter entre arrays e Listas em Java. Escolha o método que melhor se adequa às suas necessidades e ao contexto do seu projeto.
+
 ## Iterator
 
 Em Java, a interface `Iterator` faz parte do pacote `java.util` e é utilizada para percorrer elementos de uma coleção de forma sequencial, sem expor a estrutura interna da coleção. A interface `Iterator` fornece métodos para percorrer elementos, verificar se há mais elementos disponíveis e remover elementos da coleção durante o processo de iteração.
