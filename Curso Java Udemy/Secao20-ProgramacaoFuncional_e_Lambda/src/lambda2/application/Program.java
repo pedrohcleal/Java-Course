@@ -1,4 +1,4 @@
-package application;
+package lambda2.application;
 
 import java.util.ArrayList;
 import java.util.List;

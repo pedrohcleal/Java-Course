@@ -9,27 +9,20 @@ public class _5kyu_first_non_repeating_character {
     }
 
     public static String firstNonRepeatingLetter(String s){
-        StringBuilder str = new StringBuilder(s.toLowerCase());
-        //System.out.println();
-        if (s.length() == 1){
-            return Character.toString(s.charAt(0));
-        }
-        String strfinal = s;
         for (char letter: s.toCharArray()){
             int index = s.indexOf(letter) + 1;
             int count = 0;
 
-            for (;index < s.length(); index++){
-                if (s.toLowerCase().charAt(index) == Character.toLowerCase(letter)) {
+            for (char let: s.toCharArray()){
+                if (Character.toLowerCase(letter) == Character.toLowerCase(let)) {
                     count++;
                 }
-                if (count > 1) {
-                    count = 0;
-                    break;
-                }
-                if (index == s.length()-1 && count == 0){
-                    return Character.toString(letter);
-                }
+            }
+            if (count == 1){
+                return String.valueOf(letter);
+            }
+            else {
+                count = 0;
             }
         }
         return "";
