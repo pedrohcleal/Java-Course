@@ -19,12 +19,12 @@ public class leetcode_easy_binary_prefix_divisible_by_5 {
             //System.out.println(numstr);
             BigInteger number = new BigInteger(numstr.toString(), 2);
             BigInteger zero = BigInteger.valueOf(0);
-            if ((number % zero) == 0){
-                result.add(true);
-            }
-            else {
-                result.add(false);
-            }
+//            if ((number % zero) == 0){
+//                result.add(true);
+//            }
+//            else {
+//                result.add(false);
+//            }
         }
 
         return  result;
