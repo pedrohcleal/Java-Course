@@ -44,3 +44,37 @@ No código acima, estamos usando um `Consumer` para imprimir cada elemento da li
 
 Em resumo, a interface `Consumer` em Java é uma forma flexível e poderosa de definir operações que aceitam um argumento e realizam uma ação sobre ele, sem retornar nenhum valor. Ela é amplamente utilizada em programação funcional e em operações em coleções, especialmente em conjunto com Streams.
 
+## Function
+
+Uma interface funcional é uma interface que contém apenas um método abstrato. No contexto da programação funcional em Java, isso permite que a interface seja usada de forma lambda, ou seja, podemos fornecer implementações para esse método abstrato usando expressões lambda.
+
+A interface funcional mais básica em Java é a interface `java.util.function.Function`. Essa interface possui um método abstrato chamado `apply`, que recebe um argumento de entrada e retorna um resultado. Aqui está a assinatura da interface `Function` em Java:
+
+```java
+@FunctionalInterface
+public interface Function<T, R> {
+    R apply(T t);
+}
+```
+
+Aqui, `T` representa o tipo do argumento de entrada e `R` representa o tipo do resultado.
+
+Você pode criar e usar funções em Java usando expressões lambda ou referências de método. Por exemplo, você pode criar uma função que dobra um número usando uma expressão lambda da seguinte maneira:
+
+```java
+Function<Integer, Integer> doubleFunction = (num) -> num * 2;
+```
+
+Esta função recebe um número inteiro e retorna o dobro desse número. Você também pode usar uma referência de método para criar funções. Por exemplo:
+
+```java
+Function<Integer, Integer> doubleFunction = MyClass::doubleNumber;
+```
+
+Onde `MyClass` é uma classe que contém um método estático chamado `doubleNumber` que recebe um inteiro e retorna o dobro desse número.
+
+Além da interface `Function`, o pacote `java.util.function` também inclui várias outras interfaces funcionais úteis, como `Consumer`, `Predicate`, `Supplier`, entre outras, que desempenham papéis específicos em operações funcionais, como fornecer valores, consumir valores ou testar condições, respectivamente.
+
+Essas interfaces funcionais fornecem uma maneira elegante e concisa de escrever código em Java, permitindo que você passe comportamentos como argumentos de métodos, tornando seu código mais modular e fácil de entender.
+
+
