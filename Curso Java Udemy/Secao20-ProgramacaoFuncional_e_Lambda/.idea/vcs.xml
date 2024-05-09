@@ -2,11 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda3-java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda4-java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda5-java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda6-java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda7-java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/lambda8-java" vcs="Git" />
   </component>
 </project>
