@@ -381,6 +381,51 @@ public class IteratorExample {
 
 Este exemplo ilustra como usar um `Iterator` para percorrer os elementos de uma lista. Lembre-se de que o Java 5 introduziu a sintaxe de "foreach" (também conhecida como "enhanced for loop") que simplifica a iteração sobre coleções, tornando o uso direto de `Iterator` menos comum em código moderno.
 
+## HashMap
+
+Em Java, `HashMap` é uma estrutura de dados que implementa a interface `Map`, o que significa que ela mapeia chaves para valores. É uma implementação da estrutura de dados de tabela de dispersão (hash table), que oferece um desempenho de tempo de execução constante \(O(1)\) para operações básicas, como inserção, remoção e recuperação, na média.
+
+Aqui estão alguns pontos-chave sobre `HashMap` em Java:
+
+1. **Chave-Valor**: `HashMap` armazena pares de chave-valor, onde cada chave é única. As chaves podem ser de qualquer tipo de objeto (desde que tenham implementado os métodos `hashCode()` e `equals()` corretamente), enquanto os valores podem ser de qualquer tipo, incluindo `null`.
+
+2. **Performance**: `HashMap` fornece uma performance eficiente para operações básicas, mas o desempenho pode degradar-se se muitos objetos tiverem o mesmo código de hash (o que pode causar colisões de hash).
+
+3. **Não ordenado**: Os elementos em um `HashMap` não são mantidos em nenhuma ordem específica. Se você precisar de uma ordem específica, pode considerar usar `LinkedHashMap`, que mantém a ordem de inserção, ou `TreeMap`, que mantém a ordem natural das chaves.
+
+4. **Iteração**: Para iterar sobre um `HashMap`, você pode usar um `Iterator`, um loop `for-each` ou métodos como `keySet()`, `values()` ou `entrySet()`.
+
+5. **Sincronização**: `HashMap` não é sincronizado, o que significa que não é seguro para threads concorrentes. Se você precisar de sincronização, pode usar `Collections.synchronizedMap()` para obter uma versão sincronizada de um `HashMap`.
+
+6. **Inicialização**: Para inicializar um `HashMap`, você pode simplesmente criar uma nova instância utilizando o operador `new`, ou usar a sintaxe de inicialização rápida (`{}`).
+
+Aqui está um exemplo básico de uso de `HashMap` em Java:
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um HashMap
+        HashMap<String, Integer> idadePorNome = new HashMap<>();
+
+        // Inserindo elementos
+        idadePorNome.put("Alice", 30);
+        idadePorNome.put("Bob", 25);
+        idadePorNome.put("Charlie", 35);
+
+        // Acessando elementos
+        System.out.println("A idade de Alice é: " + idadePorNome.get("Alice"));
+
+        // Iterando sobre os elementos
+        for (String nome : idadePorNome.keySet()) {
+            int idade = idadePorNome.get(nome);
+            System.out.println(nome + " tem " + idade + " anos.");
+        }
+    }
+}
+```
+
 ## `Stack`
 
 A classe `Stack` em Java faz parte do pacote `java.util` e representa uma pilha, que é uma estrutura de dados do tipo LIFO (Last In, First Out). Isso significa que o último elemento adicionado à pilha é o primeiro a ser removido. A classe `Stack` estende a classe `Vector` e fornece métodos específicos para operações de pilha.
