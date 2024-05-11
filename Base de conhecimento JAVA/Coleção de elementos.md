@@ -426,6 +426,48 @@ public class Main {
 }
 ```
 
+## LinkedHashMap
+
+O `LinkedHashMap` em Java é uma implementação da interface `Map` que mantém a ordem de inserção dos elementos. Isso significa que quando você itera sobre um `LinkedHashMap`, a ordem em que os elementos foram inseridos é preservada. Ele combina as características de um `HashMap` e de uma `LinkedList`, mantendo um ponteiro para a ordem de inserção dos elementos.
+
+Aqui estão algumas características importantes do `LinkedHashMap`:
+
+1. **Ordem de Inserção**: Como mencionado, o `LinkedHashMap` mantém a ordem em que os elementos foram inseridos. Isso permite que você itere sobre o mapa na mesma ordem em que os elementos foram adicionados.
+
+2. **Iteração Preditível**: Devido à preservação da ordem de inserção, a iteração sobre um `LinkedHashMap` sempre produzirá os elementos na mesma ordem, desde que nenhum elemento tenha sido removido e readicionado.
+
+3. **Performance**: A performance do `LinkedHashMap` é próxima à do `HashMap` para operações básicas de inserção, remoção e busca. No entanto, ele é ligeiramente mais lento devido à necessidade de manter a ordem de inserção.
+
+4. **Não Sincronizado**: Assim como o `HashMap`, o `LinkedHashMap` não é sincronizado, o que significa que não é seguro para threads concorrentes. Se você precisar de sincronização, pode usar `Collections.synchronizedMap()` para obter uma versão sincronizada.
+
+5. **Inicialização**: Assim como o `HashMap`, você pode inicializar um `LinkedHashMap` usando a sintaxe de inicialização rápida `{}` ou criando uma nova instância e adicionando os elementos posteriormente.
+
+Aqui está um exemplo básico de como usar um `LinkedHashMap` em Java:
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um LinkedHashMap
+        LinkedHashMap<String, Integer> idadePorNome = new LinkedHashMap<>();
+
+        // Adicionando elementos
+        idadePorNome.put("Alice", 30);
+        idadePorNome.put("Bob", 25);
+        idadePorNome.put("Charlie", 35);
+
+        // Iterando sobre os elementos (ordem de inserção é preservada)
+        for (Map.Entry<String, Integer> entry : idadePorNome.entrySet()) {
+            System.out.println(entry.getKey() + " tem " + entry.getValue() + " anos.");
+        }
+    }
+}
+```
+
+Neste exemplo, a ordem em que os elementos são iterados é a mesma em que foram adicionados ao mapa. Isso ocorre porque estamos usando um `LinkedHashMap`, que preserva a ordem de inserção.
+
 ## `Stack`
 
 A classe `Stack` em Java faz parte do pacote `java.util` e representa uma pilha, que é uma estrutura de dados do tipo LIFO (Last In, First Out). Isso significa que o último elemento adicionado à pilha é o primeiro a ser removido. A classe `Stack` estende a classe `Vector` e fornece métodos específicos para operações de pilha.
