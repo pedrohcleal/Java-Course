@@ -272,3 +272,30 @@ Neste exemplo, `intStream.boxed()` converte os valores inteiros do `IntStream` e
 
 Lembre-se de que, embora o método `.boxed()` seja útil em certas situações, ele pode introduzir algum overhead devido à criação de objetos adicionais, e em alguns casos, pode ser mais eficiente usar streams de tipos primitivos diretamente.
 
+## Pipeline Streams
+
+Em Java, pipelines em streams são uma maneira poderosa e expressiva de processar dados de forma sequencial e paralela. Um pipeline em stream consiste em uma sequência de operações que são aplicadas a um fluxo de elementos. Essas operações podem incluir filtragem, mapeamento, classificação, agrupamento e redução, entre outras.
+
+Aqui está uma visão geral de como os pipelines em stream funcionam em Java:
+
+1. **Fonte**: O pipeline começa com uma fonte de dados, que pode ser uma coleção, um array, um arquivo ou até mesmo um gerador infinito.
+
+2. **Operações intermediárias**: São operações que transformam ou filtram os elementos do stream. Essas operações são encadeadas em uma sequência e retornam um novo stream como resultado. Exemplos de operações intermediárias incluem `filter()`, `map()`, `sorted()` e `distinct()`. Essas operações são geralmente lazy, o que significa que elas não são executadas até que um terminal seja chamado.
+
+3. **Operações terminais**: São operações que produzem um resultado ou efeito colateral. Quando uma operação terminal é chamada, as operações intermediárias são executadas e o stream é consumido. Exemplos de operações terminais incluem `forEach()`, `collect()`, `reduce()` e `count()`.
+
+4. **Execução**: As operações em um pipeline podem ser executadas em série ou paralelamente, dependendo das características do stream e das operações envolvidas. A execução paralela pode ser habilitada usando o método `parallel()` no stream.
+
+Um exemplo simples de um pipeline em stream em Java pode ser:
+
+```java
+List<String> palavras = Arrays.asList("casa", "carro", "bicicleta", "avião", "trem");
+
+// Filtrando palavras que começam com 'c' e as transformando para maiúsculas
+palavras.stream()
+       .filter(palavra -> palavra.startsWith("c"))
+       .map(String::toUpperCase)
+       .forEach(System.out::println);
+```
+
+Neste exemplo, `filter()` é uma operação intermediária que filtra as palavras que começam com a letra 'c', `map()` é outra operação intermediária que transforma as palavras filtradas em maiúsculas, e `forEach()` é uma operação terminal que imprime cada palavra resultante.
