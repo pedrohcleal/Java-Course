@@ -468,6 +468,72 @@ public class Main {
 
 Neste exemplo, a ordem em que os elementos são iterados é a mesma em que foram adicionados ao mapa. Isso ocorre porque estamos usando um `LinkedHashMap`, que preserva a ordem de inserção.
 
+### Métodos:
+
+O `LinkedHashMap` em Java é uma classe que combina as características de um HashMap e de uma lista vinculada (linked list). Ele mantém a ordem de inserção dos elementos, ao contrário do HashMap, que não garante a ordem dos elementos. Isso significa que ao iterar sobre um LinkedHashMap, os elementos serão retornados na ordem em que foram inseridos.
+
+### Métodos Principais:
+
+1. **put(K key, V value)**: Insere um par chave-valor no mapa. Se a chave já existir, o valor será atualizado.
+
+2. **get(Object key)**: Retorna o valor associado à chave especificada, ou `null` se a chave não estiver presente no mapa.
+
+3. **remove(Object key)**: Remove a entrada correspondente à chave especificada.
+
+4. **clear()**: Remove todos os mapeamentos do mapa.
+
+5. **containsKey(Object key)**: Verifica se o mapa contém a chave especificada.
+
+6. **containsValue(Object value)**: Verifica se o mapa contém o valor especificado.
+
+7. **size()**: Retorna o número de pares chave-valor no mapa.
+
+8. **isEmpty()**: Retorna `true` se o mapa estiver vazio, `false` caso contrário.
+
+### Exemplo de Uso:
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        // Criando um LinkedHashMap
+        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+
+        // Adicionando elementos
+        linkedHashMap.put("Java", 20);
+        linkedHashMap.put("Python", 15);
+        linkedHashMap.put("C++", 10);
+
+        // Iterando sobre os elementos (a ordem será a mesma que a inserção)
+        for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+
+        // A saída será:
+        // Java - 20
+        // Python - 15
+        // C++ - 10
+
+        // Removendo um elemento
+        linkedHashMap.remove("Python");
+
+        // Verificando se uma chave existe
+        if (linkedHashMap.containsKey("Java")) {
+            System.out.println("Java está presente no mapa.");
+        } else {
+            System.out.println("Java não está presente no mapa.");
+        }
+
+        // Obtendo o tamanho do mapa
+        System.out.println("Tamanho do mapa: " + linkedHashMap.size());
+    }
+}
+```
+
+O LinkedHashMap é útil quando você precisa manter a ordem de inserção dos elementos, mas também deseja ter a eficiência de acesso de um HashMap. Isso pode ser especialmente útil em situações em que a ordem dos elementos é importante, como na implementação de caches ou em casos em que a ordem dos elementos precisa ser preservada para processamento posterior.
+
 ## `Stack`
 
 A classe `Stack` em Java faz parte do pacote `java.util` e representa uma pilha, que é uma estrutura de dados do tipo LIFO (Last In, First Out). Isso significa que o último elemento adicionado à pilha é o primeiro a ser removido. A classe `Stack` estende a classe `Vector` e fornece métodos específicos para operações de pilha.
