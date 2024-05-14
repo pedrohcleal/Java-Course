@@ -1,4 +1,4 @@
-package application;
+package lambda6_java.application;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

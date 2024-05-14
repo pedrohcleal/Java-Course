@@ -1,4 +1,4 @@
-package entities;
+package lambda6_java.entities;
 
 public class Product {
 

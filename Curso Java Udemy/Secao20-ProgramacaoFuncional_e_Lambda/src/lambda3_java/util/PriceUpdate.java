@@ -1,8 +1,8 @@
-package util;
+package lambda3_java.util;
 
 import java.util.function.Consumer;
 
-import entities.Product;
+import lambda3_java.entities.Product;
 
 public class PriceUpdate implements Consumer<Product> {
 
