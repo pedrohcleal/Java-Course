@@ -381,6 +381,159 @@ public class IteratorExample {
 
 Este exemplo ilustra como usar um `Iterator` para percorrer os elementos de uma lista. Lembre-se de que o Java 5 introduziu a sintaxe de "foreach" (também conhecida como "enhanced for loop") que simplifica a iteração sobre coleções, tornando o uso direto de `Iterator` menos comum em código moderno.
 
+## HashMap
+
+Em Java, `HashMap` é uma estrutura de dados que implementa a interface `Map`, o que significa que ela mapeia chaves para valores. É uma implementação da estrutura de dados de tabela de dispersão (hash table), que oferece um desempenho de tempo de execução constante \(O(1)\) para operações básicas, como inserção, remoção e recuperação, na média.
+
+Aqui estão alguns pontos-chave sobre `HashMap` em Java:
+
+1. **Chave-Valor**: `HashMap` armazena pares de chave-valor, onde cada chave é única. As chaves podem ser de qualquer tipo de objeto (desde que tenham implementado os métodos `hashCode()` e `equals()` corretamente), enquanto os valores podem ser de qualquer tipo, incluindo `null`.
+
+2. **Performance**: `HashMap` fornece uma performance eficiente para operações básicas, mas o desempenho pode degradar-se se muitos objetos tiverem o mesmo código de hash (o que pode causar colisões de hash).
+
+3. **Não ordenado**: Os elementos em um `HashMap` não são mantidos em nenhuma ordem específica. Se você precisar de uma ordem específica, pode considerar usar `LinkedHashMap`, que mantém a ordem de inserção, ou `TreeMap`, que mantém a ordem natural das chaves.
+
+4. **Iteração**: Para iterar sobre um `HashMap`, você pode usar um `Iterator`, um loop `for-each` ou métodos como `keySet()`, `values()` ou `entrySet()`.
+
+5. **Sincronização**: `HashMap` não é sincronizado, o que significa que não é seguro para threads concorrentes. Se você precisar de sincronização, pode usar `Collections.synchronizedMap()` para obter uma versão sincronizada de um `HashMap`.
+
+6. **Inicialização**: Para inicializar um `HashMap`, você pode simplesmente criar uma nova instância utilizando o operador `new`, ou usar a sintaxe de inicialização rápida (`{}`).
+
+Aqui está um exemplo básico de uso de `HashMap` em Java:
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um HashMap
+        HashMap<String, Integer> idadePorNome = new HashMap<>();
+
+        // Inserindo elementos
+        idadePorNome.put("Alice", 30);
+        idadePorNome.put("Bob", 25);
+        idadePorNome.put("Charlie", 35);
+
+        // Acessando elementos
+        System.out.println("A idade de Alice é: " + idadePorNome.get("Alice"));
+
+        // Iterando sobre os elementos
+        for (String nome : idadePorNome.keySet()) {
+            int idade = idadePorNome.get(nome);
+            System.out.println(nome + " tem " + idade + " anos.");
+        }
+    }
+}
+```
+
+## LinkedHashMap
+
+O `LinkedHashMap` em Java é uma implementação da interface `Map` que mantém a ordem de inserção dos elementos. Isso significa que quando você itera sobre um `LinkedHashMap`, a ordem em que os elementos foram inseridos é preservada. Ele combina as características de um `HashMap` e de uma `LinkedList`, mantendo um ponteiro para a ordem de inserção dos elementos.
+
+Aqui estão algumas características importantes do `LinkedHashMap`:
+
+1. **Ordem de Inserção**: Como mencionado, o `LinkedHashMap` mantém a ordem em que os elementos foram inseridos. Isso permite que você itere sobre o mapa na mesma ordem em que os elementos foram adicionados.
+
+2. **Iteração Preditível**: Devido à preservação da ordem de inserção, a iteração sobre um `LinkedHashMap` sempre produzirá os elementos na mesma ordem, desde que nenhum elemento tenha sido removido e readicionado.
+
+3. **Performance**: A performance do `LinkedHashMap` é próxima à do `HashMap` para operações básicas de inserção, remoção e busca. No entanto, ele é ligeiramente mais lento devido à necessidade de manter a ordem de inserção.
+
+4. **Não Sincronizado**: Assim como o `HashMap`, o `LinkedHashMap` não é sincronizado, o que significa que não é seguro para threads concorrentes. Se você precisar de sincronização, pode usar `Collections.synchronizedMap()` para obter uma versão sincronizada.
+
+5. **Inicialização**: Assim como o `HashMap`, você pode inicializar um `LinkedHashMap` usando a sintaxe de inicialização rápida `{}` ou criando uma nova instância e adicionando os elementos posteriormente.
+
+Aqui está um exemplo básico de como usar um `LinkedHashMap` em Java:
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um LinkedHashMap
+        LinkedHashMap<String, Integer> idadePorNome = new LinkedHashMap<>();
+
+        // Adicionando elementos
+        idadePorNome.put("Alice", 30);
+        idadePorNome.put("Bob", 25);
+        idadePorNome.put("Charlie", 35);
+
+        // Iterando sobre os elementos (ordem de inserção é preservada)
+        for (Map.Entry<String, Integer> entry : idadePorNome.entrySet()) {
+            System.out.println(entry.getKey() + " tem " + entry.getValue() + " anos.");
+        }
+    }
+}
+```
+
+Neste exemplo, a ordem em que os elementos são iterados é a mesma em que foram adicionados ao mapa. Isso ocorre porque estamos usando um `LinkedHashMap`, que preserva a ordem de inserção.
+
+### Métodos:
+
+O `LinkedHashMap` em Java é uma classe que combina as características de um HashMap e de uma lista vinculada (linked list). Ele mantém a ordem de inserção dos elementos, ao contrário do HashMap, que não garante a ordem dos elementos. Isso significa que ao iterar sobre um LinkedHashMap, os elementos serão retornados na ordem em que foram inseridos.
+
+### Métodos Principais:
+
+1. **put(K key, V value)**: Insere um par chave-valor no mapa. Se a chave já existir, o valor será atualizado.
+
+2. **get(Object key)**: Retorna o valor associado à chave especificada, ou `null` se a chave não estiver presente no mapa.
+
+3. **remove(Object key)**: Remove a entrada correspondente à chave especificada.
+
+4. **clear()**: Remove todos os mapeamentos do mapa.
+
+5. **containsKey(Object key)**: Verifica se o mapa contém a chave especificada.
+
+6. **containsValue(Object value)**: Verifica se o mapa contém o valor especificado.
+
+7. **size()**: Retorna o número de pares chave-valor no mapa.
+
+8. **isEmpty()**: Retorna `true` se o mapa estiver vazio, `false` caso contrário.
+
+### Exemplo de Uso:
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        // Criando um LinkedHashMap
+        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+
+        // Adicionando elementos
+        linkedHashMap.put("Java", 20);
+        linkedHashMap.put("Python", 15);
+        linkedHashMap.put("C++", 10);
+
+        // Iterando sobre os elementos (a ordem será a mesma que a inserção)
+        for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+
+        // A saída será:
+        // Java - 20
+        // Python - 15
+        // C++ - 10
+
+        // Removendo um elemento
+        linkedHashMap.remove("Python");
+
+        // Verificando se uma chave existe
+        if (linkedHashMap.containsKey("Java")) {
+            System.out.println("Java está presente no mapa.");
+        } else {
+            System.out.println("Java não está presente no mapa.");
+        }
+
+        // Obtendo o tamanho do mapa
+        System.out.println("Tamanho do mapa: " + linkedHashMap.size());
+    }
+}
+```
+
+O LinkedHashMap é útil quando você precisa manter a ordem de inserção dos elementos, mas também deseja ter a eficiência de acesso de um HashMap. Isso pode ser especialmente útil em situações em que a ordem dos elementos é importante, como na implementação de caches ou em casos em que a ordem dos elementos precisa ser preservada para processamento posterior.
+
 ## `Stack`
 
 A classe `Stack` em Java faz parte do pacote `java.util` e representa uma pilha, que é uma estrutura de dados do tipo LIFO (Last In, First Out). Isso significa que o último elemento adicionado à pilha é o primeiro a ser removido. A classe `Stack` estende a classe `Vector` e fornece métodos específicos para operações de pilha.
